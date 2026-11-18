@@ -1,0 +1,1 @@
+export const KB_CHUNKS_COLLECTION_NAME = 'kb-chunks';

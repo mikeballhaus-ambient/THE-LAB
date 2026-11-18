@@ -1,0 +1,207 @@
+
+> test-app@0.0.0 lint-file
+> node scripts/lint-file.js src/shared/composables/**
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\app-view-layout-utils.ts
+  9:3  error  'ANCHORED_HOST_SPLIT_RATIO' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useApiManagement.ts
+  1:10  error  'Ref' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useCommandManagement.ts
+  2:29  error  'ChatPersona' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useContextManagement.ts
+  1:38  error  'watch' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useFileOverview.ts
+   32:22  error  'value' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   75:31  error  'diffs' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   76:69  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  169:40  error  'content' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  169:49  error  'overwrite' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  172:71  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  208:40  error  'diffs' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  211:71  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMCPServerManagement.ts
+    1:25  error  'watch' is defined but never used     @typescript-eslint/no-unused-vars
+  165:33  error  'serverId' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMessageInput.ts
+    8:10  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   31:28  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   42:42  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   42:79  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   58:44  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   69:43  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  183:32  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  183:46  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  267:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  287:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  404:36  error  'index' is defined but never used                                      @typescript-eslint/no-unused-vars
+  440:45  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMessagesView.ts
+   1:15   error  'Ref' is defined but never used              @typescript-eslint/no-unused-vars
+   1:30   error  'defineEmits' is defined but never used      @typescript-eslint/no-unused-vars
+   1:43   error  'watch' is defined but never used            @typescript-eslint/no-unused-vars
+   2:44   error  'MCPToolCall' is defined but never used      @typescript-eslint/no-unused-vars
+   2:57   error  'MCPToolResponse' is defined but never used  @typescript-eslint/no-unused-vars
+   2:104  error  'ChatMessage' is defined but never used      @typescript-eslint/no-unused-vars
+   2:141  error  'ChatPersona' is defined but never used      @typescript-eslint/no-unused-vars
+  88:36   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  90:43   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  97:28   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\usePersonaManagement.ts
+  2:67  error  'ICommand' is defined but never used     @typescript-eslint/no-unused-vars
+  2:77  error  'ToolsList' is defined but never used    @typescript-eslint/no-unused-vars
+  2:88  error  'ChatPersona' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useSystemMessageManagement.ts
+  2:25  error  'onMounted' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useTodoList.ts
+  50:25  error  'toolresult' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useUserManagement.ts
+    2:89  error  'UserStatus' is defined but never used                                 @typescript-eslint/no-unused-vars
+  100:24  error  'user' is defined but never used                                       @typescript-eslint/no-unused-vars
+  148:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  149:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  150:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  151:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  161:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  162:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  163:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  196:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  197:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  204:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  205:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  267:14  error  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  267:19  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\useMcpToolFormatter.ts
+    2:74   error  'FileOperations' is defined but never used  @typescript-eslint/no-unused-vars
+  201:124  error  'altPath' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\app-management-format-result.ts
+    2:3   error  'createAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+    3:3   error  'getAppSchemaFields' is defined but never used     @typescript-eslint/no-unused-vars
+    4:3   error  'getAppsSchemaFields' is defined but never used    @typescript-eslint/no-unused-vars
+    5:3   error  'updateAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+    6:3   error  'deleteAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+   69:34  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  166:15  error  'appId' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  183:70  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\awaiter-format-result.ts
+  8:9  error  'paramsResult' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\base-utils.ts
+    2:90   error  'MCPToolCall' is defined but never used         @typescript-eslint/no-unused-vars
+    2:103  error  'MCPToolResponse' is defined but never used     @typescript-eslint/no-unused-vars
+  161:129  error  'altPath' is defined but never used             @typescript-eslint/no-unused-vars
+  216:9    error  'overwrite' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  237:27   error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  278:41   error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\context7-format-result.ts
+   1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+  47:30  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\create-directory-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\create-file-format-result.ts
+   6:9   error  'content' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  18:13  error  'path' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\documentor-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\followup-format-result.ts
+   5:10  error  'z' is defined but never used                     @typescript-eslint/no-unused-vars
+   7:10  error  'FollowupParamsSchema' is defined but never used  @typescript-eslint/no-unused-vars
+   7:32  error  'Option' is defined but never used                @typescript-eslint/no-unused-vars
+   7:40  error  'FollowupParams' is defined but never used        @typescript-eslint/no-unused-vars
+  51:41  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  51:46  error  'index' is defined but never used                 @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\list-files-format-result.ts
+  6:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  9:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\persona-manager-format-result.ts
+    1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+   48:28  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  111:30  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\read-file-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\remove-file-format-result.ts
+  10:13  error  'path' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  10:25  error  'totalRemovals' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  10:40  error  'totalAdditions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\search-repository-format-result.ts
+  13:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  39:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\todo-list-format-result.ts
+   20:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  151:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  153:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\update-file-format-result.ts
+   1:10  error  'z' is defined but never used           @typescript-eslint/no-unused-vars
+  33:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+  55:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+  83:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\web-query-format-result.ts
+   6:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   9:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  36:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useAuthHandlers.ts
+  4:26  error  'getAuthUser' is defined but never used          @typescript-eslint/no-unused-vars
+  4:68  error  'isUserAuthenticated' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useInputFileHandler.ts
+    2:10  error  'useToast' is defined but never used                                                                                     @typescript-eslint/no-unused-vars
+   33:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   48:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   50:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   83:53  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   84:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  133:32  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  147:64  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  203:53  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  204:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  217:29  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useMessageHandlers.ts
+   1:10   error  'ref' is defined but never used                  @typescript-eslint/no-unused-vars
+   4:251  error  'SocketErrorEvent' is defined but never used     @typescript-eslint/no-unused-vars
+   4:291  error  'ChatInitializedData' is defined but never used  @typescript-eslint/no-unused-vars
+  25:9    error  'toast' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  93:32   error  'err' is defined but never used                  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useProviderHandlers.ts
+   1:10  error  'ref' is defined but never used   @typescript-eslint/no-unused-vars
+  46:41  error  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useSessionHandlers.ts
+   1:10   error  'ref' is defined but never used                         @typescript-eslint/no-unused-vars
+   4:133  error  'NewSessionCreatedEventData' is defined but never used  @typescript-eslint/no-unused-vars
+  10:43   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  11:32   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  13:45   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+
+Γ£û 133 problems (133 errors, 0 warnings)

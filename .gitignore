@@ -1,0 +1,89 @@
+# Local Neural Memory (agent recall — not part of the product)
+.neuralmemory/
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+out/
+build/
+*.tsbuildinfo
+
+# ChromaDB vector database
+chroma-data/
+backups/
+chrome-data/
+.lab-stack/
+
+# SQLite databases
+#
+# Matched repo-wide, not just under the root `db/`. Per-app databases live in `src/apps/{app-id}/db/`,
+# so a bare `db/*.db` pattern never caught them and 29 app database sets were committed by accident.
+# Runtime database files are local state: they change on every app launch, churn the working tree, and
+# conflict on every merge. Schema and seeds belong in source (`*-schema.ts`, `seed-*.ts`), never in the
+# `.db` file.
+*.db
+# WAL siblings: `*.db` does not match `x.db-shm` / `x.db-wal`, so these were tracked as separate files.
+*.db-shm
+*.db-wal
+*.sqlite3
+*.db-journal
+# Per-worker Jest databases (see src/tests/jest.sqlite.setup.ts)
+db/jest/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/debug.launch.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+.cache/
+
+# Testing coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Package lock files (keep these for reproducibility)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

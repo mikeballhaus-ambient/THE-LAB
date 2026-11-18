@@ -1,0 +1,177 @@
+[
+  {
+    "title": "All I Need",
+    "artist": [
+      "Chris Kerian",
+      "Michael Ballhaus",
+      "Craig Cottrell"
+    ],
+    "album": "Blind Justice",
+    "year": 1993,
+    "track": 1,
+    "genre": null,
+    "duration_seconds": 214.83102040816325,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "All I Need.mp3"
+  },
+  {
+    "title": "Dancing in the Rain",
+    "artist": [
+      "Michael Ballhaus"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 3,
+    "genre": null,
+    "duration_seconds": 273.44979591836733,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Dancing in the Rain.mp3"
+  },
+  {
+    "title": "Different The Worlds",
+    "artist": [
+      "Chris Kerian",
+      "Michael Ballhaus",
+      "Craig Cottrell"
+    ],
+    "album": "Blind Justice",
+    "year": 1993,
+    "track": 3,
+    "genre": null,
+    "duration_seconds": 241.37142857142857,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Different The Worlds.mp3"
+  },
+  {
+    "title": "Letting Go",
+    "artist": [
+      "Michael Ballhaus. Craig Cottrell"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 4,
+    "genre": null,
+    "duration_seconds": 265.0383673469388,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Letting Go.mp3"
+  },
+  {
+    "title": "Momentum",
+    "artist": [
+      "Michael Ballhaus"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 6,
+    "genre": null,
+    "duration_seconds": 159.79102040816326,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Momentum.mp3"
+  },
+  {
+    "title": "Paradise",
+    "artist": [
+      "Michael Ballhaus. Craig Cottrell"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 1,
+    "genre": null,
+    "duration_seconds": 218.80163265306123,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Paradise.mp3"
+  },
+  {
+    "title": "Sands of Time",
+    "artist": [
+      "Chris Kerian",
+      "Michael Ballhaus",
+      "Craig Cottrell"
+    ],
+    "album": "Blind Justice",
+    "year": 1993,
+    "track": 4,
+    "genre": null,
+    "duration_seconds": 304.9534693877551,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Sands of Time.mp3"
+  },
+  {
+    "title": "Time to Heal",
+    "artist": [
+      "Chris Kerian",
+      "Craig Cottrell"
+    ],
+    "album": "Blind Justice",
+    "year": 1993,
+    "track": 5,
+    "genre": null,
+    "duration_seconds": 304.872,
+    "bitrate": 192046.6031646068,
+    "sample_rate": 48000,
+    "channels": 2,
+    "file_path": "Time to Heal.mp3"
+  },
+  {
+    "title": "Times Forever",
+    "artist": [
+      "Chris Kerian",
+      "Michael Ballhaus",
+      "Craig Cottrell"
+    ],
+    "album": "Blind Justice",
+    "year": 1993,
+    "track": 2,
+    "genre": null,
+    "duration_seconds": 244.95020408163265,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Times Forever.mp3"
+  },
+  {
+    "title": "Tomorrow",
+    "artist": [
+      "Michael Ballhaus. Craig Cottrell",
+      "Chris Kerian"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 2,
+    "genre": null,
+    "duration_seconds": 214.0734693877551,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Tomorrow.mp3"
+  },
+  {
+    "title": "Whatever",
+    "artist": [
+      "Michael Ballhaus. Craig Cottrell"
+    ],
+    "album": "Momentum",
+    "year": 2026,
+    "track": 5,
+    "genre": null,
+    "duration_seconds": 230.0081632653061,
+    "bitrate": 320000,
+    "sample_rate": 44100,
+    "channels": 2,
+    "file_path": "Whatever.mp3"
+  }
+]

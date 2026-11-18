@@ -1,0 +1,126 @@
+/**
+ * Native `<select>` styling for game lobby panels (Play the AI / Invite a friend).
+ * Imported for all mounted apps via AppLifecycle — selectors are scoped to game lobby only.
+ */
+.game-lobby-mode-panel,
+.game-lobby-mode-panel select,
+select.game-lobby-select {
+  --game-lobby-select-border: color-mix(in srgb, var(--lab-general-border) 52%, transparent);
+  --game-lobby-select-bg: color-mix(
+    in srgb,
+    var(--lab-general-bg) 82%,
+    var(--lab-prime-surface-100, var(--lab-general-border))
+  );
+}
+
+.game-lobby-mode-panel select,
+select.game-lobby-select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 12rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--game-lobby-select-border);
+  background-color: var(--game-lobby-select-bg);
+  color: var(--lab-general-text);
+  font-size: 0.875rem;
+  line-height: 1.25;
+  appearance: auto;
+  cursor: pointer;
+  transition:
+    border-color 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.game-lobby-mode-panel select:hover:not(:disabled),
+select.game-lobby-select:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--lab-general-border) 72%, transparent);
+}
+
+.game-lobby-mode-panel select:focus,
+select.game-lobby-select:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--lab-accent-primary, var(--lab-accent)) 42%, var(--lab-general-border));
+  background-color: color-mix(in srgb, var(--lab-general-bg) 78%, var(--lab-accent-primary, var(--lab-accent)));
+}
+
+.game-lobby-mode-panel select:disabled,
+select.game-lobby-select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.game-lobby-mode-panel select option,
+select.game-lobby-select option {
+  background: var(--lab-general-bg);
+  color: var(--lab-general-text);
+}
+
+.game-lobby-invite-section--disabled {
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.game-lobby-invite-section--disabled .lab-form-section__title,
+.game-lobby-invite-section--disabled .lab-form-section__icon {
+  color: var(--lab-general-text-muted);
+}
+
+/** Lab Assistant flask — same 4° tilt as shell lockup; optical centering in buttons vs section badges. */
+.lab-assistant-flask-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  transform: rotate(4deg);
+}
+
+.game-lobby-play-lab-assistant {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.25;
+}
+
+.game-lobby-play-lab-assistant .lab-assistant-flask-icon {
+  width: 1.125em;
+  height: 1.125em;
+  font-size: 0.9375em;
+  transform: rotate(4deg) translateY(0.08em);
+}
+
+.lab-form-section__icon .lab-assistant-flask-icon {
+  transform: rotate(4deg) translateY(0.04em);
+}
+
+.game-lobby-mode-panel--columns > .game-lobby-mode-section {
+  margin-bottom: 0;
+}
+
+.game-lobby-mode-panel--columns .game-lobby-select {
+  max-width: 100%;
+}
+
+.game-lobby-section-primary-action .p-button {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Column lobby cards: breathing room above primary action; optional push to card foot when stretched. */
+.game-lobby-mode-section.flex.flex-col .game-lobby-section-primary-action--column {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+  flex-shrink: 0;
+}
+
+.game-lobby-mode-panel--columns > .game-lobby-mode-section.flex.flex-col {
+  flex: 1;
+}
+
+.game-lobby-mode-panel--columns > .game-lobby-mode-section.flex.flex-col .game-lobby-section-primary-action--column {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}

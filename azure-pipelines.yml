@@ -1,0 +1,44 @@
+# CI v1 PR merge gate — see docs/ci/ci-v1-contract.md
+# Playwright smoke: local (`npm run test:smoke`) or manual Azure pipeline azure-pipelines-smoke-manual.yml
+trigger:
+  branches:
+    include:
+      - master
+
+pr:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: ubuntu-24.04
+
+stages:
+  - stage: CI
+    displayName: CI v1
+    jobs:
+      - job: BuildAndTest
+        displayName: Lint, types, unit tests, build
+        steps:
+          - task: NodeTool@0
+            displayName: Use Node.js 20.x
+            inputs:
+              versionSpec: 20.x
+
+          - script: npm ci
+            displayName: npm ci
+
+          - script: npm run lint
+            displayName: npm run lint (full repo)
+
+          - script: npm run type-check
+            displayName: npm run type-check (full repo)
+
+          - script: npm run verify:test-tiers
+            displayName: Verify test tiers (ci / regression)
+
+          - script: npm run test:ci
+            displayName: npm run test:ci (fast gate)
+
+          - script: npm run build
+            displayName: npm run build

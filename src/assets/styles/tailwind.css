@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@import 'primeicons/primeicons.css';
+
+/* Avoid generating utilities from log prefixes / session ids in non-UI packages. */
+@source not "../../../scripts/**";
+@source not "../../../backend/**";
+@source not "../../../tests/**";
+
+@source inline("bg-{surface,content}-{DEFAULT,low,primary,secondary}");
+@source inline("text-{surface,content}-{DEFAULT,low,primary,secondary}");
+
+
+:root {
+  --slate-background: #0f172a;
+  --slate-card-bg: #1e2d3b;
+  --slate-card-border: #2d4a6b;
+  --slate-text: #f1f5f9;
+  --slate-primary: #64748b;
+  --slate-secondary: #4a5568;
+  --slate-accent: #3182ce;
+  --slate-border: #2d3748;
+  --slate-success: #48bb78;
+  --slate-warning: #f59e0b;
+  --slate-error: #f56565;
+
+  /* Responsive utility classes */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Responsive layout utilities */
+  --layout-flex: flex;
+  --layout-grid: grid;
+  --layout-block: block;
+
+  /* Layout spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Layout grid columns */
+  --grid-cols-1: grid-cols-1;
+  --grid-cols-2: grid-cols-2;
+  --grid-cols-3: grid-cols-3;
+  --grid-cols-4: grid-cols-4;
+
+  /* Layout flex utils */
+  --flex-row: flex-row;
+  --flex-col: flex-col;
+  --flex-wrap: flex-wrap;
+
+  /* Text alignment */
+  --text-left: text-left;
+  --text-center: text-center;
+  --text-right: text-right;
+
+  /* Backgrounds */
+  --bg-slate-background: var(--slate-background);
+  --bg-slate-card: var(--slate-card-bg);
+
+  /* Text styles */
+  --text-default: var(--slate-text);
+
+  /* Responsive spacing */
+  --md-space-2: md:space-y-2;
+  --lg-space-3: lg:space-y-3;
+
+  /* Responsive padding */
+  --md-p-2: md:p-2;
+  --md-p-3: md:p-3;
+  --md-p-4: md:p-4;
+  --md-p-6: md:p-6;
+
+  /* Responsive margins */
+  --md-m-2: md:m-2;
+  --md-m-3: md:m-3;
+  --md-m-4: md:m-4;
+  --md-m-6: md:m-6;
+
+  /* Responsive text size */
+  --md-text-sm: md:text-sm;
+  --lg-text-lg: lg:text-lg;
+
+  /* Responsive font weights */
+  --md-font-medium: md:font-medium;
+  --lg-font-bold: lg:font-bold;
+
+  /* Border radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: shadow-sm;
+  --shadow-md: shadow-md;
+  --shadow-lg: shadow-lg;
+
+  /* Transitions */
+  --transition-slow: transition-all duration-300 ease-in-out;
+  --transition-fast: transition-all duration-150 ease-in-out;
+
+  /* Z-index */
+  --z-auto: auto;
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+
+  /* Opacity */
+  --opacity-0: 0;
+  --opacity-50: 0.5;
+  --opacity-100: 1;
+}
+
+@theme {
+  /* 1. Declaring this inside @theme automatically creates the 'text-xxs' utility class */
+  --text-xxs: 0.625rem;
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    /* Firefox */
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    /* Chrome/Safari/Edge */
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(100 116 139);
+    /* slate-500 */
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thumb-slate-500::-webkit-scrollbar-thumb {
+    background-color: rgb(100 116 139);
+    /* slate-500 */
+  }
+
+  .scrollbar-thumb-slate-500 {
+    scrollbar-color: rgb(100 116 139) transparent;
+    /* Firefox */
+  }
+
+  .scrollbar-thumb-emerald-500::-webkit-scrollbar-thumb {
+    background-color: rgb(16, 185, 129);
+    /* slate-500 */
+  }
+
+  .scrollbar-thumb-emerald-500 {
+    scrollbar-color: rgb(16, 185, 129) transparent;
+    /* Firefox */
+  }
+}
+
+ol,
+ul {
+  padding-left: 20px !important;
+  list-style: disc !important;
+}
+
+.mention span {
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+
+.mention[data-type="file"] span {
+  background-color: var(--color-emerald-700);
+  color: var(--color-emerald-50);
+}
+
+.mention[data-type="command"] span {
+  background-color: var(--color-cyan-700);
+  color: var(--color-cyan-50);
+}
+
+/* Keep Lab Assistant (z-2) above generic masks; platform settings + in-app modals use full stack. */
+.p-dialog-mask:not(.settings-modal):not(.settings-modal-child):not(.lab-app-dialog) {
+  z-index: 1 !important;
+}

@@ -1,0 +1,4189 @@
+[
+  {
+    "path": "src/apps/ai-tunes/front-end/components/MP3Card.vue",
+    "styleLines": 10,
+    "scoped": true,
+    "selectors": [
+      "ai-tunes-wavesurfer-host"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "S",
+    "appId": "ai-tunes",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/battleship/front-end/components/GameBoard.vue",
+    "styleLines": 229,
+    "scoped": true,
+    "selectors": [
+      "bs-board",
+      "bs-board__fleet-pip",
+      "bs-board__fleet-pip--sunk",
+      "bs-board__fleet-pips",
+      "bs-board__fleet-track",
+      "bs-board__fleet-track--own",
+      "bs-board__fleet-track__count",
+      "bs-board__fleet-track__text",
+      "bs-board__grid",
+      "bs-board__grid--readonly",
+      "bs-board__legend",
+      "bs-board__legend-swatch",
+      "bs-board__pair",
+      "bs-board__panel",
+      "bs-board__panel--readonly",
+      "bs-board__view-only-badge",
+      "bs-cell",
+      "bs-cell--hit",
+      "bs-cell--miss",
+      "bs-cell--shot",
+      "bs-cell--static",
+      "bs-marker",
+      "bs-marker--hit",
+      "bs-marker--miss",
+      "bs-marker--ship",
+      "lab-game-board",
+      "lab-game-cell--action"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "battleship",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/App.vue",
+    "styleLines": 108,
+    "scoped": true,
+    "selectors": [
+      "billiards-board-row",
+      "billiards-lobby-modes-grid",
+      "billiards-lobby-practice-section",
+      "billiards-lobby-rules-section",
+      "billiards-play-main",
+      "billiards-play-shell",
+      "billiards-rules-select",
+      "css",
+      "flex",
+      "flex-col",
+      "game-lobby-invite-section",
+      "game-lobby-mode-section",
+      "game-lobby-section-primary-action--column",
+      "lab-form-section",
+      "tw-game-board-row--aside-start",
+      "tw-game-board-row__aside",
+      "tw-game-board-row__main",
+      "tw-game-session",
+      "tw-game-session__body",
+      "tw-game-session__header",
+      "tw-game-session__subtitle"
+    ],
+    "colors": [],
+    "deepCount": 12,
+    "bucket": "L",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-board-row",
+      "billiards-play-main",
+      "billiards-play-shell",
+      "css",
+      "game-lobby-invite-section",
+      "game-lobby-mode-section",
+      "tw-game-board-row--aside-start",
+      "tw-game-board-row__aside",
+      "tw-game-board-row__main",
+      "tw-game-session",
+      "tw-game-session__body",
+      "tw-game-session__header",
+      "tw-game-session__subtitle"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsBallChip.vue",
+    "styleLines": 91,
+    "scoped": true,
+    "selectors": [
+      "billiard-ball-shell--ghost",
+      "billiards-ball",
+      "billiards-ball--drag-proxy",
+      "billiards-ball--rolling",
+      "billiards-ball__body",
+      "billiards-ball__number",
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe",
+      "billiards-ball__roll-mark"
+    ],
+    "colors": [
+      "#000",
+      "#0f172a",
+      "#111827",
+      "#f7f7f7",
+      "#ffffff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsBallInHandStageRail.vue",
+    "styleLines": 1,
+    "scoped": true,
+    "selectors": [],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsCollectedBallTray.vue",
+    "styleLines": 146,
+    "scoped": true,
+    "selectors": [
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe",
+      "billiards-collected-tray--compact",
+      "billiards-collected-tray--muted-title",
+      "billiards-collected-tray__ball",
+      "billiards-collected-tray__ball--rolling",
+      "billiards-collected-tray__count",
+      "billiards-collected-tray__count-group",
+      "billiards-collected-tray__count-meta",
+      "billiards-collected-tray__empty",
+      "billiards-collected-tray__floor",
+      "billiards-collected-tray__frame",
+      "billiards-collected-tray__number",
+      "billiards-collected-tray__roll-body",
+      "billiards-collected-tray__track",
+      "lab-form-section",
+      "lab-form-section__title"
+    ],
+    "colors": [
+      "#000",
+      "#111827",
+      "#f7f7f7",
+      "#fff",
+      "#ffffff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsCueAim.vue",
+    "styleLines": 143,
+    "scoped": true,
+    "selectors": [
+      "cue-aim-line--visible",
+      "cue-aim-line-hit",
+      "cue-aim-overlay",
+      "cue-aim-overlay--aiming",
+      "cue-aim-svg",
+      "cue-handle",
+      "cue-handle--aim",
+      "cue-handle--pull",
+      "cue-handle--pull-active",
+      "cue-power-readout",
+      "cue-power-readout--active",
+      "cue-stick__ferrule",
+      "cue-stick__grip-ring",
+      "cue-stick__grip-ring--active",
+      "cue-stick__hit",
+      "cue-stick__joint",
+      "cue-stick__shade",
+      "cue-stick__shaft",
+      "cue-stick__sheen",
+      "cue-stick__tip",
+      "cue-stick__wrap"
+    ],
+    "colors": [
+      "#221a13",
+      "#4c6f93",
+      "#b9a06a",
+      "#f6f4ee"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsCueEnglishSection.vue",
+    "styleLines": 46,
+    "scoped": true,
+    "selectors": [
+      "billiards-cue-english-section",
+      "billiards-cue-english-section--compact",
+      "billiards-cue-english-section--stage-rail",
+      "billiards-cue-english-section__main--rail",
+      "lab-form-section",
+      "lab-form-section__children",
+      "lab-form-section__icon",
+      "lab-form-section__title"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsDevGrid.vue",
+    "styleLines": 58,
+    "scoped": true,
+    "selectors": [
+      "billiards-dev-grid__labels",
+      "billiards-dev-grid__landmarks",
+      "billiards-dev-grid__line",
+      "billiards-dev-grid__line--major",
+      "billiards-dev-grid__line--mid",
+      "billiards-dev-grid__picks"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-dev-grid__line--major",
+      "billiards-dev-grid__line--mid"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsEnglishPad.vue",
+    "styleLines": 62,
+    "scoped": true,
+    "selectors": [
+      "english-dot",
+      "english-pad",
+      "english-pad--compact",
+      "english-pad--disabled"
+    ],
+    "colors": [
+      "#bbb",
+      "#e8e8e8",
+      "#fff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsMatchAsideChrome.vue",
+    "styleLines": 6,
+    "scoped": true,
+    "selectors": [
+      "billiards-match-aside-spare-cue",
+      "billiards-spare-cue"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-spare-cue"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsMatchPocketTrays.vue",
+    "styleLines": 6,
+    "scoped": true,
+    "selectors": [
+      "billiards-match-pocket-trays"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsNineBallObjectTray.vue",
+    "styleLines": 91,
+    "scoped": true,
+    "selectors": [
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe",
+      "billiards-nine-object-tray__chip",
+      "billiards-nine-object-tray__chip--illegal",
+      "billiards-nine-object-tray__chip--object",
+      "billiards-nine-object-tray__chip--pocketed",
+      "billiards-nine-object-tray__frame",
+      "billiards-nine-object-tray__number",
+      "billiards-nine-object-tray__object-hint",
+      "billiards-nine-object-tray__track"
+    ],
+    "colors": [
+      "#000",
+      "#111827",
+      "#f7f7f7",
+      "#fff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsRailSights.vue",
+    "styleLines": 20,
+    "scoped": true,
+    "selectors": [
+      "billiards-rail-sight",
+      "billiards-rail-sights"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsSpareCue.vue",
+    "styleLines": 60,
+    "scoped": true,
+    "selectors": [
+      "billiard-ball-shell__felt-shadow",
+      "billiard-ball-shell__sphere",
+      "billiards-spare-cue",
+      "billiards-spare-cue--bare",
+      "billiards-spare-cue--stage-pad",
+      "billiards-spare-cue__ball",
+      "billiards-spare-cue__label"
+    ],
+    "colors": [
+      "#bbb",
+      "#e8e8e8",
+      "#fff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsTable.vue",
+    "styleLines": 60,
+    "scoped": true,
+    "selectors": [
+      "billiards-felt--placing",
+      "billiards-illegal-first-contact-ring",
+      "billiards-illegal-first-contact-ring--kitchen",
+      "billiards-placement-ghost",
+      "billiards-stage-play-stack",
+      "billiards-stage-play-stack__rail",
+      "billiards-stage-rail-slot",
+      "billiards-table-status__hint"
+    ],
+    "colors": [
+      "#e8e8e8",
+      "#f4f4f4",
+      "#f97316",
+      "#ffffff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsTable3D.vue",
+    "styleLines": 15,
+    "scoped": true,
+    "selectors": [
+      "billiards-table-3d",
+      "billiards-table-3d-host",
+      "billiards-table-3d-host--no-pointer"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsTableChrome.vue",
+    "styleLines": 73,
+    "scoped": true,
+    "selectors": [
+      "billiards-table-chrome",
+      "billiards-table-chrome-host",
+      "billiards-table-chrome__cloth-shadow",
+      "billiards-table-chrome__cloth-shadow--3d",
+      "billiards-table-chrome__cushion-edge",
+      "billiards-table-chrome__pocket-jaw",
+      "billiards-table-chrome__pocket-lip",
+      "billiards-table-chrome__rail-bumper",
+      "billiards-table-chrome__rail-bumper-nose",
+      "billiards-table-chrome__rail-sight",
+      "billiards-table-chrome__wood-frame"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-table-chrome__cushion-edge",
+      "billiards-table-chrome__pocket-jaw"
+    ]
+  },
+  {
+    "path": "src/apps/billiards/front-end/components/BilliardsTrayBall.vue",
+    "styleLines": 47,
+    "scoped": true,
+    "selectors": [
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe",
+      "tray-ball",
+      "tray-ball__number"
+    ],
+    "colors": [
+      "#000",
+      "#111827",
+      "#f7f7f7",
+      "#ffffff"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "billiards",
+    "layer": "apps",
+    "orphanSelectors": [
+      "billiards-ball__number--eight",
+      "billiards-ball__number--solid",
+      "billiards-ball__number--stripe"
+    ]
+  },
+  {
+    "path": "src/apps/blackjack/front-end/components/BlackjackTableSurface.vue",
+    "styleLines": 264,
+    "scoped": true,
+    "selectors": [
+      "blackjack-table",
+      "blackjack-table__action-row",
+      "blackjack-table__arena",
+      "blackjack-table__center-column",
+      "blackjack-table__controls",
+      "blackjack-table__controls-lead",
+      "blackjack-table__felt",
+      "blackjack-table__frame",
+      "blackjack-table__hand",
+      "blackjack-table__label",
+      "blackjack-table__opponent-hand-block",
+      "blackjack-table__opponent-hands",
+      "blackjack-table__opponent-hands--split",
+      "blackjack-table__player-hand-block",
+      "blackjack-table__player-hand-stack",
+      "blackjack-table__player-hands",
+      "blackjack-table__player-row",
+      "blackjack-table__player-side",
+      "blackjack-table__player-stack",
+      "blackjack-table__player-stack--below-opponent",
+      "blackjack-table__row",
+      "blackjack-table__row--active-hand",
+      "blackjack-table__seat",
+      "blackjack-table__seat--dealer",
+      "blackjack-table__seat--opponent",
+      "blackjack-table__seat--player",
+      "blackjack-table__total",
+      "blackjack-table__wager",
+      "blackjack-table__wager-value",
+      "p-button"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "X",
+    "appId": "blackjack",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-button"
+    ]
+  },
+  {
+    "path": "src/apps/checkers/front-end/games/Checkers/CheckersGameBoard.vue",
+    "styleLines": 155,
+    "scoped": true,
+    "selectors": [
+      "checkers-board",
+      "checkers-cell--dark",
+      "checkers-cell--light",
+      "checkers-cell--valid-target",
+      "checkers-drag-error",
+      "checkers-piece--captured",
+      "checkers-piece--mine",
+      "checkers-piece--opp",
+      "checkers-piece__king",
+      "checkers-piece__svg",
+      "checkers-slide-host",
+      "checkers-slide-layer",
+      "checkers-slide-piece",
+      "checkers-target-dot"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "checkers",
+    "layer": "apps",
+    "orphanSelectors": [
+      "checkers-cell--dark",
+      "checkers-cell--light",
+      "checkers-cell--valid-target"
+    ]
+  },
+  {
+    "path": "src/apps/checkers/front-end/games/Checkers/CheckersPieceDrag.vue",
+    "styleLines": 68,
+    "scoped": true,
+    "selectors": [
+      "app-light",
+      "checkers-piece",
+      "checkers-piece--chain",
+      "checkers-piece--ghost",
+      "checkers-piece--mine",
+      "checkers-piece--opp",
+      "checkers-piece__king",
+      "checkers-piece__svg"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "M",
+    "appId": "checkers",
+    "layer": "apps",
+    "orphanSelectors": [
+      "app-light",
+      "checkers-piece--chain",
+      "checkers-piece--mine",
+      "checkers-piece--opp"
+    ]
+  },
+  {
+    "path": "src/apps/chess/front-end/games/Chess/ChessGameBoard.vue",
+    "styleLines": 207,
+    "scoped": true,
+    "selectors": [
+      "chess-board",
+      "chess-board-wrap",
+      "chess-capture-marker",
+      "chess-cell",
+      "chess-cell--dark",
+      "chess-cell--king-in-check",
+      "chess-cell--light",
+      "chess-cell--opponent-in-check",
+      "chess-cell--selected",
+      "chess-cell--valid-target",
+      "chess-check-banner",
+      "chess-drag-error",
+      "chess-file-label",
+      "chess-file-labels",
+      "chess-opponent-check-banner",
+      "chess-piece",
+      "chess-piece--captured",
+      "chess-piece--mine",
+      "chess-piece--opp",
+      "chess-rank-label",
+      "chess-rank-labels",
+      "chess-slide-host",
+      "chess-slide-layer",
+      "chess-slide-piece",
+      "chess-target-dot"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "chess",
+    "layer": "apps",
+    "orphanSelectors": [
+      "chess-board",
+      "chess-board-wrap",
+      "chess-capture-marker",
+      "chess-cell",
+      "chess-cell--dark",
+      "chess-cell--king-in-check",
+      "chess-cell--light",
+      "chess-cell--opponent-in-check",
+      "chess-cell--selected",
+      "chess-cell--valid-target",
+      "chess-file-label",
+      "chess-file-labels",
+      "chess-piece",
+      "chess-piece--captured",
+      "chess-piece--mine",
+      "chess-piece--opp",
+      "chess-rank-label",
+      "chess-rank-labels",
+      "chess-slide-host",
+      "chess-slide-layer",
+      "chess-slide-piece",
+      "chess-target-dot"
+    ]
+  },
+  {
+    "path": "src/apps/chess/front-end/games/Chess/ChessPromotionDialog.vue",
+    "styleLines": 10,
+    "scoped": false,
+    "selectors": [
+      "chess-promotion-dialog",
+      "lab-app-dialog"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "S",
+    "appId": "chess",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/connect-four/front-end/components/GameBoard.vue",
+    "styleLines": 161,
+    "scoped": true,
+    "selectors": [
+      "app-light",
+      "c4-board",
+      "c4-board__cell",
+      "c4-board__cells",
+      "c4-board__column",
+      "c4-board__disc",
+      "c4-board__disc--landing",
+      "c4-board__disc--mine",
+      "c4-board__disc--opp",
+      "c4-board__disc--win",
+      "c4-board__disc-svg",
+      "c4-board__drop",
+      "c4-board__frame",
+      "c4-board__grid",
+      "c4-board__hole",
+      "c4-board__legend",
+      "c4-board__legend-swatch",
+      "sr-only"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "X",
+    "appId": "connect-four",
+    "layer": "apps",
+    "orphanSelectors": [
+      "app-light"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Activation/ActivationItem.vue",
+    "styleLines": 59,
+    "scoped": true,
+    "selectors": [
+      "activation-item",
+      "is-activating",
+      "is-dragging",
+      "item-desc",
+      "item-wrapper",
+      "progress-bar",
+      "progress-fill",
+      "visible"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Activation/Example.vue",
+    "styleLines": 13,
+    "scoped": true,
+    "selectors": [
+      "grid"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "grid"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Animation/AnimatedCard.vue",
+    "styleLines": 61,
+    "scoped": true,
+    "selectors": [
+      "card",
+      "emoji",
+      "handle",
+      "indicator",
+      "indicator--bottom",
+      "indicator--top",
+      "is-dragging",
+      "label"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Animation/AnimatedPreview.vue",
+    "styleLines": 5,
+    "scoped": true,
+    "selectors": [
+      "preview-wrapper"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Animation/SortableZone.vue",
+    "styleLines": 32,
+    "scoped": true,
+    "selectors": [
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move",
+      "zone"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/AutoScroll/Example.vue",
+    "styleLines": 13,
+    "scoped": true,
+    "selectors": [
+      "hint",
+      "layout"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/AutoScroll/ScrollList.vue",
+    "styleLines": 41,
+    "scoped": true,
+    "selectors": [
+      "is-scrolling",
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move",
+      "scroll-list"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/AutoScroll/SortItem.vue",
+    "styleLines": 40,
+    "scoped": true,
+    "selectors": [
+      "indicator",
+      "indicator--bottom",
+      "indicator--top",
+      "is-dragging",
+      "sort-item"
+    ],
+    "colors": [
+      "#f97316",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/BaseDrop/DraggableItem.vue",
+    "styleLines": 16,
+    "scoped": true,
+    "selectors": [
+      "draggable-item"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/BaseDrop/Example.vue",
+    "styleLines": 27,
+    "scoped": true,
+    "selectors": [
+      "base-drop",
+      "start",
+      "zone-inner",
+      "zone-label",
+      "zone-outer"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "base-drop",
+      "start"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/BaseDrop/Zone.vue",
+    "styleLines": 15,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--over"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ChangingOverlay/AlchemyElement.vue",
+    "styleLines": 64,
+    "scoped": true,
+    "selectors": [
+      "element",
+      "element--large",
+      "element--small",
+      "element__config",
+      "element__mass",
+      "element__name",
+      "element__number",
+      "element__symbol"
+    ],
+    "colors": [
+      "#111827",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "element--large",
+      "element--small"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ChangingOverlay/AlchemyOverlay.vue",
+    "styleLines": 17,
+    "scoped": true,
+    "selectors": [
+      "alchemy-overlay",
+      "alchemy-overlay__card"
+    ],
+    "colors": [
+      "#e5e7eb",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ChangingOverlay/AlchemyZone.vue",
+    "styleLines": 35,
+    "scoped": true,
+    "selectors": [
+      "alchemy-zone",
+      "alchemy-zone--active",
+      "alchemy-zone__desc",
+      "alchemy-zone__slot",
+      "alchemy-zone__title"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Checkers/CheckerCell.vue",
+    "styleLines": 76,
+    "scoped": true,
+    "selectors": [
+      "cell",
+      "dark",
+      "light",
+      "piece",
+      "piece-enter-active",
+      "piece-enter-from",
+      "piece-leave-active",
+      "piece-leave-to",
+      "target-dot",
+      "valid-target"
+    ],
+    "colors": [
+      "#7fa650",
+      "#b58863",
+      "#f0d9b5",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "piece-enter-active",
+      "piece-enter-from",
+      "piece-leave-active",
+      "piece-leave-to"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Checkers/CheckerPiece.vue",
+    "styleLines": 76,
+    "scoped": true,
+    "selectors": [
+      "black",
+      "crown",
+      "ghost",
+      "king",
+      "piece",
+      "red"
+    ],
+    "colors": [
+      "#000",
+      "#111827",
+      "#1a202c",
+      "#63171b",
+      "#718096",
+      "#822727",
+      "#c53030",
+      "#fc8181",
+      "#ffd700",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "black",
+      "red"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Checkers/CheckersGame.vue",
+    "styleLines": 76,
+    "scoped": true,
+    "selectors": [
+      "black",
+      "board",
+      "board-row",
+      "game",
+      "red",
+      "reset-btn",
+      "score",
+      "status",
+      "turn",
+      "winner-text"
+    ],
+    "colors": [
+      "#3d2b1f",
+      "#7c5a3e",
+      "#fc8181",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "board",
+      "board-row",
+      "turn"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Chess/ChessCell.vue",
+    "styleLines": 91,
+    "scoped": true,
+    "selectors": [
+      "capture",
+      "cell",
+      "dark",
+      "in-check",
+      "light",
+      "piece-enter-active",
+      "piece-enter-from",
+      "piece-leave-active",
+      "piece-leave-to",
+      "target-hint",
+      "valid-target"
+    ],
+    "colors": [
+      "#7fa650",
+      "#aed16a",
+      "#b58863",
+      "#f0d9b5",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "piece-enter-active",
+      "piece-enter-from",
+      "piece-leave-active",
+      "piece-leave-to"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Chess/ChessGame.vue",
+    "styleLines": 138,
+    "scoped": true,
+    "selectors": [
+      "black",
+      "board",
+      "board-inner",
+      "board-row",
+      "check-badge",
+      "game",
+      "label-cell",
+      "labels-row",
+      "rank-label",
+      "reset-btn",
+      "status",
+      "turn",
+      "white",
+      "winner-text"
+    ],
+    "colors": [
+      "#3d2b1f",
+      "#7c5a3e",
+      "#f87171",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "L",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "board",
+      "board-inner",
+      "board-row",
+      "check-badge",
+      "label-cell",
+      "labels-row",
+      "rank-label",
+      "turn"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Chess/ChessPiece.vue",
+    "styleLines": 50,
+    "scoped": true,
+    "selectors": [
+      "black",
+      "ghost",
+      "piece",
+      "white"
+    ],
+    "colors": [
+      "#1a202c",
+      "#888",
+      "#fff",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "black",
+      "white"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ConstraintArea/AreaBoundsExample.vue",
+    "styleLines": 5,
+    "scoped": true,
+    "selectors": [
+      "bounds-box"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ConstraintArea/AxisExample.vue",
+    "styleLines": 27,
+    "scoped": true,
+    "selectors": [
+      "axis-box--h",
+      "axis-box--v",
+      "axis-layout"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ConstraintArea/ConstraintBox.vue",
+    "styleLines": 28,
+    "scoped": true,
+    "selectors": [
+      "box-content",
+      "box-label",
+      "constraint-box"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ConstraintArea/DragChip.vue",
+    "styleLines": 25,
+    "scoped": true,
+    "selectors": [
+      "chip",
+      "is-dragging"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/ConstraintArea/Example.vue",
+    "styleLines": 64,
+    "scoped": true,
+    "selectors": [
+      "active",
+      "axis-box--h",
+      "axis-box--v",
+      "axis-layout",
+      "bounds-box",
+      "demo-section",
+      "tab-btn",
+      "tabs"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Copy/BlockItem.vue",
+    "styleLines": 79,
+    "scoped": true,
+    "selectors": [
+      "block-icon",
+      "block-item",
+      "block-label",
+      "copy-hint",
+      "indicator",
+      "indicator--bottom",
+      "indicator--top",
+      "is-compact",
+      "is-dragging"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Copy/Example.vue",
+    "styleLines": 101,
+    "scoped": true,
+    "selectors": [
+      "block-list",
+      "builder",
+      "canvas-empty",
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move",
+      "panel",
+      "panel-badge",
+      "panel-badge--count",
+      "panel-body",
+      "panel-body--canvas",
+      "panel-header",
+      "panel-title"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/DraggableNote.vue",
+    "styleLines": 37,
+    "scoped": true,
+    "selectors": [
+      "note",
+      "note--amber",
+      "note--dragging",
+      "note--rose",
+      "note--teal",
+      "note-icon"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "note--amber",
+      "note--rose",
+      "note--teal"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/DraggableTask.vue",
+    "styleLines": 41,
+    "scoped": true,
+    "selectors": [
+      "priority--high",
+      "priority--low",
+      "priority--medium",
+      "task",
+      "task--dragging",
+      "task-body",
+      "task-icon",
+      "task-label",
+      "task-priority"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "priority--high",
+      "priority--low",
+      "priority--medium"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/Example.vue",
+    "styleLines": 57,
+    "scoped": true,
+    "selectors": [
+      "col",
+      "col-header",
+      "col-label",
+      "item-list",
+      "layout",
+      "reset-btn"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/NoteOverlay.vue",
+    "styleLines": 40,
+    "scoped": true,
+    "selectors": [
+      "note--amber",
+      "note--rose",
+      "note--teal",
+      "note-icon",
+      "note-overlay",
+      "note-text"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "note--amber",
+      "note--rose",
+      "note--teal"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/TaskOverlay.vue",
+    "styleLines": 50,
+    "scoped": true,
+    "selectors": [
+      "priority--high",
+      "priority--low",
+      "priority--medium",
+      "task-content",
+      "task-icon",
+      "task-label",
+      "task-overlay",
+      "task-priority"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "priority--high",
+      "priority--low",
+      "priority--medium"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/CustomOverlay/Zone.vue",
+    "styleLines": 35,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--over",
+      "zone-empty",
+      "zone-label"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Disabled/DraggableItem.vue",
+    "styleLines": 51,
+    "scoped": true,
+    "selectors": [
+      "badge",
+      "badge--disabled",
+      "item",
+      "item--disabled",
+      "item--dragging"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Disabled/Example.vue",
+    "styleLines": 72,
+    "scoped": true,
+    "selectors": [
+      "col",
+      "col-header",
+      "col-label",
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-list",
+      "item-move",
+      "layout",
+      "reset-btn"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Disabled/Zone.vue",
+    "styleLines": 53,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--disabled",
+      "zone--over",
+      "zone-header",
+      "zone-label",
+      "zone-tag",
+      "zone-tag--disabled"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DragHandle/DraggableItem.vue",
+    "styleLines": 46,
+    "scoped": true,
+    "selectors": [
+      "drag-handle",
+      "is-dragging",
+      "item",
+      "label"
+    ],
+    "colors": [
+      "#fff",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DragHandle/Example.vue",
+    "styleLines": 12,
+    "scoped": true,
+    "selectors": [
+      "layout"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DragHandle/Zone.vue",
+    "styleLines": 25,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--over",
+      "zone-label"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DraggableZone/DualNode.vue",
+    "styleLines": 128,
+    "scoped": true,
+    "selectors": [
+      "children",
+      "drag-handle",
+      "insert-line",
+      "insert-line--bottom",
+      "insert-line--top",
+      "node",
+      "node--dragging",
+      "node-icon",
+      "node-label",
+      "node-row",
+      "node-row--nest",
+      "toggle",
+      "toggle--leaf",
+      "toggle-icon",
+      "toggle-icon--open"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "L",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "insert-line--bottom",
+      "node-label"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DraggableZone/Example.vue",
+    "styleLines": 38,
+    "scoped": true,
+    "selectors": [
+      "header",
+      "hint",
+      "reset-btn",
+      "title"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/DraggableZone/RootZone.vue",
+    "styleLines": 9,
+    "scoped": true,
+    "selectors": [
+      "tree-root"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/GroupValidation/DraggableItem.vue",
+    "styleLines": 75,
+    "scoped": true,
+    "selectors": [
+      "badge",
+      "checkbox",
+      "handle",
+      "item",
+      "item--blue",
+      "item--purple",
+      "item--selected",
+      "label"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item--blue",
+      "item--purple"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/GroupValidation/Example.vue",
+    "styleLines": 69,
+    "scoped": true,
+    "selectors": [
+      "col-header",
+      "col-label",
+      "hint",
+      "layout",
+      "pool-col",
+      "reset-btn",
+      "zones"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/GroupValidation/Pool.vue",
+    "styleLines": 29,
+    "scoped": true,
+    "selectors": [
+      "empty",
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move",
+      "pool",
+      "selection-rect"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/GroupValidation/Zone.vue",
+    "styleLines": 168,
+    "scoped": true,
+    "selectors": [
+      "btn",
+      "btn--cancel",
+      "btn--primary",
+      "btn--secondary",
+      "dialog-actions",
+      "dialog-body",
+      "dialog-enter-active",
+      "dialog-enter-from",
+      "dialog-leave-active",
+      "dialog-leave-to",
+      "dialog-title",
+      "invalid-count",
+      "valid-count",
+      "validate-dialog",
+      "zone",
+      "zone--allowed",
+      "zone--blocked",
+      "zone--over",
+      "zone-header",
+      "zone-label",
+      "zone-status-badge",
+      "zone-tag",
+      "zone-tag--any",
+      "zone-tag--match"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "L",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "btn",
+      "btn--cancel",
+      "btn--primary",
+      "btn--secondary",
+      "dialog-actions",
+      "dialog-body",
+      "dialog-enter-active",
+      "dialog-enter-from",
+      "dialog-leave-active",
+      "dialog-leave-to",
+      "dialog-title",
+      "invalid-count",
+      "valid-count",
+      "validate-dialog",
+      "zone--allowed",
+      "zone--blocked"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Groups/DraggableItem.vue",
+    "styleLines": 47,
+    "scoped": true,
+    "selectors": [
+      "badge",
+      "item",
+      "item--blue",
+      "item--neutral",
+      "item--purple"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item--blue",
+      "item--neutral",
+      "item--purple"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Groups/Example.vue",
+    "styleLines": 85,
+    "scoped": true,
+    "selectors": [
+      "empty",
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move",
+      "layout",
+      "reset-btn",
+      "section-label",
+      "source-col",
+      "source-header",
+      "source-zone",
+      "zones"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Groups/Zone.vue",
+    "styleLines": 73,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--allowed",
+      "zone--blocked",
+      "zone--over",
+      "zone-header",
+      "zone-label",
+      "zone-status-badge",
+      "zone-tag",
+      "zone-tag--any"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "zone--allowed",
+      "zone--blocked"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Keyboard/DraggableItem.vue",
+    "styleLines": 45,
+    "scoped": true,
+    "selectors": [
+      "item",
+      "item--dragging",
+      "kbd-hint"
+    ],
+    "colors": [
+      "rgb(",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Keyboard/Example.vue",
+    "styleLines": 48,
+    "scoped": true,
+    "selectors": [
+      "hint",
+      "hint-key",
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move",
+      "layout"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "item-enter-active",
+      "item-enter-from",
+      "item-leave-active",
+      "item-leave-to",
+      "item-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Keyboard/Zone.vue",
+    "styleLines": 27,
+    "scoped": true,
+    "selectors": [
+      "zone",
+      "zone--over",
+      "zone-label"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Modifier/DropZone.vue",
+    "styleLines": 29,
+    "scoped": true,
+    "selectors": [
+      "drop-zone",
+      "is-allowed",
+      "is-dropped",
+      "is-over"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Modifier/Example.vue",
+    "styleLines": 13,
+    "scoped": true,
+    "selectors": [
+      "cards",
+      "layout"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Modifier/ModifierCard.vue",
+    "styleLines": 36,
+    "scoped": true,
+    "selectors": [
+      "card-hint",
+      "has-modifier",
+      "is-dragging",
+      "modifier-card"
+    ],
+    "colors": [
+      "#6366f1"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/MultiSelection/Example.vue",
+    "styleLines": 32,
+    "scoped": true,
+    "selectors": [
+      "demo",
+      "hint"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/MultiSelection/TaskItem.vue",
+    "styleLines": 78,
+    "scoped": true,
+    "selectors": [
+      "checkbox",
+      "handle",
+      "indicator",
+      "indicator--bottom",
+      "indicator--top",
+      "name",
+      "task",
+      "task--dragging",
+      "task--selected"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/MultiSelection/TaskList.vue",
+    "styleLines": 42,
+    "scoped": true,
+    "selectors": [
+      "list",
+      "selection-rect",
+      "task-enter-active",
+      "task-enter-from",
+      "task-leave-active",
+      "task-leave-to",
+      "task-move"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "task-enter-active",
+      "task-enter-from",
+      "task-leave-active",
+      "task-leave-to",
+      "task-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/OverlayTransition/Example.vue",
+    "styleLines": 7,
+    "scoped": true,
+    "selectors": [
+      "row"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "row"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/OverlayTransition/Item.vue",
+    "styleLines": 22,
+    "scoped": true,
+    "selectors": [
+      "item",
+      "item--dragging"
+    ],
+    "colors": [
+      "#fff"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/OverlayTransition/TransitionOverlay.vue",
+    "styleLines": 14,
+    "scoped": false,
+    "selectors": [
+      "preview-pop-enter-active",
+      "preview-pop-enter-from",
+      "preview-pop-leave-active",
+      "preview-pop-leave-to"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "preview-pop-enter-active",
+      "preview-pop-enter-from",
+      "preview-pop-leave-active",
+      "preview-pop-leave-to"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/PromiseDrop/DraggableBox.vue",
+    "styleLines": 24,
+    "scoped": true,
+    "selectors": [
+      "draggable",
+      "is-dragging"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/PromiseDrop/DropZone.vue",
+    "styleLines": 20,
+    "scoped": true,
+    "selectors": [
+      "droppable",
+      "droppable--over"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/PromiseDrop/Example.vue",
+    "styleLines": 56,
+    "scoped": true,
+    "selectors": [
+      "area",
+      "area--start",
+      "area-desc",
+      "area-title",
+      "areas",
+      "promise-drop",
+      "reset-button",
+      "status",
+      "zone-content"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/PromiseDrop/InstantDropZone.vue",
+    "styleLines": 20,
+    "scoped": true,
+    "selectors": [
+      "droppable",
+      "droppable--over"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SnapGrid/Example.vue",
+    "styleLines": 36,
+    "scoped": true,
+    "selectors": [
+      "active",
+      "hint",
+      "tab-btn",
+      "tabs"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SnapGrid/GridCanvas.vue",
+    "styleLines": 16,
+    "scoped": true,
+    "selectors": [
+      "canvas"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SnapGrid/SnapChip.vue",
+    "styleLines": 27,
+    "scoped": true,
+    "selectors": [
+      "chip",
+      "ghost"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SortingLists/Column.vue",
+    "styleLines": 36,
+    "scoped": true,
+    "selectors": [
+      "dropzone",
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "list-enter-active",
+      "list-enter-from",
+      "list-leave-active",
+      "list-leave-to",
+      "list-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SortingLists/DraggableItem.vue",
+    "styleLines": 44,
+    "scoped": true,
+    "selectors": [
+      "draggable",
+      "indicator",
+      "indicator--bottom",
+      "indicator--top",
+      "is-dragging"
+    ],
+    "colors": [
+      "#3eaf7c",
+      "#f97316",
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/SortingLists/Example.vue",
+    "styleLines": 28,
+    "scoped": true,
+    "selectors": [
+      "dropzone",
+      "list-leave-active",
+      "list-move",
+      "sorting-lists"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "dropzone",
+      "list-leave-active",
+      "list-move"
+    ]
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Swap/Example.vue",
+    "styleLines": 55,
+    "scoped": true,
+    "selectors": [
+      "board",
+      "board-header",
+      "board-hint",
+      "board-title",
+      "divider",
+      "swap-provider",
+      "teams"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Swap/PlayerCard.vue",
+    "styleLines": 73,
+    "scoped": true,
+    "selectors": [
+      "avatar",
+      "info",
+      "is-dragging",
+      "is-hovered",
+      "name",
+      "player-card",
+      "role",
+      "swap-badge"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Swap/TeamList.vue",
+    "styleLines": 63,
+    "scoped": true,
+    "selectors": [
+      "dropzone",
+      "empty-hint",
+      "team-count",
+      "team-header",
+      "team-list",
+      "team-meta",
+      "team-subtitle",
+      "team-title"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Tree/Example.vue",
+    "styleLines": 38,
+    "scoped": true,
+    "selectors": [
+      "header",
+      "hint",
+      "reset-btn",
+      "title"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Tree/RootZone.vue",
+    "styleLines": 15,
+    "scoped": true,
+    "selectors": [
+      "tree-root",
+      "tree-root--over"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/dnd-examples/front-end/apps/Tree/TreeItem.vue",
+    "styleLines": 129,
+    "scoped": true,
+    "selectors": [
+      "children",
+      "children--over",
+      "drag-handle",
+      "empty-hint",
+      "insert-line",
+      "insert-line--bottom",
+      "insert-line--top",
+      "node",
+      "node-icon",
+      "node-label",
+      "node-row",
+      "toggle",
+      "toggle--leaf",
+      "toggle-icon",
+      "toggle-icon--open"
+    ],
+    "colors": [
+      "rgba("
+    ],
+    "deepCount": 0,
+    "bucket": "L",
+    "appId": "dnd-examples",
+    "layer": "apps",
+    "orphanSelectors": [
+      "children--over",
+      "empty-hint",
+      "insert-line--bottom",
+      "node-label"
+    ]
+  },
+  {
+    "path": "src/apps/expense-reports/front-end/App.vue",
+    "styleLines": 101,
+    "scoped": true,
+    "selectors": [
+      "expense-report-row",
+      "expense-report-row__actions",
+      "expense-report-row__meta",
+      "expense-report-row__title",
+      "expense-reports-app",
+      "expense-status-tone--approved",
+      "expense-status-tone--draft",
+      "expense-status-tone--reimbursed",
+      "expense-status-tone--rejected",
+      "expense-status-tone--submitted",
+      "expense-status-total",
+      "expense-status-total__amount",
+      "expense-status-total__label",
+      "expense-status-totals",
+      "expense-tone-card"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "expense-reports",
+    "layer": "apps",
+    "orphanSelectors": [
+      "expense-status-tone--approved",
+      "expense-status-tone--draft",
+      "expense-status-tone--reimbursed",
+      "expense-status-tone--rejected",
+      "expense-status-tone--submitted"
+    ]
+  },
+  {
+    "path": "src/apps/hangman/front-end/components/GameBoard.vue",
+    "styleLines": 142,
+    "scoped": true,
+    "selectors": [
+      "hangman-board",
+      "hangman-board__alphabet",
+      "hangman-board__alphabet-row",
+      "hangman-board__gallows-card",
+      "hangman-board__hero",
+      "hangman-board__key",
+      "hangman-board__key--hit",
+      "hangman-board__key--miss",
+      "hangman-board__miss-letters",
+      "hangman-board__pattern",
+      "hangman-board__pattern-wrap",
+      "hangman-board__role-badge",
+      "hangman-board__slot",
+      "hangman-board__slot--blank",
+      "hangman-board__slot--filled",
+      "hangman-board__strikes",
+      "hangman-board__strikes-label",
+      "hangman-board__strikes-value",
+      "hangman-board__word-input"
+    ],
+    "colors": [
+      "#6b8afd",
+      "#f87171",
+      "rgba("
+    ],
+    "deepCount": 1,
+    "bucket": "X",
+    "appId": "hangman",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/hangman/front-end/components/HangmanGallows.vue",
+    "styleLines": 52,
+    "scoped": true,
+    "selectors": [
+      "hangman-gallows",
+      "hangman-gallows__figure",
+      "hangman-gallows__figure--draw",
+      "hangman-gallows__figure--fade",
+      "hangman-gallows__frame"
+    ],
+    "colors": [
+      "#3d4b5c",
+      "#f87171"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "hangman",
+    "layer": "apps",
+    "orphanSelectors": [
+      "hangman-gallows__figure",
+      "hangman-gallows__figure--draw",
+      "hangman-gallows__figure--fade"
+    ]
+  },
+  {
+    "path": "src/apps/home-maintenance/front-end/App.vue",
+    "styleLines": 204,
+    "scoped": true,
+    "selectors": [
+      "catalog-accordion-item-list__row--emphasis",
+      "home-asset-meta",
+      "home-asset-meta__category",
+      "home-asset-meta__location",
+      "home-asset-meta__sep",
+      "home-complete-next-btn",
+      "home-complete-next-btn__label",
+      "home-complete-next-btn__prefix",
+      "home-complete-next-btn__title",
+      "home-priority-badge",
+      "home-priority-badge--high",
+      "home-priority-badge--low",
+      "home-priority-badge--normal",
+      "home-task-col-head",
+      "home-task-col-head__actions",
+      "home-task-col-head__cost",
+      "home-task-col-head__due",
+      "home-task-col-head__priority",
+      "home-task-col-head__title",
+      "home-task-row",
+      "home-task-row__actions",
+      "home-task-row__cost",
+      "home-task-row__cost--set",
+      "home-task-row__due",
+      "home-task-row__priority",
+      "home-task-row__status",
+      "home-task-row__status--due",
+      "home-task-row__title",
+      "home-task-row__title--done",
+      "home-task-row__title--next",
+      "home-task-table",
+      "home-task-toolbar",
+      "p-button-label"
+    ],
+    "colors": [],
+    "deepCount": 5,
+    "bucket": "L",
+    "appId": "home-maintenance",
+    "layer": "apps",
+    "orphanSelectors": [
+      "home-priority-badge--high",
+      "home-priority-badge--low",
+      "home-priority-badge--normal",
+      "p-button-label"
+    ]
+  },
+  {
+    "path": "src/apps/job-applicant-tracker/front-end/App.vue",
+    "styleLines": 84,
+    "scoped": true,
+    "selectors": [
+      "applicant-kanban-board",
+      "applicant-kanban-card",
+      "applicant-kanban-card__actions",
+      "applicant-kanban-card__drag",
+      "applicant-kanban-card__id",
+      "applicant-kanban-card__meta",
+      "applicant-kanban-column",
+      "applicant-kanban-column__count",
+      "applicant-kanban-column__head",
+      "applicant-kanban-dropzone",
+      "applicant-kanban-list",
+      "applicant-kanban-list__item",
+      "job-applicant-tracker-app",
+      "lab-app-kanban-drop-hint"
+    ],
+    "colors": [],
+    "deepCount": 6,
+    "bucket": "L",
+    "appId": "job-applicant-tracker",
+    "layer": "apps",
+    "orphanSelectors": [
+      "applicant-kanban-card",
+      "applicant-kanban-card__actions",
+      "applicant-kanban-card__drag",
+      "applicant-kanban-card__id",
+      "applicant-kanban-card__meta",
+      "applicant-kanban-dropzone"
+    ]
+  },
+  {
+    "path": "src/apps/knowledge-base/front-end/App.vue",
+    "styleLines": 394,
+    "scoped": true,
+    "selectors": [
+      "app-loaded-container",
+      "chart-context-report-widget",
+      "chart-runtime",
+      "css",
+      "font-medium",
+      "grid",
+      "h-full",
+      "kb-article-layout",
+      "kb-article-lead",
+      "kb-article-list",
+      "kb-article-section",
+      "kb-article-section__body",
+      "kb-article-title",
+      "kb-body",
+      "kb-detail-pane",
+      "kb-detail-pane--expanded",
+      "kb-detail-pane__scroll",
+      "kb-list-item",
+      "kb-list-item--active",
+      "kb-list-item__meta",
+      "kb-list-pane",
+      "kb-list-pane__chrome",
+      "kb-list-scroll",
+      "kb-main-grid",
+      "kb-main-grid--reader-expanded",
+      "kb-main-shell",
+      "kb-reader-article-head",
+      "kb-reports-section",
+      "kb-reports-section--open",
+      "kb-reports-section__charts",
+      "kb-reports-section__head",
+      "kb-reports-section__toggle",
+      "kb-section-head",
+      "kb-tag",
+      "kb-workspace",
+      "kb-workspace__panes",
+      "kb-workspace__panes--reader-expanded",
+      "knowledge-base-app",
+      "lab-app-body",
+      "lab-form-section",
+      "lab-form-section__lead",
+      "lab-form-section__title"
+    ],
+    "colors": [
+      "#6366f1",
+      "rgb("
+    ],
+    "deepCount": 35,
+    "bucket": "L",
+    "appId": "knowledge-base",
+    "layer": "apps",
+    "orphanSelectors": [
+      "chart-context-report-widget",
+      "chart-runtime",
+      "css",
+      "kb-article-layout",
+      "kb-article-lead",
+      "kb-article-section",
+      "kb-article-section__body",
+      "kb-article-title",
+      "kb-body",
+      "kb-detail-pane__scroll",
+      "kb-reader-article-head",
+      "kb-tag"
+    ]
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/CrmAppLayout.vue",
+    "styleLines": 31,
+    "scoped": true,
+    "selectors": [
+      "crm-integration-surface",
+      "crm-nav-add-entity-btn",
+      "crm-sidebar",
+      "p-button",
+      "p-button-label",
+      "p-button-outlined",
+      "p-button-text"
+    ],
+    "colors": [],
+    "deepCount": 6,
+    "bucket": "L",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-button",
+      "p-button-label",
+      "p-button-outlined",
+      "p-button-text"
+    ]
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/CrmApprovalSubmitDialog.vue",
+    "styleLines": 26,
+    "scoped": true,
+    "selectors": [
+      "crm-approval-submit-dialog",
+      "crm-approval-submit-dialog__body",
+      "crm-approval-submit-dialog__field-label",
+      "p-dialog-footer",
+      "p-textarea"
+    ],
+    "colors": [],
+    "deepCount": 3,
+    "bucket": "M",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-dialog-footer",
+      "p-textarea"
+    ]
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/CrmLedgerPostDialog.vue",
+    "styleLines": 27,
+    "scoped": true,
+    "selectors": [
+      "crm-ledger-post-dialog",
+      "crm-ledger-post-dialog__body",
+      "crm-ledger-post-dialog__field-label",
+      "p-dialog-footer",
+      "p-inputnumber-input",
+      "p-textarea"
+    ],
+    "colors": [],
+    "deepCount": 4,
+    "bucket": "M",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-dialog-footer",
+      "p-inputnumber-input",
+      "p-textarea"
+    ]
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/CrmSettingsDialog.vue",
+    "styleLines": 10,
+    "scoped": true,
+    "selectors": [
+      "crm-entity-admin",
+      "crm-form-bindings-admin",
+      "crm-settings-tabs-shell"
+    ],
+    "colors": [],
+    "deepCount": 3,
+    "bucket": "M",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": [
+      "crm-entity-admin",
+      "crm-form-bindings-admin",
+      "crm-settings-tabs-shell"
+    ]
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/EntityAdmin.vue",
+    "styleLines": 18,
+    "scoped": true,
+    "selectors": [
+      "crm-entity-admin-editor-body",
+      "fb-field",
+      "fb-field--vertical",
+      "fb-field__control"
+    ],
+    "colors": [],
+    "deepCount": 3,
+    "bucket": "M",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/lab-crm/front-end/components/entity-admin/EntityDefinitionsDnDDropzone.vue",
+    "styleLines": 12,
+    "scoped": true,
+    "selectors": [
+      "entity-def-list-leave-active",
+      "entity-def-list-move"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "lab-crm",
+    "layer": "apps",
+    "orphanSelectors": [
+      "entity-def-list-leave-active",
+      "entity-def-list-move"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/components/ConnectorManager.vue",
+    "styleLines": 52,
+    "scoped": false,
+    "selectors": [
+      "connector-manager--compact",
+      "connector-manager--constrained",
+      "forms-builder-app",
+      "lab-app-list-row",
+      "lab-app-list-row--selected",
+      "p-accordion",
+      "p-accordionheader",
+      "p-accordionheader-toggle-icon",
+      "p-card-body",
+      "p-card-content"
+    ],
+    "colors": [],
+    "deepCount": 6,
+    "bucket": "L",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "forms-builder-app",
+      "lab-app-list-row",
+      "lab-app-list-row--selected",
+      "p-accordion",
+      "p-accordionheader",
+      "p-accordionheader-toggle-icon",
+      "p-card-body",
+      "p-card-content"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/components/PropertyEditor.vue",
+    "styleLines": 5,
+    "scoped": true,
+    "selectors": [
+      "property-editor-tabs-shell"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "S",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "property-editor-tabs-shell"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/components/common/Skeleton.vue",
+    "styleLines": 71,
+    "scoped": true,
+    "selectors": [
+      "animated",
+      "circle",
+      "fill",
+      "rect",
+      "rounded",
+      "shimmer",
+      "skeleton",
+      "text"
+    ],
+    "colors": [
+      "#f5f5f5"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "skeleton"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/components/form-designer/ComponentRenderer.vue",
+    "styleLines": 9,
+    "scoped": true,
+    "selectors": [
+      "design-canvas-form-field",
+      "p-inputnumber-input",
+      "p-inputtext",
+      "p-select-label",
+      "p-textarea"
+    ],
+    "colors": [],
+    "deepCount": 4,
+    "bucket": "M",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-inputnumber-input",
+      "p-inputtext",
+      "p-select-label",
+      "p-textarea"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/components/form-designer/DesignCanvas.vue",
+    "styleLines": 44,
+    "scoped": true,
+    "selectors": [
+      "canvas-columns-label",
+      "canvas-columns-picker",
+      "canvas-container",
+      "canvas-title-actions",
+      "canvas-title-row",
+      "design-canvas",
+      "p-card-title"
+    ],
+    "colors": [
+      "#94a3b8"
+    ],
+    "deepCount": 1,
+    "bucket": "X",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "canvas-container",
+      "p-card-title"
+    ]
+  },
+  {
+    "path": "src/apps/lab-formsbuilder/front-end/views/FormsBuilderDesignerView.vue",
+    "styleLines": 11,
+    "scoped": true,
+    "selectors": [
+      "connector-manager--constrained",
+      "designer-connector-shell"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "S",
+    "appId": "lab-formsbuilder",
+    "layer": "apps",
+    "orphanSelectors": [
+      "connector-manager--constrained",
+      "designer-connector-shell"
+    ]
+  },
+  {
+    "path": "src/apps/lab-helpdesk/front-end/components/HelpDeskBoardManager.vue",
+    "styleLines": 55,
+    "scoped": false,
+    "selectors": [
+      "help-desk-board-manager",
+      "help-desk-board-manager__item",
+      "lab-app-dialog",
+      "lab-form-section",
+      "p-button",
+      "p-dialog",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-header-actions"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "lab-helpdesk",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-button",
+      "p-dialog",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-header-actions"
+    ]
+  },
+  {
+    "path": "src/apps/lab-tasklist/front-end/components/TaskItem.vue",
+    "styleLines": 15,
+    "scoped": true,
+    "selectors": [
+      "lab-form-section",
+      "task-item"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "lab-tasklist",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/okr-goals/front-end/App.vue",
+    "styleLines": 9,
+    "scoped": true,
+    "selectors": [
+      "okr-card"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "okr-goals",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/onboarding-checklist/front-end/App.vue",
+    "styleLines": 22,
+    "scoped": true,
+    "selectors": [
+      "onboarding-complete-next-btn",
+      "onboarding-complete-next-btn__label",
+      "onboarding-complete-next-btn__prefix",
+      "onboarding-complete-next-btn__title",
+      "p-button-label"
+    ],
+    "colors": [],
+    "deepCount": 4,
+    "bucket": "M",
+    "appId": "onboarding-checklist",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-button-label"
+    ]
+  },
+  {
+    "path": "src/apps/poker-holdem/front-end/components/HoldemTableSurface.vue",
+    "styleLines": 167,
+    "scoped": true,
+    "selectors": [
+      "holdem-table",
+      "holdem-table__action-row",
+      "holdem-table__actions",
+      "holdem-table__board",
+      "holdem-table__board-slot",
+      "holdem-table__board-zone",
+      "holdem-table__bottom-row",
+      "holdem-table__bottom-row__hand",
+      "holdem-table__controls",
+      "holdem-table__controls-lead",
+      "holdem-table__felt",
+      "holdem-table__frame",
+      "holdem-table__hand",
+      "holdem-table__label",
+      "holdem-table__pot",
+      "holdem-table__pot-value",
+      "holdem-table__rank",
+      "holdem-table__row",
+      "holdem-table__to-call",
+      "lab-playing-card",
+      "p-button"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "X",
+    "appId": "poker-holdem",
+    "layer": "apps",
+    "orphanSelectors": [
+      "holdem-table__action-row",
+      "holdem-table__actions",
+      "holdem-table__bottom-row",
+      "holdem-table__bottom-row__hand",
+      "holdem-table__controls",
+      "holdem-table__controls-lead",
+      "holdem-table__pot",
+      "holdem-table__pot-value",
+      "holdem-table__rank",
+      "holdem-table__to-call",
+      "lab-playing-card",
+      "p-button"
+    ]
+  },
+  {
+    "path": "src/apps/polls-surveys/front-end/App.vue",
+    "styleLines": 17,
+    "scoped": true,
+    "selectors": [
+      "polls-option-progress__track",
+      "polls-option-progress__value",
+      "polls-surveys-app"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "M",
+    "appId": "polls-surveys",
+    "layer": "apps",
+    "orphanSelectors": [
+      "polls-option-progress__track",
+      "polls-option-progress__value"
+    ]
+  },
+  {
+    "path": "src/apps/project-charter/front-end/App.vue",
+    "styleLines": 34,
+    "scoped": true,
+    "selectors": [
+      "charter-status-pill",
+      "charter-status-pill--active",
+      "charter-status-pill--complete",
+      "charter-status-pill--draft",
+      "charter-status-pill--on-hold"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "project-charter",
+    "layer": "apps",
+    "orphanSelectors": [
+      "charter-status-pill--active",
+      "charter-status-pill--complete",
+      "charter-status-pill--draft",
+      "charter-status-pill--on-hold"
+    ]
+  },
+  {
+    "path": "src/apps/rental-property/front-end/App.vue",
+    "styleLines": 61,
+    "scoped": true,
+    "selectors": [
+      "catalog-accordion-item-list",
+      "rental-payment-col-head",
+      "rental-payment-col-head__actions",
+      "rental-payment-col-head__amount",
+      "rental-payment-col-head__status",
+      "rental-payment-row",
+      "rental-payment-row__actions",
+      "rental-payment-row__amount",
+      "rental-payment-row__period",
+      "rental-payment-row__status",
+      "rental-payment-table",
+      "rental-property-app"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "M",
+    "appId": "rental-property",
+    "layer": "apps",
+    "orphanSelectors": [
+      "catalog-accordion-item-list",
+      "rental-payment-col-head",
+      "rental-payment-col-head__actions",
+      "rental-payment-col-head__amount",
+      "rental-payment-col-head__status",
+      "rental-payment-row",
+      "rental-payment-row__actions",
+      "rental-payment-row__amount",
+      "rental-payment-row__period",
+      "rental-payment-row__status",
+      "rental-payment-table"
+    ]
+  },
+  {
+    "path": "src/apps/solitaire/front-end/games/klondike/KlondikeCard.vue",
+    "styleLines": 131,
+    "scoped": true,
+    "selectors": [
+      "sr-only",
+      "tw-klondike-card",
+      "tw-klondike-card--black",
+      "tw-klondike-card--dragging",
+      "tw-klondike-card--face-down",
+      "tw-klondike-card--face-up",
+      "tw-klondike-card--grab",
+      "tw-klondike-card--lifted-hidden",
+      "tw-klondike-card--red",
+      "tw-klondike-card__back",
+      "tw-klondike-card__corner",
+      "tw-klondike-card__corner--br",
+      "tw-klondike-card__corner--tl",
+      "tw-klondike-card__pip",
+      "tw-klondike-card__rank",
+      "tw-klondike-card__suit-sm"
+    ],
+    "colors": [
+      "#0f172a",
+      "#c62828",
+      "#eef2f7",
+      "#fafafa",
+      "rgb("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "solitaire",
+    "layer": "apps",
+    "orphanSelectors": [
+      "tw-klondike-card__back"
+    ]
+  },
+  {
+    "path": "src/apps/solitaire/front-end/games/klondike/KlondikeDropZone.vue",
+    "styleLines": 46,
+    "scoped": true,
+    "selectors": [
+      "tw-klondike-zone",
+      "tw-klondike-zone--over",
+      "tw-klondike-zone--tableau",
+      "tw-klondike-zone__placeholder"
+    ],
+    "colors": [
+      "rgb("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "solitaire",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/solitaire/front-end/games/klondike/KlondikeGame.vue",
+    "styleLines": 165,
+    "scoped": true,
+    "selectors": [
+      "tw-klondike-single-preview",
+      "tw-klondike-stack-preview",
+      "tw-klondike-stats",
+      "tw-klondike-stats__label",
+      "tw-klondike-stock-pile",
+      "tw-klondike-stock-pile--empty",
+      "tw-klondike-stock-pile__back",
+      "tw-klondike-stock-pile__count",
+      "tw-klondike-stock-pile__label",
+      "tw-klondike-table__felt",
+      "tw-klondike-tableau",
+      "tw-klondike-tableau__col",
+      "tw-klondike-toolbar",
+      "tw-klondike-waste-slot",
+      "tw-klondike-waste-slot__empty"
+    ],
+    "colors": [
+      "#f8fafc",
+      "rgb("
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "solitaire",
+    "layer": "apps",
+    "orphanSelectors": [
+      "tw-klondike-stats",
+      "tw-klondike-stats__label",
+      "tw-klondike-stock-pile",
+      "tw-klondike-stock-pile--empty",
+      "tw-klondike-stock-pile__back",
+      "tw-klondike-stock-pile__count",
+      "tw-klondike-stock-pile__label",
+      "tw-klondike-table__felt",
+      "tw-klondike-tableau",
+      "tw-klondike-tableau__col",
+      "tw-klondike-toolbar",
+      "tw-klondike-waste-slot",
+      "tw-klondike-waste-slot__empty"
+    ]
+  },
+  {
+    "path": "src/apps/tic-tac-toe/front-end/components/GameBoard.vue",
+    "styleLines": 74,
+    "scoped": true,
+    "selectors": [
+      "lab-game-board",
+      "ttt-board",
+      "ttt-board__frame",
+      "ttt-board__grid",
+      "ttt-board__legend",
+      "ttt-board__mark",
+      "ttt-board__mark--mine",
+      "ttt-board__mark--opp",
+      "ttt-cell",
+      "ttt-cell--win"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "tic-tac-toe",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/time-tracking/front-end/App.vue",
+    "styleLines": 183,
+    "scoped": true,
+    "selectors": [
+      "catalog-app-workspace-section",
+      "lab-form-section",
+      "lab-form-section--nested",
+      "p-accordion",
+      "p-accordioncontent-content",
+      "p-accordionheader",
+      "p-accordionheader-toggle-icon",
+      "p-accordionpanel",
+      "p-inputtext",
+      "p-select",
+      "p-tabpanel",
+      "p-tabpanels",
+      "time-tracking-app",
+      "time-tracking-entry-table",
+      "time-tracking-entry-table__row",
+      "time-tracking-filters",
+      "time-tracking-log-body",
+      "time-tracking-summaries-body",
+      "time-tracking-summary-card",
+      "time-tracking-summary-card__header",
+      "time-tracking-summary-card__stats",
+      "time-tracking-summary-card__title",
+      "time-tracking-summary-grid",
+      "time-tracking-user-accordion",
+      "time-tracking-user-accordion-header",
+      "time-tracking-user-header__meta",
+      "time-tracking-user-list",
+      "time-tracking-user-panel",
+      "time-tracking-workspace-tabs"
+    ],
+    "colors": [],
+    "deepCount": 20,
+    "bucket": "L",
+    "appId": "time-tracking",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-accordion",
+      "p-accordioncontent-content",
+      "p-accordionheader",
+      "p-accordionheader-toggle-icon",
+      "p-accordionpanel",
+      "p-inputtext",
+      "p-select",
+      "p-tabpanel",
+      "p-tabpanels"
+    ]
+  },
+  {
+    "path": "src/apps/weather-dashboard/front-end/App.vue",
+    "styleLines": 51,
+    "scoped": true,
+    "selectors": [
+      "pi",
+      "weather-card",
+      "weather-card__forecast-link",
+      "weather-card__icon",
+      "weather-locations"
+    ],
+    "colors": [
+      "#63b3ed",
+      "#f2c14e"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "weather-dashboard",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/weather-dashboard/front-end/components/CityPickerDialog.vue",
+    "styleLines": 173,
+    "scoped": true,
+    "selectors": [
+      "city-picker",
+      "city-picker-dialog",
+      "city-picker__field",
+      "city-picker__footer",
+      "city-picker__hint",
+      "city-picker__label",
+      "city-picker__list",
+      "city-picker__option",
+      "city-picker__option--selected",
+      "city-picker__option-meta",
+      "city-picker__option-title",
+      "city-picker__status",
+      "css",
+      "lab-app-dialog",
+      "lab-integration-dialog",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title",
+      "p-inputtext",
+      "p-select",
+      "p-select-label"
+    ],
+    "colors": [],
+    "deepCount": 10,
+    "bucket": "L",
+    "appId": "weather-dashboard",
+    "layer": "apps",
+    "orphanSelectors": [
+      "css",
+      "lab-integration-dialog",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title",
+      "p-inputtext",
+      "p-select",
+      "p-select-label"
+    ]
+  },
+  {
+    "path": "src/apps/weather-dashboard/front-end/components/LocationForecastDialog.vue",
+    "styleLines": 179,
+    "scoped": true,
+    "selectors": [
+      "forecast",
+      "forecast-tile",
+      "forecast-tile--today",
+      "forecast-tile__day",
+      "forecast-tile__high",
+      "forecast-tile__icon",
+      "forecast-tile__low",
+      "forecast-tile__meta",
+      "forecast-tile__meta-empty",
+      "forecast-tile__temps",
+      "forecast__error",
+      "forecast__footer",
+      "forecast__status",
+      "forecast__tiles",
+      "lab-app-dialog",
+      "location-forecast-dialog",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title",
+      "weather-icon"
+    ],
+    "colors": [
+      "#63b3ed",
+      "#f2c14e",
+      "#f87171"
+    ],
+    "deepCount": 6,
+    "bucket": "L",
+    "appId": "weather-dashboard",
+    "layer": "apps",
+    "orphanSelectors": [
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title",
+      "weather-icon"
+    ]
+  },
+  {
+    "path": "src/apps/weather-dashboard/front-end/components/WeatherIcon.vue",
+    "styleLines": 42,
+    "scoped": true,
+    "selectors": [
+      "weather-icon",
+      "weather-icon__bolt",
+      "weather-icon__cloud",
+      "weather-icon__cloud--faded",
+      "weather-icon__precip",
+      "weather-icon__sun--offset",
+      "weather-icon__sun-core",
+      "weather-icon__sun-rays",
+      "weather-icon__wind"
+    ],
+    "colors": [
+      "#6cb8ff",
+      "#f5c542"
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "weather-dashboard",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/weather-dashboard/front-end/components/WeatherMapPanel.vue",
+    "styleLines": 80,
+    "scoped": true,
+    "selectors": [
+      "leaflet-container",
+      "leaflet-popup-close-button",
+      "leaflet-popup-content",
+      "leaflet-popup-content-wrapper",
+      "leaflet-popup-tip",
+      "weather-map-marker",
+      "weather-map-marker__dot",
+      "weather-map-marker__temp",
+      "weather-map-panel",
+      "weather-map-panel__map",
+      "weather-map-popup",
+      "weather-overlay-controls",
+      "weather-overlay-scrubber"
+    ],
+    "colors": [
+      "#1f2937",
+      "#475569",
+      "#fff",
+      "#ffffff",
+      "rgba("
+    ],
+    "deepCount": 9,
+    "bucket": "X",
+    "appId": "weather-dashboard",
+    "layer": "apps",
+    "orphanSelectors": [
+      "leaflet-container",
+      "leaflet-popup-close-button",
+      "leaflet-popup-content",
+      "leaflet-popup-content-wrapper",
+      "leaflet-popup-tip",
+      "weather-map-marker",
+      "weather-map-marker__dot",
+      "weather-map-marker__temp",
+      "weather-map-popup"
+    ]
+  },
+  {
+    "path": "src/apps/word-tile/front-end/games/tile-word-grid/TileBoardCell.vue",
+    "styleLines": 87,
+    "scoped": true,
+    "selectors": [
+      "tw-board-cell",
+      "tw-board-cell--dl",
+      "tw-board-cell--drop-hover",
+      "tw-board-cell--dw",
+      "tw-board-cell--locked",
+      "tw-board-cell--plain",
+      "tw-board-cell--tl",
+      "tw-board-cell--tw",
+      "tw-board-cell__premium",
+      "tw-board-cell__tile",
+      "tw-board-cell__tile--locked"
+    ],
+    "colors": [
+      "#075985",
+      "#0ea5e9",
+      "#3730a3",
+      "#6366f1",
+      "#92400e",
+      "#9f1239",
+      "#f43f5e",
+      "#f59e0b"
+    ],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "word-tile",
+    "layer": "apps",
+    "orphanSelectors": [
+      "tw-board-cell--dl",
+      "tw-board-cell--dw",
+      "tw-board-cell--locked",
+      "tw-board-cell--plain",
+      "tw-board-cell--tl",
+      "tw-board-cell--tw"
+    ]
+  },
+  {
+    "path": "src/apps/word-tile/front-end/games/tile-word-grid/TileBoardStagedTile.vue",
+    "styleLines": 34,
+    "scoped": true,
+    "selectors": [
+      "tw-board-cell__tile",
+      "tw-board-cell__tile--dragging",
+      "tw-board-cell__tile--dragging-source",
+      "tw-board-cell__tile--staged"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": "word-tile",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/word-tile/front-end/games/tile-word-grid/TileDragPreview.vue",
+    "styleLines": 21,
+    "scoped": true,
+    "selectors": [
+      "tw-drag-preview-tile"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": "word-tile",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/word-tile/front-end/games/tile-word-grid/TileRackLetter.vue",
+    "styleLines": 21,
+    "scoped": true,
+    "selectors": [
+      "tw-rack-tile",
+      "tw-rack-tile__glyph",
+      "tw-rack-tile__score"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": "word-tile",
+    "layer": "apps",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/apps/word-tile/front-end/games/tile-word-grid/TileWordGridGame.vue",
+    "styleLines": 210,
+    "scoped": true,
+    "selectors": [
+      "tw-game-board-row",
+      "tw-game-board-row__aside",
+      "tw-game-board-row__main",
+      "tw-word-grid-actions",
+      "tw-word-grid-board",
+      "tw-word-grid-board-row",
+      "tw-word-grid-board-shell",
+      "tw-word-grid-controls",
+      "tw-word-grid-error",
+      "tw-word-grid-exchange-tile",
+      "tw-word-grid-exchange-tile--picked",
+      "tw-word-grid-game",
+      "tw-word-grid-game--vs-ai",
+      "tw-word-grid-hud",
+      "tw-word-grid-hud__center",
+      "tw-word-grid-hud__end",
+      "tw-word-grid-hud__start",
+      "tw-word-grid-rack",
+      "tw-word-grid-rack__label",
+      "tw-word-grid-rack__tiles",
+      "tw-word-grid-status",
+      "tw-word-grid-status--done"
+    ],
+    "colors": [
+      "#f87171"
+    ],
+    "deepCount": 3,
+    "bucket": "L",
+    "appId": "word-tile",
+    "layer": "apps",
+    "orphanSelectors": [
+      "tw-game-board-row",
+      "tw-game-board-row__aside",
+      "tw-game-board-row__main",
+      "tw-word-grid-actions",
+      "tw-word-grid-board",
+      "tw-word-grid-board-row",
+      "tw-word-grid-board-shell",
+      "tw-word-grid-controls",
+      "tw-word-grid-error",
+      "tw-word-grid-exchange-tile",
+      "tw-word-grid-exchange-tile--picked",
+      "tw-word-grid-game",
+      "tw-word-grid-game--vs-ai",
+      "tw-word-grid-hud",
+      "tw-word-grid-hud__center",
+      "tw-word-grid-hud__end",
+      "tw-word-grid-hud__start",
+      "tw-word-grid-rack",
+      "tw-word-grid-rack__label",
+      "tw-word-grid-rack__tiles",
+      "tw-word-grid-status",
+      "tw-word-grid-status--done"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/app/AppCard.vue",
+    "styleLines": 29,
+    "scoped": true,
+    "selectors": [
+      "_card",
+      "_list",
+      "app-card-grid__icon",
+      "app-card-list",
+      "app-card-sidebar",
+      "lab-catalog-sidebar-launch",
+      "lab-catalog-sidebar-launch-root",
+      "p-button",
+      "p-button-label",
+      "p-card-body",
+      "p-card-content"
+    ],
+    "colors": [],
+    "deepCount": 7,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "_card",
+      "_list",
+      "app-card-list",
+      "p-button",
+      "p-button-label",
+      "p-card-body",
+      "p-card-content"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/auth/LabLoginDialog.vue",
+    "styleLines": 25,
+    "scoped": true,
+    "selectors": [
+      "lab-login-dialog",
+      "p-dialog",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-header-icons"
+    ],
+    "colors": [],
+    "deepCount": 8,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "p-dialog",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-header-icons"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/chat/MessageInput.vue",
+    "styleLines": 12,
+    "scoped": true,
+    "selectors": [
+      "p-editor-content",
+      "p-editor-toolbar"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "S",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "p-editor-content",
+      "p-editor-toolbar"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/chat/MessagesView.vue",
+    "styleLines": 30,
+    "scoped": true,
+    "selectors": [
+      "dot"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/dashboard/components/messages/LabMessagesDialog.vue",
+    "styleLines": 46,
+    "scoped": false,
+    "selectors": [
+      "lab-app-dialog",
+      "lab-messages-clear-dialog",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "lab-app-dialog",
+      "lab-messages-clear-dialog",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/notifications/LabNotificationsDialog.vue",
+    "styleLines": 256,
+    "scoped": false,
+    "selectors": [
+      "css",
+      "lab-app-dialog",
+      "lab-integration-dialog",
+      "lab-notifications",
+      "lab-notifications-dialog",
+      "lab-notifications__actions",
+      "lab-notifications__actions--indented",
+      "lab-notifications__count",
+      "lab-notifications__delete-selected",
+      "lab-notifications__empty",
+      "lab-notifications__group",
+      "lab-notifications__group-head",
+      "lab-notifications__group-toggle",
+      "lab-notifications__list",
+      "lab-notifications__loading",
+      "lab-notifications__occurrence",
+      "lab-notifications__occurrence--read",
+      "lab-notifications__occurrence-body",
+      "lab-notifications__occurrence-text",
+      "lab-notifications__occurrences",
+      "lab-notifications__remove",
+      "lab-notifications__select-all",
+      "lab-notifications__status",
+      "lab-notifications__text",
+      "lab-notifications__text--indented",
+      "lab-notifications__time",
+      "lab-notifications__title",
+      "lab-notifications__unread",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-title"
+    ],
+    "colors": [
+      "#3b82f6"
+    ],
+    "deepCount": 0,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "css",
+      "lab-integration-dialog",
+      "p-dialog-content",
+      "p-dialog-header",
+      "p-dialog-title"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/AppOrderDnDList.vue",
+    "styleLines": 12,
+    "scoped": true,
+    "selectors": [
+      "app-order-list-leave-active",
+      "app-order-list-move"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "S",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "app-order-list-leave-active",
+      "app-order-list-move"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/AuthProvidersManagement.vue",
+    "styleLines": 86,
+    "scoped": true,
+    "selectors": [
+      "auth-providers-inline-link",
+      "auth-providers-input",
+      "auth-providers-management",
+      "auth-providers-panel",
+      "auth-providers-panel-body",
+      "auth-providers-panel-footer",
+      "auth-providers-setup-copy",
+      "auth-providers-setup-guide",
+      "css",
+      "lab-form-runtime",
+      "lab-integration-dialog",
+      "p-inputtext"
+    ],
+    "colors": [],
+    "deepCount": 2,
+    "bucket": "M",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "css",
+      "lab-integration-dialog",
+      "p-inputtext"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/lab-workflows/LabWorkflowGraphCanvas.vue",
+    "styleLines": 47,
+    "scoped": false,
+    "selectors": [
+      "lab-wf-graph-node--group-member",
+      "lab-workflow-graph-canvas__flow",
+      "lab-workflow-palette-item",
+      "style",
+      "vue-flow__edge-text",
+      "vue-flow__edge-textbg",
+      "vue-flow__edge-textwrapper",
+      "vue-flow__node"
+    ],
+    "colors": [],
+    "deepCount": 0,
+    "bucket": "X",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "lab-wf-graph-node--group-member",
+      "lab-workflow-graph-canvas__flow",
+      "lab-workflow-palette-item",
+      "style",
+      "vue-flow__edge-text",
+      "vue-flow__edge-textbg",
+      "vue-flow__edge-textwrapper",
+      "vue-flow__node"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/lab-workflows/LabWorkflowGraphGroupNode.vue",
+    "styleLines": 283,
+    "scoped": true,
+    "selectors": [
+      "lab-wf-graph-group",
+      "lab-wf-graph-group--collapsed",
+      "lab-wf-graph-group--drag-over",
+      "lab-wf-graph-group--rules",
+      "lab-wf-graph-group--run-failed",
+      "lab-wf-graph-group--run-running",
+      "lab-wf-graph-group--run-skipped",
+      "lab-wf-graph-group--run-succeeded",
+      "lab-wf-graph-group--selected",
+      "lab-wf-graph-group__header",
+      "lab-wf-graph-group__kind",
+      "lab-wf-graph-group__label",
+      "lab-wf-graph-group__mode",
+      "lab-wf-graph-group__slot",
+      "lab-wf-graph-group__slot--occupied",
+      "lab-wf-graph-group__slot-index",
+      "lab-wf-graph-group__slots",
+      "lab-wf-graph-group__slots-count",
+      "lab-wf-graph-group__slots-toggle",
+      "vue-flow__handle"
+    ],
+    "colors": [
+      "#000",
+      "#22c55e",
+      "#38bdf8",
+      "#ef4444"
+    ],
+    "deepCount": 1,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "lab-wf-graph-group--run-failed",
+      "lab-wf-graph-group--run-running",
+      "lab-wf-graph-group--run-skipped",
+      "lab-wf-graph-group--run-succeeded",
+      "vue-flow__handle"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/lab-workflows/LabWorkflowGraphNode.vue",
+    "styleLines": 281,
+    "scoped": true,
+    "selectors": [
+      "lab-wf-graph-node",
+      "lab-wf-graph-node--action",
+      "lab-wf-graph-node--branching",
+      "lab-wf-graph-node--condition",
+      "lab-wf-graph-node--group-member",
+      "lab-wf-graph-node--rule",
+      "lab-wf-graph-node--run-failed",
+      "lab-wf-graph-node--run-running",
+      "lab-wf-graph-node--run-skipped",
+      "lab-wf-graph-node--run-succeeded",
+      "lab-wf-graph-node--selected",
+      "lab-wf-graph-node--trigger",
+      "lab-wf-graph-node__branch-label",
+      "lab-wf-graph-node__branch-labels",
+      "lab-wf-graph-node__condition-line",
+      "lab-wf-graph-node__conditions",
+      "lab-wf-graph-node__conditions-toggle",
+      "lab-wf-graph-node__handle",
+      "lab-wf-graph-node__handle--branch",
+      "lab-wf-graph-node__kind",
+      "lab-wf-graph-node__kind-row",
+      "lab-wf-graph-node__label",
+      "lab-wf-graph-node__warn",
+      "style",
+      "vue-flow__handle"
+    ],
+    "colors": [
+      "#000",
+      "#22c55e",
+      "#38bdf8",
+      "#ef4444",
+      "rgb("
+    ],
+    "deepCount": 2,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "lab-wf-graph-node--action",
+      "lab-wf-graph-node--condition",
+      "lab-wf-graph-node--rule",
+      "lab-wf-graph-node--run-failed",
+      "lab-wf-graph-node--run-running",
+      "lab-wf-graph-node--run-skipped",
+      "lab-wf-graph-node--run-succeeded",
+      "lab-wf-graph-node--trigger",
+      "lab-wf-graph-node__branch-label",
+      "lab-wf-graph-node__branch-labels",
+      "lab-wf-graph-node__handle--branch",
+      "style",
+      "vue-flow__handle"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/lab-workflows/LabWorkflowLogsPanel.vue",
+    "styleLines": 225,
+    "scoped": true,
+    "selectors": [
+      "lab-workflow-logs",
+      "lab-workflow-logs__check",
+      "lab-workflow-logs__chevron",
+      "lab-workflow-logs__delete-error",
+      "lab-workflow-logs__delete-selected",
+      "lab-workflow-logs__duration",
+      "lab-workflow-logs__empty",
+      "lab-workflow-logs__icon",
+      "lab-workflow-logs__icon--failed",
+      "lab-workflow-logs__icon--partial",
+      "lab-workflow-logs__icon--running",
+      "lab-workflow-logs__icon--skipped",
+      "lab-workflow-logs__icon--succeeded",
+      "lab-workflow-logs__list",
+      "lab-workflow-logs__panel",
+      "lab-workflow-logs__refresh",
+      "lab-workflow-logs__row",
+      "lab-workflow-logs__row-btn",
+      "lab-workflow-logs__select-all",
+      "lab-workflow-logs__tabs",
+      "lab-workflow-logs__trigger",
+      "lab-workflow-logs__when",
+      "p-tab",
+      "p-tablist",
+      "p-tablist-active-bar",
+      "p-tabpanel",
+      "p-tabpanels"
+    ],
+    "colors": [
+      "#4ade80",
+      "#f87171",
+      "#fbbf24"
+    ],
+    "deepCount": 7,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "lab-workflow-logs__icon--failed",
+      "lab-workflow-logs__icon--partial",
+      "lab-workflow-logs__icon--running",
+      "lab-workflow-logs__icon--skipped",
+      "lab-workflow-logs__icon--succeeded",
+      "p-tab",
+      "p-tablist",
+      "p-tablist-active-bar",
+      "p-tabpanel",
+      "p-tabpanels"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/settings/lab-workflows/LabWorkflowRunDetailDialog.vue",
+    "styleLines": 280,
+    "scoped": false,
+    "selectors": [
+      "css",
+      "lab-app-dialog",
+      "lab-form-section",
+      "lab-form-section__title",
+      "lab-integration-dialog",
+      "lab-workflow-run-detail",
+      "lab-workflow-run-detail-dialog",
+      "lab-workflow-run-detail__badge",
+      "lab-workflow-run-detail__badge--failed",
+      "lab-workflow-run-detail__badge--succeeded",
+      "lab-workflow-run-detail__code",
+      "lab-workflow-run-detail__count",
+      "lab-workflow-run-detail__error",
+      "lab-workflow-run-detail__kind",
+      "lab-workflow-run-detail__meta",
+      "lab-workflow-run-detail__mono",
+      "lab-workflow-run-detail__node",
+      "lab-workflow-run-detail__payload",
+      "lab-workflow-run-detail__payload-label",
+      "lab-workflow-run-detail__section",
+      "lab-workflow-run-detail__seq",
+      "lab-workflow-run-detail__status",
+      "lab-workflow-run-detail__step",
+      "lab-workflow-run-detail__step--failed",
+      "lab-workflow-run-detail__step--skipped",
+      "lab-workflow-run-detail__step--succeeded",
+      "lab-workflow-run-detail__step-head",
+      "lab-workflow-run-detail__step-metrics",
+      "lab-workflow-run-detail__steps",
+      "lab-workflow-run-detail__title",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title"
+    ],
+    "colors": [
+      "#4ade80",
+      "#f87171"
+    ],
+    "deepCount": 1,
+    "bucket": "L",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": [
+      "css",
+      "lab-integration-dialog",
+      "lab-workflow-run-detail__badge--failed",
+      "lab-workflow-run-detail__badge--succeeded",
+      "lab-workflow-run-detail__step--failed",
+      "lab-workflow-run-detail__step--skipped",
+      "lab-workflow-run-detail__step--succeeded",
+      "p-dialog-content",
+      "p-dialog-footer",
+      "p-dialog-header",
+      "p-dialog-title"
+    ]
+  },
+  {
+    "path": "src/dashboard/components/shell/LabQuarksWalletDialog.vue",
+    "styleLines": 10,
+    "scoped": true,
+    "selectors": [
+      "lab-app-dialog",
+      "lab-quarks-wallet-dialog"
+    ],
+    "colors": [],
+    "deepCount": 1,
+    "bucket": "S",
+    "appId": null,
+    "layer": "dashboard",
+    "orphanSelectors": []
+  },
+  {
+    "path": "src/shared/game-platform/ui/LabPlayingCard.vue",
+    "styleLines": 116,
+    "scoped": true,
+    "selectors": [
+      "lab-playing-card",
+      "lab-playing-card--black",
+      "lab-playing-card--face-down",
+      "lab-playing-card--face-up",
+      "lab-playing-card--red",
+      "lab-playing-card--sm",
+      "lab-playing-card__back",
+      "lab-playing-card__corner",
+      "lab-playing-card__corner--br",
+      "lab-playing-card__corner--tl",
+      "lab-playing-card__pip",
+      "lab-playing-card__rank",
+      "lab-playing-card__suit-sm"
+    ],
+    "colors": [
+      "#0f172a",
+      "#c62828",
+      "#dc2626",
+      "rgb("
+    ],
+    "deepCount": 0,
+    "bucket": "M",
+    "appId": null,
+    "layer": "shared",
+    "orphanSelectors": [
+      "lab-playing-card__back"
+    ]
+  }
+]

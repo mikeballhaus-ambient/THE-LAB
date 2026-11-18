@@ -1,0 +1,130 @@
+/**
+ * PrimeVue Badge + Tag — token-driven severities (all presets, light + dark).
+ * Lara semantic fills often wash out on custom lab presets; these override globally.
+ */
+
+.p-badge,
+.p-tag {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Neutral / default */
+.p-badge:not([class*='p-badge-']),
+.p-badge.p-badge-secondary,
+.p-badge.p-badge-contrast,
+.p-tag.p-tag-secondary {
+  background: color-mix(in srgb, var(--lab-general-border) 20%, var(--lab-general-bg-muted)) !important;
+  color: var(--lab-general-text) !important;
+  border-color: color-mix(in srgb, var(--lab-general-border) 55%, transparent) !important;
+}
+
+.p-badge.p-badge-info,
+.p-tag.p-tag-info {
+  background: color-mix(in srgb, var(--lab-accent-primary, var(--lab-button-border-hover)) 16%, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text) !important;
+  border-color: color-mix(in srgb, var(--lab-accent-primary, var(--lab-button-border-hover)) 42%, transparent) !important;
+}
+
+.p-badge.p-badge-success,
+.p-tag.p-tag-success {
+  background: color-mix(in srgb, var(--lab-chat-log-success, #22c55e) 20%, var(--lab-general-bg)) !important;
+  color: color-mix(in srgb, var(--lab-chat-log-success, #16a34a) 72%, var(--lab-general-text)) !important;
+  border-color: color-mix(in srgb, var(--lab-chat-log-success, #22c55e) 45%, transparent) !important;
+}
+
+.p-badge.p-badge-danger,
+.p-tag.p-tag-danger {
+  background: color-mix(in srgb, var(--lab-chat-log-error, #ef4444) 18%, var(--lab-general-bg)) !important;
+  color: color-mix(in srgb, var(--lab-chat-log-error, #dc2626) 78%, var(--lab-general-text)) !important;
+  border-color: color-mix(in srgb, var(--lab-chat-log-error, #ef4444) 42%, transparent) !important;
+}
+
+.p-badge.p-badge-warn,
+.p-badge.p-badge-warning,
+.p-tag.p-tag-warn {
+  background: color-mix(in srgb, var(--lab-warning-text, var(--lab-chat-followup-text, #f59e0b)) 18%, var(--lab-general-bg)) !important;
+  color: color-mix(in srgb, var(--lab-warning-text, #d97706) 80%, var(--lab-general-text)) !important;
+  border-color: color-mix(in srgb, var(--lab-warning-text, #f59e0b) 40%, transparent) !important;
+}
+
+.p-badge.p-badge-help,
+.p-tag.p-tag-help {
+  background: color-mix(in srgb, var(--lab-general-border) 14%, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text-muted) !important;
+  border-color: color-mix(in srgb, var(--lab-general-border) 50%, transparent) !important;
+}
+
+.p-badge.p-badge-primary,
+.p-tag.p-tag-primary {
+  background: color-mix(in srgb, var(--lab-button-bg) 88%, var(--lab-general-bg)) !important;
+  color: var(--lab-button-text) !important;
+  border-color: color-mix(in srgb, var(--lab-button-border) 70%, transparent) !important;
+}
+
+/* Persona / session chips (native spans, not PrimeVue) */
+.lab-persona-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1.25;
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 50%, transparent);
+  background: color-mix(in srgb, var(--lab-general-border) 18%, var(--lab-general-bg-muted));
+  color: var(--lab-general-text);
+}
+
+/* Tints: --lab-persona-tint-* on :root (apply-lab-theme.ts) */
+.lab-persona-badge--chat,
+.lab-persona-badge--orchestrator,
+.lab-persona-badge--architect,
+.lab-persona-badge--code,
+.lab-persona-badge--debug,
+.lab-persona-badge--qa {
+  background: color-mix(in srgb, var(--persona-tint) 38%, var(--lab-general-bg));
+  border-color: color-mix(in srgb, var(--persona-tint) 72%, transparent);
+  color: color-mix(in srgb, var(--persona-tint) 32%, var(--lab-general-text));
+}
+
+.lab-persona-badge--chat {
+  --persona-tint: var(--lab-persona-tint-chat, #60a5fa);
+}
+
+.lab-persona-badge--orchestrator {
+  --persona-tint: var(--lab-persona-tint-orchestrator, #818cf8);
+}
+
+.lab-persona-badge--architect {
+  --persona-tint: var(--lab-persona-tint-architect, #c084fc);
+}
+
+.lab-persona-badge--code {
+  --persona-tint: var(--lab-persona-tint-code, var(--lab-chat-log-success, #4ade80));
+}
+
+.lab-persona-badge--debug {
+  --persona-tint: var(--lab-persona-tint-debug, #eab308);
+}
+
+.lab-persona-badge--qa {
+  --persona-tint: var(--lab-persona-tint-qa, var(--lab-chat-log-error, #f87171));
+}
+
+.lab-chat-tab .lab-persona-badge:not(.lab-persona-badge--custom),
+.lab-chat-composer-select-overlay .lab-persona-badge:not(.lab-persona-badge--custom),
+.message-input-container .lab-chat-composer-panel .p-select .lab-persona-badge:not(.lab-persona-badge--custom) {
+  color: color-mix(in srgb, var(--persona-tint) 32%, var(--lab-general-text));
+}
+
+.lab-persona-badge--custom {
+  background: color-mix(in srgb, var(--lab-general-border) 22%, var(--lab-general-bg-muted));
+  border-color: color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+  color: var(--lab-general-text-muted);
+}

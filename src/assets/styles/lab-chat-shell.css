@@ -1,0 +1,1037 @@
+/**
+ * rm-49 W2 — Lab Assistant chat surfaces (tokens on :root via applyLabTheme).
+ */
+
+@layer utilities {
+  .bg-lab-chat-canvas {
+    background-color: var(--lab-chat-canvas-bg);
+  }
+
+  .bg-lab-chat-composer-panel {
+    background-color: var(--lab-chat-composer-panel-bg);
+  }
+
+  .text-lab-chat-canvas {
+    color: var(--lab-chat-canvas-text);
+  }
+
+  .text-lab-chat-user {
+    color: var(--lab-chat-user-text);
+  }
+
+  .text-lab-chat-assistant {
+    color: var(--lab-chat-assistant-text);
+  }
+
+  .text-lab-chat-log {
+    color: var(--lab-chat-log-text);
+  }
+
+  .text-lab-chat-thinking {
+    color: var(--lab-chat-thinking-text);
+  }
+
+  .text-lab-chat-followup {
+    color: var(--lab-chat-followup-text);
+  }
+
+  .text-lab-chat-composer-label {
+    color: var(--lab-chat-composer-label-text);
+  }
+
+  .text-lab-chat-log-success {
+    color: var(--lab-chat-log-success);
+  }
+
+  .text-lab-chat-log-error {
+    color: var(--lab-chat-log-error);
+  }
+
+  .bg-lab-chat-tool-result {
+    background-color: var(--lab-chat-tool-result-bg);
+  }
+
+  .text-lab-chat-tool-result {
+    color: var(--lab-chat-tool-result-text);
+  }
+
+  .lab-chat-scrollbar {
+    scrollbar-color: color-mix(in srgb, var(--lab-general-text-muted) 55%, transparent) transparent;
+  }
+
+  .lab-chat-scrollbar.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--lab-general-text-muted) 55%, transparent);
+  }
+}
+
+.lab-chat-bubble-user {
+  background-color: var(--lab-chat-user-bg);
+  color: var(--lab-chat-user-text);
+  border-left: 2px solid var(--lab-chat-user-border);
+  border-right: 2px solid var(--lab-chat-user-border);
+}
+
+.lab-chat-copy-msg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--lab-general-bg) 75%, transparent);
+  color: var(--lab-general-text-muted);
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.lab-chat-copy-msg-btn:hover {
+  color: var(--lab-general-text);
+  border-color: var(--lab-general-border);
+  background: color-mix(in srgb, var(--lab-general-bg) 92%, transparent);
+}
+
+.lab-chat-bubble-assistant {
+  color: var(--lab-chat-assistant-text);
+  border: 1px solid color-mix(in srgb, var(--lab-chat-assistant-border) 72%, transparent);
+  border-left-width: 2px;
+  border-right-width: 2px;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--lab-general-text) 8%, transparent);
+}
+
+.lab-chat-bubble-assistant--with-copy {
+  position: relative;
+}
+
+.lab-chat-bubble-assistant__copy {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 1;
+}
+
+.lab-chat-bubble-assistant--with-copy .assistant-message {
+  padding-right: 1.85rem;
+}
+
+/* Subtle nudge above token so bubbles don’t read as flat canvas */
+.lab-chat-messages-panel .lab-chat-bubble-assistant {
+  background-color: color-mix(
+    in srgb,
+    var(--lab-chat-assistant-bg) 97%,
+    var(--lab-general-text) 3%
+  );
+}
+
+/* Assistant “awaiting response” ellipsis (MessagesView + Time Wasters thinking panel) */
+@keyframes lab-chat-message-loading-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.message-loading.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.message-loading .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--lab-chat-assistant-text);
+  border-radius: 50%;
+  animation: lab-chat-message-loading-pulse 1.4s ease-in-out infinite;
+}
+
+.message-loading .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.message-loading .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.message-loading {
+  padding: 4px 8px;
+}
+
+/* Top-left shell quick nav — fixed flush to viewport (mirrors chat preview chrome on the right) */
+.the-lab-container {
+  position: relative;
+}
+
+.lab-brand-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.lab-brand-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.lab-brand-lockup__icon {
+  font-size: 1.25rem;
+  color: var(--lab-accent-primary);
+}
+
+.lab-brand-lockup__wordmark {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
+  color: var(--lab-card-title-text, var(--lab-general-text));
+  letter-spacing: 0.04em;
+}
+
+.lab-brand-assistant-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin: 0;
+  margin-left: 0.15rem;
+  padding: 0.1rem 0.2rem;
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--lab-button-outlined-text, var(--lab-chat-composer-label-text));
+  cursor: pointer;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--lab-general-text) 35%, transparent);
+  transition:
+    color 0.2s ease,
+    opacity 0.5s ease,
+    filter 0.5s ease,
+    transform 0.5s ease;
+}
+
+.lab-brand-assistant-toggle:hover:not(.lab-brand-assistant-toggle--focused) {
+  color: var(--lab-button-outlined-text-hover, var(--lab-accent-primary));
+}
+
+.lab-brand-assistant-toggle--focused {
+  transform: translateY(-8px);
+  filter: blur(20px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.lab-quick-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  z-index: 9998;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.15rem 0.5rem;
+  min-height: 2rem;
+  padding: 0.35rem 0.5rem;
+  max-width: min(100vw, 100%);
+  box-sizing: border-box;
+  background: var(
+    --lab-quick-nav-surface,
+    color-mix(in srgb, var(--lab-general-text-muted) 14%, var(--lab-general-bg))
+  );
+  border-radius: 0 0 0.35rem 0;
+  box-shadow: 0 1px 0
+    var(--lab-quick-nav-surface-edge, color-mix(in srgb, var(--lab-general-border) 40%, transparent));
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.lab-quick-nav--assistant-focused {
+  transform: translateY(-30px);
+  filter: blur(20px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.lab-quick-nav__action {
+  border: none;
+  background: transparent;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  margin: 0;
+  padding: 0 0.15rem 0 0;
+  cursor: pointer;
+  user-select: none;
+  color: var(--lab-button-outlined-text);
+  font-size: 0.78rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.lab-quick-nav__action:hover {
+  color: var(--lab-general-text);
+}
+
+.lab-quick-nav__action i {
+  width: 1rem;
+  flex-shrink: 0;
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+  color: var(--lab-button-outlined-text);
+  transition: color 0.2s ease;
+}
+
+.lab-quick-nav__action:hover i {
+  color: var(--lab-button-outlined-text-hover);
+}
+
+.lab-quick-nav__quarks-amount {
+  font-weight: 600;
+}
+
+.lab-chat-preview-chrome {
+  background: var(
+    --lab-quick-nav-surface,
+    color-mix(in srgb, var(--lab-general-text-muted) 14%, var(--lab-general-bg))
+  );
+  box-shadow: 0 1px 0
+    var(--lab-quick-nav-surface-edge, color-mix(in srgb, var(--lab-general-border) 40%, transparent));
+  border: none;
+  color: var(--lab-chat-composer-label-text);
+}
+
+.lab-chat-preview-chrome__label {
+  color: var(--lab-general-text-muted);
+  transition: color 0.2s ease;
+}
+
+/* Match top-left quick nav icon + label treatment */
+.lab-chat-preview-chrome__header {
+  transition: color 0.2s ease;
+}
+
+.lab-chat-preview-chrome__header i {
+  color: var(--lab-button-outlined-text);
+  transition: color 0.2s ease;
+}
+
+.lab-chat-preview-chrome__header:hover .lab-chat-preview-chrome__label {
+  color: var(--lab-general-text);
+}
+
+.lab-chat-preview-chrome__header:hover i {
+  color: var(--lab-button-outlined-text-hover);
+}
+
+.lab-chat-thinking-toggle {
+  color: var(--lab-chat-thinking-text);
+}
+
+.lab-chat-thinking-toggle:hover {
+  color: var(--lab-chat-assistant-text);
+}
+
+.lab-chat-thinking-panel {
+  background: var(--lab-chat-thinking-bg);
+  border: 1px solid var(--lab-chat-thinking-border);
+  color: var(--lab-chat-thinking-text);
+  padding: 0.5rem 0.75rem;
+  margin-inline: 0.25rem;
+  border-radius: 0.375rem;
+  line-height: 1.45;
+}
+
+.lab-chat-thinking-panel > :first-child {
+  margin-top: 0;
+}
+
+.lab-chat-thinking-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.lab-chat-thinking-panel p {
+  margin: 0 0 0.5em;
+}
+
+.lab-chat-thinking-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.lab-chat-log-pending {
+  color: var(--lab-chat-thinking-text);
+}
+
+.lab-chat-log-row {
+  color: var(--lab-chat-log-text);
+  background-color: var(--lab-chat-log-bg);
+  border-left: 2px solid var(--lab-chat-log-border);
+  border-right: 2px solid var(--lab-chat-log-border);
+}
+
+.lab-chat-tool-result {
+  background-color: var(--lab-chat-tool-result-bg);
+  color: var(--lab-chat-tool-result-text);
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 78%, transparent);
+}
+
+/* MCP HTML formatters still emit legacy mist-* / fixed palette utilities — normalize inside tool panels */
+.lab-chat-tool-result-host,
+.lab-chat-tool-result {
+  --lab-chat-mcp-pre-bg: color-mix(in srgb, var(--lab-general-text) 88%, transparent);
+  --lab-chat-mcp-pre-text: var(--lab-general-bg);
+}
+
+.lab-chat-tool-result :where(
+    .text-mist-50,
+    .text-mist-100,
+    .text-mist-200,
+    .text-mist-300,
+    .text-mist-400,
+    .text-mist-500,
+    .text-mist-600,
+    .text-mist-700,
+    .text-mist-800,
+    .text-mist-900,
+    .text-mist-950
+  ) {
+  color: var(--lab-chat-tool-result-text) !important;
+}
+
+.lab-chat-tool-result :where(.text-mist-400, .text-mist-500) {
+  color: var(--lab-general-text-muted) !important;
+}
+
+.lab-chat-tool-result :where(.font-semibold, .font-bold) {
+  color: var(--lab-general-text) !important;
+}
+
+.lab-chat-tool-result :where(.text-green-400, .text-emerald-400) {
+  color: var(--lab-chat-log-success) !important;
+}
+
+.lab-chat-tool-result :where(.text-red-400, .text-rose-400) {
+  color: var(--lab-chat-log-error) !important;
+}
+
+.lab-chat-tool-result :where(.text-blue-400, .text-cyan-300, .text-cyan-400) {
+  color: var(--lab-button-outlined-text) !important;
+}
+
+.lab-chat-tool-result a {
+  color: var(--lab-button-outlined-text) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lab-chat-tool-result a:hover {
+  color: var(--lab-button-outlined-text-hover) !important;
+}
+
+.lab-chat-tool-result :where(.border-mist-700, .border-mist-600) {
+  border-color: color-mix(in srgb, var(--lab-general-border) 85%, transparent) !important;
+}
+
+.lab-chat-tool-result :where(.bg-mist-700, .bg-mist-800, .bg-mist-900, .bg-mist-950),
+.lab-chat-tool-result pre {
+  background: var(--lab-chat-mcp-pre-bg) !important;
+  color: var(--lab-chat-mcp-pre-text) !important;
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+  border-radius: 0.25rem;
+}
+
+.lab-chat-tool-result .overflow-auto.whitespace-pre-wrap:not(pre) {
+  color: var(--lab-chat-tool-result-text) !important;
+}
+
+.lab-chat-tool-result pre,
+.lab-chat-tool-result :where(.bg-mist-800, .bg-mist-950) {
+  padding: 0.5rem;
+}
+
+.lab-chat-tool-result code {
+  background: color-mix(in srgb, var(--lab-general-text-muted) 14%, var(--lab-chat-tool-result-bg));
+  color: var(--lab-general-text);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.2rem;
+  font-size: 0.85em;
+}
+
+.lab-chat-tool-result pre code,
+.lab-chat-tool-result :where(.bg-mist-800, .bg-mist-950) code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+
+.lab-chat-composer {
+  background: var(--lab-chat-composer-bg);
+  border-top: 1px solid var(--lab-chat-input-border);
+  border-bottom: 1px solid var(--lab-chat-input-border);
+}
+
+.lab-chat-composer-panel {
+  background-color: var(--lab-chat-composer-panel-bg);
+}
+
+.lab-chat-composer-chip {
+  background-color: var(--lab-chat-composer-label-bg);
+  color: var(--lab-chat-composer-label-text);
+}
+
+.lab-chat-composer-context {
+  color: var(--lab-chat-composer-label-text);
+}
+
+.lab-chat-composer-dropzone {
+  background-color: var(--lab-chat-composer-panel-bg);
+}
+
+.lab-chat-composer-dropzone--drag {
+  border-color: var(--lab-chat-input-border) !important;
+}
+
+.lab-chat-micro-button {
+  background: var(--lab-button-bg) !important;
+  border: 1px solid var(--lab-button-border) !important;
+  color: var(--lab-button-text) !important;
+}
+
+.lab-chat-micro-button:hover:not(:disabled) {
+  background: var(--lab-button-bg-hover) !important;
+  border-color: var(--lab-button-border-hover) !important;
+}
+
+.lab-chat-micro-button--disabled {
+  pointer-events: none !important;
+  background: color-mix(in srgb, var(--lab-button-bg) 50%, transparent) !important;
+  border-color: color-mix(in srgb, var(--lab-button-border) 50%, transparent) !important;
+  color: var(--lab-general-text-muted) !important;
+}
+
+/* Laboratory composer: keep PrimeVue track/handle layout; global toggleswitch PT supplies colors */
+.lab-chat-streaming-toggle-wrap .p-toggleswitch {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.message-input-container .ql-editor {
+  background: var(--lab-chat-input-bg) !important;
+  border-color: var(--lab-chat-input-border) !important;
+  color: var(--lab-chat-input-text) !important;
+}
+
+/* Laboratory composer — persona Select (PT + fallback if theme strips border) */
+.message-input-container .lab-chat-composer-panel .p-select,
+.message-input-container .lab-chat-composer-select.p-select {
+  display: inline-flex;
+  width: 100%;
+  min-width: 8.5rem;
+  align-items: center;
+  background: var(--lab-chat-composer-label-bg) !important;
+  border: 1px solid var(--lab-chat-input-border) !important;
+  border-style: solid !important;
+  color: var(--lab-chat-input-text) !important;
+  border-radius: 0.375rem;
+  box-shadow: none !important;
+}
+
+.message-input-container .lab-chat-composer-panel .p-select .p-select-label {
+  color: var(--lab-chat-input-text) !important;
+}
+
+.message-input-container .lab-chat-composer-panel .p-select .p-select-dropdown {
+  color: var(--lab-chat-composer-label-text) !important;
+}
+
+.lab-chat-composer-select-overlay.p-select-overlay {
+  background: var(--lab-select-overlay-bg, var(--lab-general-bg)) !important;
+  border: 1px solid var(--lab-border-subtle, var(--lab-general-border)) !important;
+  color: var(--lab-general-text) !important;
+}
+
+.lab-chat-composer-select-overlay .p-select-option {
+  color: var(--lab-general-text) !important;
+}
+
+.lab-chat-composer-select-overlay .p-select-option.p-focus {
+  background: var(--lab-select-option-hover-bg) !important;
+}
+
+.lab-chat-composer-select-overlay .p-select-option.p-select-option-selected {
+  background: var(--lab-select-option-selected-bg) !important;
+  color: var(--lab-general-text) !important;
+}
+
+.lab-chat-session-tabs {
+  background-color: var(--lab-chat-tabs-bar-bg);
+  border-top: 1px solid var(--lab-chat-tab-border);
+}
+
+.lab-chat-tab {
+  border: 1px solid var(--lab-chat-tab-border);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.lab-chat-tab--active {
+  background: var(--lab-chat-tab-active-bg);
+  border-color: color-mix(in srgb, var(--lab-chat-tab-border) 70%, var(--lab-general-border));
+  border-bottom-color: var(--lab-accent-primary);
+  color: var(--lab-chat-tab-active-text, var(--lab-chat-tab-text));
+  font-weight: 600;
+}
+
+.lab-chat-tab--inactive {
+  background: var(--lab-chat-tab-inactive-bg);
+  border-color: color-mix(in srgb, var(--lab-chat-tab-border) 25%, transparent);
+  color: var(--lab-general-text);
+}
+
+.lab-chat-tab--inactive:hover {
+  background: var(--lab-chat-tab-inactive-hover-bg, color-mix(in srgb, var(--lab-chat-tab-active-bg) 75%, transparent));
+  border-color: color-mix(in srgb, var(--lab-chat-tab-border) 70%, transparent);
+  color: var(--lab-general-text);
+}
+
+/* Laboratory + Sidecar composer actions — solid on dark, outlined on light */
+.app-light .lab-chat-micro-button {
+  background: color-mix(in srgb, var(--lab-button-outlined-border) 16%, var(--lab-general-bg)) !important;
+  border-color: var(--lab-button-outlined-border) !important;
+  color: var(--lab-button-outlined-text) !important;
+}
+
+.app-light .lab-chat-micro-button:hover:not(:disabled) {
+  background: var(--lab-button-outlined-bg-hover) !important;
+  border-color: var(--lab-button-border-hover) !important;
+  color: var(--lab-button-outlined-text-hover) !important;
+}
+
+.app-light .lab-sidecar-chat__composer-actions .p-button:not(.p-button-outlined):not(.p-button-text) {
+  background: color-mix(in srgb, var(--lab-button-outlined-border) 16%, var(--lab-general-bg)) !important;
+  border: 1px solid var(--lab-button-outlined-border) !important;
+  color: var(--lab-button-outlined-text) !important;
+}
+
+.app-light .lab-sidecar-chat__composer-actions .p-button:not(.p-button-outlined):not(.p-button-text):hover:enabled {
+  background: var(--lab-button-outlined-bg-hover) !important;
+  border-color: var(--lab-button-border-hover) !important;
+  color: var(--lab-button-outlined-text-hover) !important;
+}
+
+.app-light .session-tabs-container .p-button:not(.p-button-outlined) {
+  background: color-mix(in srgb, var(--lab-button-outlined-border) 16%, var(--lab-general-bg)) !important;
+  border: 1px solid var(--lab-button-outlined-border) !important;
+  color: var(--lab-button-outlined-text) !important;
+}
+
+.app-light .session-tabs-container .p-button:not(.p-button-outlined):hover:enabled {
+  background: var(--lab-button-outlined-bg-hover) !important;
+  border-color: var(--lab-button-border-hover) !important;
+  color: var(--lab-button-outlined-text-hover) !important;
+}
+
+.lab-chat-messages-splitter-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.lab-chat-messages-panel {
+  box-sizing: border-box;
+  box-shadow:
+    inset -2px 0 0 color-mix(in srgb, var(--lab-general-border) 95%, transparent),
+    6px 0 18px color-mix(in srgb, var(--lab-general-text) 12%, transparent);
+}
+
+/* Lab Assistant ↔ app view resize gutter (Prime Splitter) */
+.lab-chat-assistant-splitter .p-splitter-gutter,
+.lab-chat-assistant-splitter .lab-chat-splitter-gutter {
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--lab-button-border) 50%, var(--lab-chat-tabs-bar-bg)) !important;
+  border-inline: 1px solid color-mix(in srgb, var(--lab-general-border) 92%, transparent);
+  transition: background 0.15s ease;
+}
+
+.lab-chat-assistant-splitter .p-splitter-gutter:hover,
+.lab-chat-assistant-splitter .p-splitter-gutter-active {
+  background: color-mix(in srgb, var(--lab-button-border-hover) 65%, var(--lab-chat-tabs-bar-bg)) !important;
+}
+
+.lab-chat-assistant-splitter .p-splitter-gutter-handle {
+  background: var(--lab-button-bg);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.lab-chat-assistant-splitter .p-splitter-gutter:hover .p-splitter-gutter-handle {
+  background: var(--lab-button-bg-hover);
+  opacity: 1;
+}
+
+.lab-chat-mention-shell--file {
+  background: color-mix(in srgb, var(--lab-chat-mention-file-bg) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lab-chat-mention-file-bg) 70%, transparent);
+}
+
+.lab-chat-mention-shell--command {
+  background: color-mix(in srgb, var(--lab-chat-mention-command-bg) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lab-chat-mention-command-bg) 70%, transparent);
+}
+
+.lab-chat-mention-header--file {
+  background: var(--lab-chat-mention-file-bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--lab-chat-mention-file-bg) 80%, transparent);
+  color: var(--lab-general-text);
+}
+
+.lab-chat-mention-header--command {
+  background: var(--lab-chat-mention-command-bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--lab-chat-mention-command-bg) 80%, transparent);
+  color: var(--lab-general-text);
+}
+
+.lab-chat-mention-list {
+  border-color: var(--lab-general-border);
+  background: var(--lab-general-bg);
+}
+
+.lab-chat-mention-item--file:hover {
+  background: color-mix(in srgb, var(--lab-chat-mention-file-bg) 65%, transparent);
+}
+
+.lab-chat-mention-item--command:hover {
+  background: color-mix(in srgb, var(--lab-chat-mention-command-bg) 65%, transparent);
+}
+
+.lab-chat-followup-prompt {
+  color: var(--lab-chat-thinking-text);
+}
+
+.lab-chat-followup-question {
+  color: var(--lab-chat-log-text);
+  background-color: var(--lab-chat-log-bg);
+  border-left: 2px solid var(--lab-chat-log-border);
+  border-right: 2px solid var(--lab-chat-log-border);
+}
+
+.lab-chat-followup-panel {
+  background-color: var(--lab-chat-followup-bg);
+  color: var(--lab-chat-followup-text);
+}
+
+.lab-chat-followup-option:hover {
+  background: color-mix(in srgb, var(--lab-chat-user-bg) 50%, transparent);
+}
+
+.lab-chat-tool-group {
+  border: 1px solid var(--lab-general-border);
+}
+
+/* Tool batch — collapsed header matches `.lab-chat-thinking-toggle`; detail panel on expand */
+.lab-chat-tool-batch__toggle {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: inherit;
+  text-align: left;
+}
+
+.lab-chat-tool-batch__toggle:focus-visible {
+  outline: 2px solid var(--lab-button-border-hover, var(--lab-text-accent));
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+.lab-chat-tool-batch__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-inline: 0.25rem;
+  padding: 0.35rem 0.25rem 0.45rem;
+  border-radius: 0.375rem;
+  background: color-mix(in srgb, var(--lab-general-border) 8%, var(--lab-chat-canvas-bg, var(--lab-general-bg)));
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+}
+
+/* Laboratory session overlays — todo list (top) and file changes (bottom) */
+.lab-chat-session-overlay {
+  width: min(800px, calc(100vw - 1rem));
+  min-width: min(800px, calc(100vw - 1rem));
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-chat-session-overlay__stack {
+  width: 100%;
+  /* Right-docked overlays (todo top, file changes bottom): square on the viewport edge */
+  border-radius: 0.55rem 0 0 0.55rem;
+  overflow: hidden;
+  background: var(--lab-general-bg);
+  box-shadow:
+    0 18px 42px color-mix(in srgb, var(--lab-general-shadow, #000) 28%, transparent),
+    0 8px 18px color-mix(in srgb, var(--lab-general-shadow, #000) 18%, transparent),
+    0 2px 6px color-mix(in srgb, var(--lab-general-shadow, #000) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--lab-general-border) 65%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.lab-chat-session-overlay__summary,
+.lab-chat-session-overlay__list-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+  color: var(--lab-general-text);
+  transition: background 0.15s ease;
+}
+
+.lab-chat-session-overlay__summary {
+  font-weight: 600;
+  background: color-mix(
+    in srgb,
+    var(--lab-button-border-hover, var(--lab-text-accent)) 10%,
+    var(--lab-general-bg-muted)
+  );
+  border-bottom: 1px solid var(--lab-border-subtle, color-mix(in srgb, var(--lab-general-border) 55%, transparent));
+}
+
+.lab-chat-session-overlay__summary:hover {
+  background: color-mix(
+    in srgb,
+    var(--lab-button-border-hover, var(--lab-text-accent)) 16%,
+    var(--lab-general-bg-muted)
+  );
+}
+
+.lab-chat-session-overlay__list-toggle {
+  font-weight: 600;
+  background: color-mix(in srgb, var(--lab-general-border) 26%, var(--lab-general-bg-muted));
+}
+
+.lab-chat-session-overlay__list-toggle:hover {
+  background: color-mix(in srgb, var(--lab-general-border) 34%, var(--lab-general-bg-muted));
+}
+
+.lab-chat-session-overlay__summary-icon,
+.lab-chat-session-overlay__chevron {
+  color: var(--lab-general-text-muted);
+  flex-shrink: 0;
+}
+
+.lab-chat-session-overlay__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: color-mix(in srgb, var(--lab-general-border) 10%, var(--lab-general-bg));
+}
+
+.lab-chat-session-overlay__list-block {
+  border-radius: 0.45rem;
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px color-mix(in srgb, var(--lab-general-shadow, #000) 10%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--lab-general-border) 52%, transparent);
+}
+
+.lab-chat-session-overlay__items {
+  margin: 0;
+  padding: 0.45rem;
+  max-height: 500px;
+  overflow: auto;
+  background: color-mix(in srgb, var(--lab-general-border) 16%, var(--lab-general-bg));
+  border-top: 1px solid color-mix(in srgb, var(--lab-general-border) 40%, transparent);
+}
+
+.lab-chat-session-overlay__items.lab-chat-scrollbar {
+  scrollbar-width: thin;
+}
+
+.lab-chat-session-overlay__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.4rem;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background: var(--lab-general-bg);
+  box-shadow:
+    0 2px 5px color-mix(in srgb, var(--lab-general-shadow, #000) 11%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--lab-general-border) 48%, transparent);
+}
+
+.lab-chat-session-overlay__item:nth-child(even) {
+  background: color-mix(in srgb, var(--lab-form-control-bg, var(--lab-general-bg-muted)) 55%, var(--lab-general-bg));
+}
+
+.lab-chat-session-overlay__item:last-child {
+  margin-bottom: 0;
+}
+
+.lab-chat-session-overlay__item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+  color: var(--lab-general-text);
+  transition: background 0.12s ease;
+}
+
+.lab-chat-session-overlay__item-row:hover {
+  background: color-mix(in srgb, var(--lab-general-border) 12%, var(--lab-general-bg));
+}
+
+.lab-chat-session-overlay__item--done .lab-chat-session-overlay__item-row {
+  color: var(--lab-general-text-muted);
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.lab-chat-session-overlay__item-pin {
+  margin-top: 0.15rem;
+  color: var(--lab-text-accent, var(--lab-button-border-hover));
+  flex-shrink: 0;
+}
+
+.lab-chat-session-overlay__item--done .lab-chat-session-overlay__item-pin {
+  color: var(--lab-general-text-muted);
+}
+
+.lab-chat-session-overlay__item-detail {
+  padding: 0.45rem 0.65rem 0.55rem;
+  border-top: 1px solid color-mix(in srgb, var(--lab-general-border) 55%, transparent);
+  background: color-mix(in srgb, var(--lab-general-border) 14%, var(--lab-general-bg-muted));
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--lab-general-text);
+}
+
+.lab-chat-session-overlay__detail-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--lab-general-text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.lab-chat-session-overlay__task-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--lab-general-border) 10%, var(--lab-general-bg));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--lab-general-border) 32%, transparent);
+}
+
+.lab-chat-session-overlay__task-toggle:hover {
+  background: color-mix(in srgb, var(--lab-general-border) 18%, var(--lab-general-bg));
+}
+
+.lab-chat-session-overlay__task-panel {
+  margin-top: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 0.35rem;
+  background: var(--lab-general-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--lab-general-border) 35%, transparent);
+}
+
+.lab-chat-session-overlay__task-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.5rem;
+  margin-top: 0.35rem;
+  border-top: 1px solid var(--lab-border-subtle);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.lab-chat-session-overlay__priority--high {
+  color: var(--lab-chat-log-error);
+}
+
+.lab-chat-session-overlay__priority--medium {
+  color: var(--lab-warning-text, var(--lab-chat-followup-text));
+}
+
+.lab-chat-session-overlay__priority--low {
+  color: var(--lab-chat-log-success);
+}
+
+.lab-chat-session-overlay__summary--split,
+.lab-chat-session-overlay__list-toggle--split {
+  justify-content: space-between;
+}
+
+.lab-chat-session-overlay__summary-leading,
+.lab-chat-session-overlay__list-leading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.lab-chat-session-overlay__list-leading span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lab-chat-session-overlay__stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8125rem;
+}
+
+.lab-chat-session-overlay__item-detail--flush {
+  border-top: none;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.75rem;
+}

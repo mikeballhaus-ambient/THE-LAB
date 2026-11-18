@@ -1,0 +1,2954 @@
+{
+  "personas": [
+    {
+      "persona": "Chat",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": true
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": true
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": false
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": false
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": false
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": false
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": false
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": false
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": false
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": false
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": false
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": false
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": false
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": false
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": false
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": true
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": true
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": false
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": false
+        }
+      ]
+    },
+    {
+      "persona": "Orchestrator",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": false
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": false
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": false
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": false
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": false
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": false
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": false
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": false
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": false
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": false
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": false
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": true
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": false
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": false
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": false
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": false
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": false
+        }
+      ]
+    },
+    {
+      "persona": "Architect",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": false
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": false
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": false
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": false
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": false
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": false
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": false
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": true
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": false
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": false
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": true
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": false
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": false
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": true
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": true
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": false
+        }
+      ]
+    },
+    {
+      "persona": "Code",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": true
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": true
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": true
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": true
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": true
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": true
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": true
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": true
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": true
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": true
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": true
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": true
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": true
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": true
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": true
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": true
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": true
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": true
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": true
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": true
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": true
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": true
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_list_bindings",
+          "name": "Lab Integrations - List Bindings",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_upsert_binding",
+          "name": "Lab Integrations - Upsert Binding",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_delete_binding",
+          "name": "Lab Integrations - Delete Binding",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_get_manifest",
+          "name": "Lab Integrations - Get Manifest",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_hub_discovery",
+          "name": "Lab Integrations - Hub Discovery",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_provision_form_stub",
+          "name": "Lab Integrations - Provision Form Stub",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_provision_chart_stub",
+          "name": "Lab Integrations - Provision Chart Stub",
+          "allowed": true
+        },
+        {
+          "id": "lab_integrations_resolve_launch_deps",
+          "name": "Lab Integrations - Resolve Launch Dependencies",
+          "allowed": true
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": true
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": true
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": true
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": true
+        }
+      ]
+    },
+    {
+      "persona": "Debug",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": false
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": false
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": false
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": false
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": true
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": true
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": true
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": false
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": false
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": true
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": true
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": true
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": true
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": true
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": true
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": true
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": false
+        }
+      ]
+    },
+    {
+      "persona": "QA",
+      "tools": [
+        {
+          "id": "app_management_create_app",
+          "name": "App Management - Create App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_app",
+          "name": "App Management - Get App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_get_apps",
+          "name": "App Management - Get Apps",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update_app",
+          "name": "App Management - Update App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete_app",
+          "name": "App Management - Delete App",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_table",
+          "name": "App Management - Add Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_table",
+          "name": "App Management - Remove Table",
+          "allowed": false
+        },
+        {
+          "id": "app_management_add_column",
+          "name": "App Management - Add Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_remove_column",
+          "name": "App Management - Remove Column",
+          "allowed": false
+        },
+        {
+          "id": "app_management_select",
+          "name": "App Management - Select",
+          "allowed": false
+        },
+        {
+          "id": "app_management_insert",
+          "name": "App Management - Insert",
+          "allowed": false
+        },
+        {
+          "id": "app_management_update",
+          "name": "App Management - Update",
+          "allowed": false
+        },
+        {
+          "id": "app_management_delete",
+          "name": "App Management - Delete",
+          "allowed": false
+        },
+        {
+          "id": "app_management_execute_raw",
+          "name": "App Management - Execute Raw",
+          "allowed": false
+        },
+        {
+          "id": "awaiter",
+          "name": "Awaiter",
+          "allowed": false
+        },
+        {
+          "id": "run_terminal_command",
+          "name": "Run Terminal Command",
+          "allowed": true
+        },
+        {
+          "id": "create_directory",
+          "name": "Create Directory",
+          "allowed": false
+        },
+        {
+          "id": "remove_directory",
+          "name": "Remove Directory",
+          "allowed": false
+        },
+        {
+          "id": "context7_resolve_library_id",
+          "name": "Context7 - Resolve Library ID",
+          "allowed": true
+        },
+        {
+          "id": "context7_query_docs",
+          "name": "Context7 - Query Docs",
+          "allowed": true
+        },
+        {
+          "id": "documentor_save_document",
+          "name": "Documentor - Save Document",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_line_content",
+          "name": "Documentor - Get Line Content",
+          "allowed": true
+        },
+        {
+          "id": "documentor_get_diff_template",
+          "name": "Documentor - Get Diff Template",
+          "allowed": true
+        },
+        {
+          "id": "documentor_update_document",
+          "name": "Documentor - Update Document",
+          "allowed": true
+        },
+        {
+          "id": "create_file",
+          "name": "Create File",
+          "allowed": false
+        },
+        {
+          "id": "list_files",
+          "name": "List Files",
+          "allowed": true
+        },
+        {
+          "id": "read_file",
+          "name": "Read File",
+          "allowed": true
+        },
+        {
+          "id": "remove_file",
+          "name": "Remove File",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_line_content",
+          "name": "Update File - Get Line Content",
+          "allowed": false
+        },
+        {
+          "id": "update_file_get_diff_template",
+          "name": "Update File - Get Diff Template",
+          "allowed": false
+        },
+        {
+          "id": "update_file_update_file",
+          "name": "Update File - Update File",
+          "allowed": false
+        },
+        {
+          "id": "followup_generate_followup",
+          "name": "Followup - Generate Followup",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_switch_persona",
+          "name": "Persona Manager - Switch Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_activate_persona",
+          "name": "Persona Manager - Activate Persona",
+          "allowed": true
+        },
+        {
+          "id": "persona_manager_response_persona",
+          "name": "Persona Manager - Response Persona",
+          "allowed": true
+        },
+        {
+          "id": "search_repository",
+          "name": "Search Repository",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_create_list",
+          "name": "Todo List - Create List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_add_todo_item",
+          "name": "Todo List - Add Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_update_todo_item",
+          "name": "Todo List - Update Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_completed",
+          "name": "Todo List - Mark Todo Item Completed",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_mark_todo_item_incomplete",
+          "name": "Todo List - Mark Todo Item Incomplete",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_complete_todo_list",
+          "name": "Todo List - Complete Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_get_todo_list_state",
+          "name": "Todo List - Get Todo List State",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_list_todo_lists",
+          "name": "Todo List - List Todo Lists",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_list",
+          "name": "Todo List - Remove Todo List",
+          "allowed": true
+        },
+        {
+          "id": "todo_list_remove_todo_item",
+          "name": "Todo List - Remove Todo Item",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_discover_elements",
+          "name": "UI Automation - Discover Elements",
+          "allowed": true
+        },
+        {
+          "id": "ui_automation_element_action",
+          "name": "UI Automation - Element Action",
+          "allowed": true
+        },
+        {
+          "id": "web_fetch",
+          "name": "Web Fetch",
+          "allowed": true
+        },
+        {
+          "id": "web_query",
+          "name": "Web Query",
+          "allowed": true
+        },
+        {
+          "id": "now",
+          "name": "datetime - now",
+          "allowed": true
+        },
+        {
+          "id": "convert_timezone",
+          "name": "datetime - convert_timezone",
+          "allowed": true
+        },
+        {
+          "id": "date_math",
+          "name": "datetime - date_math",
+          "allowed": true
+        },
+        {
+          "id": "date_diff",
+          "name": "datetime - date_diff",
+          "allowed": true
+        },
+        {
+          "id": "format_date",
+          "name": "datetime - format_date",
+          "allowed": true
+        },
+        {
+          "id": "unix_timestamp",
+          "name": "datetime - unix_timestamp",
+          "allowed": true
+        },
+        {
+          "id": "business_days",
+          "name": "datetime - business_days",
+          "allowed": true
+        },
+        {
+          "id": "explain_cron",
+          "name": "datetime - explain_cron",
+          "allowed": true
+        },
+        {
+          "id": "countdown",
+          "name": "datetime - countdown",
+          "allowed": true
+        },
+        {
+          "id": "date_info",
+          "name": "datetime - date_info",
+          "allowed": true
+        },
+        {
+          "id": "read_query",
+          "name": "the-lab-db - read_query",
+          "allowed": true
+        },
+        {
+          "id": "write_query",
+          "name": "the-lab-db - write_query",
+          "allowed": true
+        },
+        {
+          "id": "create_table",
+          "name": "the-lab-db - create_table",
+          "allowed": true
+        },
+        {
+          "id": "list_tables",
+          "name": "the-lab-db - list_tables",
+          "allowed": true
+        },
+        {
+          "id": "describe_table",
+          "name": "the-lab-db - describe_table",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recall",
+          "name": "neural-memory - nmem_recall",
+          "allowed": true
+        },
+        {
+          "id": "nmem_remember",
+          "name": "neural-memory - nmem_remember",
+          "allowed": true
+        },
+        {
+          "id": "nmem_context",
+          "name": "neural-memory - nmem_context",
+          "allowed": true
+        },
+        {
+          "id": "nmem_eternal",
+          "name": "neural-memory - nmem_eternal",
+          "allowed": true
+        },
+        {
+          "id": "nmem_todo",
+          "name": "neural-memory - nmem_todo",
+          "allowed": true
+        },
+        {
+          "id": "nmem_recap",
+          "name": "neural-memory - nmem_recap",
+          "allowed": true
+        },
+        {
+          "id": "nmem_situation",
+          "name": "neural-memory - nmem_situation",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_search",
+          "name": "Knowledge Base - Search",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_get",
+          "name": "Knowledge Base - Get Article",
+          "allowed": true
+        },
+        {
+          "id": "lab_kb_app_context",
+          "name": "Knowledge Base - App Context",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_node_types",
+          "name": "Workflow Studio - List Node Types",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_trigger_events",
+          "name": "Workflow Studio - List Trigger Events",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list_app_services",
+          "name": "Workflow Studio - List App Services",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_validate",
+          "name": "Workflow Studio - Validate",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_list",
+          "name": "Workflow Studio - List Workflows",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get",
+          "name": "Workflow Studio - Get Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_create",
+          "name": "Workflow Studio - Create Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_update",
+          "name": "Workflow Studio - Update Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_duplicate",
+          "name": "Workflow Studio - Duplicate Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_delete",
+          "name": "Workflow Studio - Delete Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_run",
+          "name": "Workflow Studio - Run Workflow",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_dry_run",
+          "name": "Workflow Studio - Dry Run",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_mock_samples",
+          "name": "Workflow Studio - Mock Samples",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_listen",
+          "name": "Workflow Studio - Listen",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_get_execution",
+          "name": "Workflow Studio - Get Execution",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_executions",
+          "name": "Workflow Studio - List Executions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_enable",
+          "name": "Workflow Studio - Enable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_disable",
+          "name": "Workflow Studio - Disable",
+          "allowed": false
+        },
+        {
+          "id": "lab_workflow_get_failures",
+          "name": "Workflow Studio - Get Failures",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_list_versions",
+          "name": "Workflow Studio - List Versions",
+          "allowed": true
+        },
+        {
+          "id": "lab_workflow_publish_version",
+          "name": "Workflow Studio - Publish Version",
+          "allowed": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+/**
+ * rm-49 — Lab theme utilities and legacy palette aliases.
+ * Runtime values are set on :root via applyLabTheme() (--lab-*).
+ */
+
+html.app-light,
+html.app-light body,
+html.app-dark,
+html.app-dark body {
+  background-color: var(--lab-general-bg);
+  color: var(--lab-general-text);
+}
+
+@theme {
+  /* Shell */
+  --color-lab-general-bg: var(--lab-general-bg);
+  --color-lab-general-bg-muted: var(--lab-general-bg-muted);
+  --color-lab-general-text: var(--lab-general-text);
+  --color-lab-general-text-muted: var(--lab-general-text-muted);
+  --color-lab-general-border: var(--lab-general-border);
+
+  /* Structural aliases (applyLabTheme) — catalog apps + settings panels */
+  --color-lab-text: var(--lab-text, var(--lab-general-text));
+  --color-lab-text-muted: var(--lab-text-muted, var(--lab-general-text-muted));
+  --color-lab-text-primary: var(--lab-text-primary, var(--lab-general-text));
+  --color-lab-surface-base: var(--lab-surface-base, var(--lab-general-bg));
+  --color-lab-surface: var(--lab-surface, var(--lab-general-bg));
+  --color-lab-muted: var(--lab-muted, var(--lab-general-text-muted));
+  --color-lab-border: var(--lab-border, var(--lab-general-border));
+
+  /* Buttons */
+  --color-lab-button-bg: var(--lab-button-bg);
+  --color-lab-button-text: var(--lab-button-text);
+  --color-lab-button-border: var(--lab-button-border);
+
+  /* Card */
+  --color-lab-card-title: var(--lab-card-title-text);
+  --color-lab-card-border: var(--lab-card-border);
+
+  /* Shell accent (set on :root in applyLabTheme) */
+  --color-lab-accent-primary: var(--lab-accent-primary, var(--lab-button-border-hover));
+
+  /* Prime surfaces (settings tabs, shell) */
+  --color-lab-prime-surface-500: var(--lab-prime-surface-500);
+  --color-lab-prime-surface-600: var(--lab-prime-surface-600);
+  --color-lab-prime-surface-700: var(--lab-prime-surface-700);
+  --color-lab-prime-surface-800: var(--lab-prime-surface-800);
+  --color-lab-prime-surface-950: var(--lab-prime-surface-950);
+  --color-lab-button-outlined-text: var(--lab-button-outlined-text);
+  --color-lab-button-border: var(--lab-button-border);
+  --color-lab-button-bg: var(--lab-button-bg);
+
+  /* Chat (representative utilities; W2 migrates components) */
+  --color-lab-chat-canvas: var(--lab-chat-canvas-bg);
+  --color-lab-chat-user: var(--lab-chat-user-bg);
+  --color-lab-chat-assistant: var(--lab-chat-assistant-bg);
+  --color-lab-chat-log: var(--lab-chat-log-bg);
+  --color-lab-chat-tool-result: var(--lab-chat-tool-result-bg);
+  --color-lab-chat-composer: var(--lab-chat-composer-bg);
+
+  /* Legacy mist → lab legacy scale (W2+ migration) */
+  --color-mist-50: var(--lab-legacy-mist-50);
+  --color-mist-100: var(--lab-legacy-mist-100);
+  --color-mist-200: var(--lab-legacy-mist-200);
+  --color-mist-300: var(--lab-legacy-mist-300);
+  --color-mist-400: var(--lab-legacy-mist-400);
+  --color-mist-500: var(--lab-legacy-mist-500);
+  --color-mist-600: var(--lab-legacy-mist-600);
+  --color-mist-700: var(--lab-legacy-mist-700);
+  --color-mist-800: var(--lab-legacy-mist-800);
+  --color-mist-900: var(--lab-legacy-mist-900);
+  --color-mist-950: var(--lab-legacy-mist-950);
+
+  /* Key shell slate aliases */
+  --color-slate-background: var(--lab-general-bg);
+}
+
+@layer utilities {
+  .bg-lab-card-gradient {
+    background: var(--lab-card-gradient);
+  }
+
+  /*
+   * rm-67.5 — Canonical lab-general-* utilities (@theme vars alone lose to PrimeVue on teleports).
+   */
+  .text-lab-general-text {
+    color: var(--lab-general-text);
+  }
+
+  .text-lab-general-text-muted {
+    color: var(--lab-general-text-muted);
+  }
+
+  .bg-lab-general-bg {
+    background-color: var(--lab-general-bg);
+  }
+
+  .bg-lab-general-bg-muted {
+    background-color: var(--lab-general-bg-muted);
+  }
+
+  .border-lab-general-border {
+    border-color: var(--lab-general-border);
+  }
+
+  /*
+   * Deprecated structural aliases (applyLabTheme --lab-text*, --lab-surface*).
+   * Prefer lab-general-* in product source; shims retained for stale templates.
+   */
+  .text-lab-text,
+  .text-lab-text-primary {
+    color: var(--lab-general-text);
+  }
+
+  .text-lab-text-muted,
+  .text-lab-muted {
+    color: var(--lab-general-text-muted);
+  }
+
+  .bg-lab-surface-base,
+  .bg-lab-surface {
+    background-color: var(--lab-general-bg);
+  }
+
+  .border-lab-border {
+    border-color: var(--lab-general-border);
+  }
+}

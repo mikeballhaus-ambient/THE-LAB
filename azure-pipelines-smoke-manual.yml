@@ -1,0 +1,53 @@
+# Optional Playwright smoke — NOT wired to PR validation.
+# Run manually in Azure DevOps when you want full-stack shell coverage.
+# PR merge gate: azure-pipelines.yml (CI v1 only). See docs/ci/ci-v1-contract.md.
+# Pin 24.04: ubuntu-latest may advance before Playwright supports new images.
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-24.04
+
+stages:
+  - stage: Smoke
+    displayName: Playwright smoke (manual)
+    jobs:
+      - job: PlaywrightSmoke
+        displayName: Lab stack + Playwright smoke
+        steps:
+          - task: NodeTool@0
+            displayName: Use Node.js 20.x
+            inputs:
+              versionSpec: 20.x
+
+          - script: npm ci
+            displayName: npm ci
+
+          - script: |
+              python3 -m pip install --user chromadb
+              echo "##vso[task.prependpath]$HOME/.local/bin"
+              command -v chroma
+            displayName: Install Chroma CLI (smoke)
+
+          - script: rm -f db/the_lab_smoke.db db/the_lab_smoke.db-wal db/the_lab_smoke.db-shm
+            displayName: Reset smoke SQLite
+
+          - script: npm run lab:start -- --wait-ready --detach
+            displayName: lab:start (Chroma + backend + Vite)
+            env:
+              DATABASE_PATH: db/the_lab_smoke.db
+              REQUIRE_ADMIN_PASSWORD_RESET: '0'
+              THE_LAB_CHROMA_BIN: ''
+              LAB_APP_SERVER_WARMUP: '0'
+
+          - script: npm run test:e2e:install
+            displayName: Install Playwright Chromium
+
+          - script: npx playwright test --project=smoke
+            displayName: Playwright smoke
+            env:
+              SMOKE_SKIP_LAB_STACK: '1'
+
+          - script: npm run lab:stop
+            displayName: lab:stop
+            condition: always()

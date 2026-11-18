@@ -1,0 +1,1010 @@
+
+> test-app@0.0.0 lint
+> npx eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx
+
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\scripts\generate-lint-phase-docs.mjs
+  28:5  error  'step' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\ai-tunes\front-end\components\MP3Card.vue
+  2:15  error  'watch' is defined but never used     @typescript-eslint/no-unused-vars
+  2:22  error  'computed' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\ai-tunes\front-end\components\MP3Grid.vue
+  2:28  error  'SortField' is defined but never used  @typescript-eslint/no-unused-vars
+  4:10  error  'ref' is defined but never used        @typescript-eslint/no-unused-vars
+  4:15  error  'watch' is defined but never used      @typescript-eslint/no-unused-vars
+  4:22  error  'computed' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\ai-tunes\front-end\components\SearchBar.vue
+  19:7  error  'props' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\ai-tunes\front-end\components\SortableHeader.vue
+  2:22  error  'computed' is defined but never used  @typescript-eslint/no-unused-vars
+  4:8   error  'Button' is defined but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\chart-builder\back-end\utils\api-version.ts
+  5:27  error  'FastifyRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\chart-builder\front-end\components\ChartDesignerPreview.vue
+  15:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\crm\back-end\routes\connector\entity-connector.ts
+  111:19  error  '_drop' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  139:19  error  '_drop' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\crm\front-end\components\CrmDashboard.vue
+  70:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  80:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  85:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\crm\front-end\composables\useCrmTasksApi.ts
+  15:10  error  'scopedHeaders' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\DragDropExamples.vue
+  15:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\Animation\AnimatedPreview.vue
+  25:11  error  Using v-html on component may break component's content  vue/no-v-text-v-html-on-component
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\BaseDrop\DraggableItem.vue
+   2:28  error  'onMounted' is defined but never used          @typescript-eslint/no-unused-vars
+  10:9   error  'provider' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\ChangingOverlay\AlchemyDraggable.vue
+  7:11  error  'generateUniqueId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\ChangingOverlay\ReactionZone.vue
+  7:9  error  'props' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\Chess\ChessGame.vue
+  126:15  error  'colDir' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\OverlayTransition\TransitionOverlay.vue
+  2:12  error  'makeDroppable' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\PromiseDrop\DraggableBox.vue
+  26:8  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\dnd-examples\front-end\apps\PromiseDrop\DropZone.vue
+  13:23  error  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\example-server\front-end\App.vue
+   22:29  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   23:33  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   35:64  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   48:18  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   49:20  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  119:11  error  'errorSummary' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\middleware\request-tracing.ts
+   90:48  error  'reply' is defined but never used         @typescript-eslint/no-unused-vars
+   94:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  129:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\middleware\validation.ts
+  27:43  error  '_reply' is defined but never used  @typescript-eslint/no-unused-vars
+  46:43  error  '_reply' is defined but never used  @typescript-eslint/no-unused-vars
+  64:43  error  '_reply' is defined but never used  @typescript-eslint/no-unused-vars
+  89:43  error  '_reply' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\routes\connectors.ts
+   30:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   42:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   56:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   83:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   95:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  124:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  136:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  143:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  173:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  185:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  208:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  220:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  241:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  253:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  281:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\routes\load.ts
+   36:77  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   40:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   40:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\services\form-service.ts
+  116:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  121:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\tests\unit\ConnectorVerificationService.test.ts
+  178:13  error  'mockContract' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\utils\api-version.ts
+  112:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  113:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\utils\circuit-breaker.ts
+   86:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  111:25  error  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  111:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\back-end\utils\transaction-manager.ts
+  14:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  52:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\db\app-db-service.ts
+   25:10  error  'FormBuilderContractModel' is defined but never used          @typescript-eslint/no-unused-vars
+   25:36  error  'FormBuilderContractModelProperty' is defined but never used  @typescript-eslint/no-unused-vars
+  240:19  error  Unexpected any. Specify a different type                      @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\db\migrations\index.ts
+  28:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  28:51  error  'reject' is defined but never used        @typescript-eslint/no-unused-vars
+  66:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:53  error  'reject' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\db\repositories\DataConnectorsRepository.ts
+   21:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   30:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   93:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  170:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  187:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  188:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\db\repositories\FormsRepository.ts
+   41:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  190:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  274:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  275:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  278:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  309:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  310:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  315:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\db\repositories\SubmissionsRepository.ts
+   42:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   64:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   68:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  192:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  294:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  301:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\App.vue
+    3:25   error  'watch' is defined but never used                         @typescript-eslint/no-unused-vars
+   54:9    error  'socket' is assigned a value but never used               @typescript-eslint/no-unused-vars
+   54:17   error  'connected' is assigned a value but never used            @typescript-eslint/no-unused-vars
+   54:67   error  'disconnectWebSocket' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   54:103  error  'off' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+   54:108  error  'isConnected' is assigned a value but never used          @typescript-eslint/no-unused-vars
+   55:16   error  'loading' is assigned a value but never used              @typescript-eslint/no-unused-vars
+   55:102  error  'getForm' is assigned a value but never used              @typescript-eslint/no-unused-vars
+   55:131  error  'saveFormChanges' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   56:36   error  'selectedConnectorId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   56:73   error  'verifyConnector' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  139:9    error  'preloadComponents' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  141:7    error  'landingView' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  150:7    error  'createFormVisible' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  161:7    error  'useDatasource' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  339:11   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  386:16   error  'handleConnectorLoaded' is defined but never used         @typescript-eslint/no-unused-vars
+  402:16   error  'handleConnectorError' is defined but never used          @typescript-eslint/no-unused-vars
+  412:43   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\ConnectorManagement.vue
+  502:7   error  Duplicate key 'connectors'. May cause name collision in script or template tag           vue/no-dupe-keys
+  503:7   error  Duplicate key 'selectedConnectorId'. May cause name collision in script or template tag  vue/no-dupe-keys
+  871:47  error  Unexpected any. Specify a different type                                                 @typescript-eslint/no-explicit-any
+  887:38  error  Unexpected any. Specify a different type                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\ConnectorManager.vue
+  311:7  error  Duplicate key 'selectedConnectorId'. May cause name collision in script or template tag  vue/no-dupe-keys
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\ValidationRules.vue
+  104:10  error  'updateMinLength' is defined but never used  @typescript-eslint/no-unused-vars
+  131:10  error  'updateMaxLength' is defined but never used  @typescript-eslint/no-unused-vars
+  158:10  error  'updatePattern' is defined but never used    @typescript-eslint/no-unused-vars
+  185:10  error  'updateMinValue' is defined but never used   @typescript-eslint/no-unused-vars
+  212:10  error  'updateMaxValue' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\common\ErrorBoundary.vue
+  2:10  error  'defineComponent' is defined but never used  @typescript-eslint/no-unused-vars
+  2:27  error  'h' is defined but never used                @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\common\Skeleton.vue
+  28:7  error  'animationKeyframes' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\form-designer\ComponentLibrary.vue
+  2:26  error  'computed' is defined but never used       @typescript-eslint/no-unused-vars
+  9:7   error  'emit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\components\form-designer\DesignCanvas.vue
+  92:5  error  Unexpected mutation of "schema" prop  vue/no-mutating-props
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\composables\useConnectors.ts
+  1:10  error  'ref' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\composables\useWebSocket.ts
+   1:10  error  'ref' is defined but never used                                                                                          @typescript-eslint/no-unused-vars
+   2:15  error  'FormSchema' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+   9:48  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  12:30  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  17:52  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  22:53  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\stores\websocketStore.ts
+   9:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  61:38  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  74:39  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  81:39  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  90:82  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\tests\unit\stores\connectorsStore.test.ts
+  12:44  error  'name' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\front-end\utils\component-persistence.ts
+  34:25  error  '_definition' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  34:49  error  '_vue' is assigned a value but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\shared\types\form-submission-types.ts
+  23:9  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\shared\types\form-types.ts
+   60:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   73:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\shared\types\websocket-types.ts
+  29:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\forms-builder\shared\utils\schema-json.ts
+  65:38  error  '_grid' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  65:70  error  '_actions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\help-desk\front-end\components\HelpDeskMetrics.vue
+  37:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\help-desk\shared\types\ticket.types.ts
+  30:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\task-list\back-end\utils\appRoutes.ts
+    5:3   error  'FindTaskListsFilter' is defined but never used  @typescript-eslint/no-unused-vars
+   56:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   68:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   86:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  105:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  120:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  137:21  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  152:14  error  '_error' is defined but never used               @typescript-eslint/no-unused-vars
+  166:14  error  '_error' is defined but never used               @typescript-eslint/no-unused-vars
+  174:53  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  177:14  error  '_error' is defined but never used               @typescript-eslint/no-unused-vars
+  185:40  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  186:53  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  192:14  error  '_error' is defined but never used               @typescript-eslint/no-unused-vars
+  200:40  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  206:14  error  '_error' is defined but never used               @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\task-list\back-end\utils\task-service.ts
+  36:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\task-list\front-end\components\TaskItem.vue
+  2:10  error  'computed' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\task-list\front-end\composables\useTaskLists.ts
+  2:25  error  'TaskFilter' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\time-wasters\back-end\games\tile-word-grid\adapter.ts
+  55:22  error  '_config' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\time-wasters\front-end\composables\useTurnBasedMatch.ts
+  73:12  error  'applyMatch' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\apps\time-wasters\front-end\games\tile-word-grid\TileBoardDropLayer.vue
+  57:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  58:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  59:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  60:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  61:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-server-providers\types.ts
+  7:84  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\apps\app-management-mcp-server.ts
+   43:446  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   61:38   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:51   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   97:450  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  116:38   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\awaiter\utils\awaiter-utils.ts
+  2:27  error  'SOCKET_EVENTS' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\command\run-terminal-command-mcp-server.ts
+   2:10  error  'z' is defined but never used            @typescript-eslint/no-unused-vars
+  34:22  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\directory\create-directory-mcp-server.ts
+  2:10  error  'z' is defined but never used     @typescript-eslint/no-unused-vars
+  4:8   error  'path' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\directory\remove-directory-mcp-server.ts
+   3:8   error  'path' is defined but never used          @typescript-eslint/no-unused-vars
+  40:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\documentation\documentor-mcp-server.ts
+  12:15  error  'DiffPatch' is defined but never used  @typescript-eslint/no-unused-vars
+  51:14  error  'err' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\file\read-file-mcp-server.ts
+  3:8  error  'path' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\file\remove-file-mcp-server.ts
+  26:11  error  'pathModule' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  34:16  error  'accessError' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\file\update-file-mcp-server.ts
+   2:8  error  'fs' is defined but never used                   @typescript-eslint/no-unused-vars
+   3:8  error  'path' is defined but never used                 @typescript-eslint/no-unused-vars
+  24:7  error  'getHeaders' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\file\utils\mcp-file-utils.ts
+    1:10  error  'z' is defined but never used                       @typescript-eslint/no-unused-vars
+   40:22  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+   97:22  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  163:7   error  'operationName' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\followup\followup-mcp-server.ts
+  49:20  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\persona\utils\persona-utils.ts
+  2:10   error  'ChatPersona' is defined but never used   @typescript-eslint/no-unused-vars
+  2:105  error  'TodoItemType' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\search\search-repository-mcp-server.ts
+  32:5  error  'normalizedPath' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\search\utils\SearchHelper.ts
+    3:10  error  'isExcludedDir' is defined but never used  @typescript-eslint/no-unused-vars
+  147:14  error  'error' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\mcp-servers\ui-automation\ui-automation-mcp-server.ts
+   81:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  102:12  error  'sessionId' is defined but never used     @typescript-eslint/no-unused-vars
+  102:23  error  'persona' is defined but never used       @typescript-eslint/no-unused-vars
+  153:18  error  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\mcp\utils\mcp-tool-adapter.ts
+  15:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  23:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  50:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\routes\authRoutes.ts
+  10:25  error  'RawSocket' is defined but never used           @typescript-eslint/no-unused-vars
+  11:16  error  'UserRole' is defined but never used            @typescript-eslint/no-unused-vars
+  11:26  error  'AuthResponseData' is defined but never used    @typescript-eslint/no-unused-vars
+  11:44  error  'UpdateUserData' is defined but never used      @typescript-eslint/no-unused-vars
+  11:60  error  'GlobalPermissions' is defined but never used   @typescript-eslint/no-unused-vars
+  11:79  error  'AppPermission' is defined but never used       @typescript-eslint/no-unused-vars
+  13:10  error  'RoleManager' is defined but never used         @typescript-eslint/no-unused-vars
+  14:10  error  'getRoleManager' is defined but never used      @typescript-eslint/no-unused-vars
+  15:8   error  'userService' is defined but never used         @typescript-eslint/no-unused-vars
+  15:23  error  'UserService' is defined but never used         @typescript-eslint/no-unused-vars
+  23:3   error  'AuthStateEventData' is defined but never used  @typescript-eslint/no-unused-vars
+  26:3   error  'ResponseData' is defined but never used        @typescript-eslint/no-unused-vars
+  27:3   error  'FindUserData' is defined but never used        @typescript-eslint/no-unused-vars
+  33:3   error  'FindByEmailData' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\routes\platform-app-seed-data.ts
+  115:16  error  'postAppSeedAction' is defined but never used    @typescript-eslint/no-unused-vars
+  149:10  error  'parseSeedActionBody' is defined but never used  @typescript-eslint/no-unused-vars
+  173:16  error  'resolveAppServerUrl' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\routes\utils\auth-routes-utils.ts
+    1:25  error  'RawSocket' is defined but never used     @typescript-eslint/no-unused-vars
+   18:3   error  'ToolsList' is defined but never used     @typescript-eslint/no-unused-vars
+   38:8   error  'toolsService' is defined but never used  @typescript-eslint/no-unused-vars
+  110:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  137:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  163:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  210:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  249:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  277:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  306:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  351:12  error  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  351:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  455:12  error  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  455:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  462:60  error  'data' is defined but never used          @typescript-eslint/no-unused-vars
+  475:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  496:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  555:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\agent-response-parser.ts
+  173:49  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  446:37  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  453:39  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  474:37  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  490:44  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\app-database-utils.ts
+   43:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   59:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   71:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   76:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   93:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  165:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  184:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\failure-tracker.ts
+    1:10  error  'MCPToolResponse' is defined but never used        @typescript-eslint/no-unused-vars
+  169:17  error  'compositeKey' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\file-helpers.ts
+  11:25  error  'ICommand' is defined but never used                    @typescript-eslint/no-unused-vars
+  16:3   error  'getRepoFileIndexGeneration' is defined but never used  @typescript-eslint/no-unused-vars
+  17:3   error  'isRepoFileIndexFresh' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\lint-file.ts
+   1:10  error  'spawn' is defined but never used                   @typescript-eslint/no-unused-vars
+   1:17  error  'exec' is defined but never used                    @typescript-eslint/no-unused-vars
+   1:23  error  'ChildProcess' is defined but never used            @typescript-eslint/no-unused-vars
+   1:37  error  'ExecException' is defined but never used           @typescript-eslint/no-unused-vars
+  15:48  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  16:5   error  'utilPromisify' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  16:43  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\logger.ts
+    3:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    4:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    5:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  146:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\mcp-production-enforcer.ts
+   8:3   error  'resolveTargetAppIdsFromToolParams' is defined but never used  @typescript-eslint/no-unused-vars
+  40:38  error  Unexpected any. Specify a different type                       @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\mcp-utils.ts
+   14:3    error  'addTodoItemSchemaFields' is defined but never used     @typescript-eslint/no-unused-vars
+   31:26   error  'MAX_CONSECUTIVE_FAILURES' is defined but never used    @typescript-eslint/no-unused-vars
+   72:96   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+   74:93   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+   75:57   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+   90:41   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  189:105  error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  447:15   error  'toolResultWrapped' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  586:23   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\parse-utils.ts
+  1:33  error  'MCPToolCall' is defined but never used    @typescript-eslint/no-unused-vars
+  2:10  error  'AgentResponse' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\template-manager.ts
+  121:11  error  'nativeToolCalls' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\template-resolvers\persona-resolver.ts
+  12:3  error  '_isDeveloperMode' is defined but never used  @typescript-eslint/no-unused-vars
+  13:3  error  '_providerData' is defined but never used     @typescript-eslint/no-unused-vars
+  14:3  error  '_templateData' is defined but never used     @typescript-eslint/no-unused-vars
+  31:3  error  '_sessionId' is defined but never used        @typescript-eslint/no-unused-vars
+  32:3  error  '_persona' is defined but never used          @typescript-eslint/no-unused-vars
+  33:3  error  '_isDeveloperMode' is defined but never used  @typescript-eslint/no-unused-vars
+  34:3  error  '_providerData' is defined but never used     @typescript-eslint/no-unused-vars
+  35:3  error  '_templateData' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\tool-call-execution-context.ts
+  106:22  error  '_removed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\backend\utils\type-script-validator.ts
+   1:10  error  'spawn' is defined but never used                   @typescript-eslint/no-unused-vars
+  16:5   error  'utilPromisify' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\LabDashboard.vue
+  18:750   error  'RuntimeApp' is defined but never used                                   @typescript-eslint/no-unused-vars
+  35:917   error  'manageProviderConfigRequestHandler' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  35:1810  error  'showLoadingModal' is assigned a value but never used                    @typescript-eslint/no-unused-vars
+  35:1828  error  'hideLoadingModal' is assigned a value but never used                    @typescript-eslint/no-unused-vars
+  35:1888  error  'deleteSessionWrapper' is assigned a value but never used                @typescript-eslint/no-unused-vars
+  35:2397  error  'emitLaunchForTab' is assigned a value but never used                    @typescript-eslint/no-unused-vars
+  35:2431  error  'handleTeardownApp' is assigned a value but never used                   @typescript-eslint/no-unused-vars
+  35:2486  error  'sortByOrder' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+  35:2512  error  'activeTabId' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\app\VersionBadge.vue
+  8:10  error  'ref' is defined but never used        @typescript-eslint/no-unused-vars
+  8:25  error  'watch' is defined but never used      @typescript-eslint/no-unused-vars
+  8:32  error  'onMounted' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\auth\ForcePasswordChangeDialog.vue
+  11:7  error  'props' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\auth\LabLoginDialog.vue
+  10:7  error  'props' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\chat\FollowupOptions.vue
+  3:28  error  'FollowupEventData' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\chat\LabAssistant.vue
+  7:109  error  'User' is defined but never used               @typescript-eslint/no-unused-vars
+  7:115  error  'UserRole' is defined but never used           @typescript-eslint/no-unused-vars
+  7:149  error  'FollowupEventData' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\chat\MessageInput.vue
+    2:15  error  'computed' is defined but never used                @typescript-eslint/no-unused-vars
+   55:98  error  'clearAllFiles' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   65:52  error  'oldSession' is defined but never used              @typescript-eslint/no-unused-vars
+   97:41  error  Unexpected mutation of "activeSessionRef" prop      vue/no-mutating-props
+  260:30  error  'idx' is defined but never used                     vue/no-unused-vars
+  276:59  error  'aHidx' is defined but never used                   vue/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\chat\MessagesView.vue
+    2:10   error  'ref' is defined but never used                      @typescript-eslint/no-unused-vars
+    2:32   error  'ComponentPublicInstance' is defined but never used  @typescript-eslint/no-unused-vars
+    3:124  error  'FollowupEventData' is defined but never used        @typescript-eslint/no-unused-vars
+    9:8    error  'Button' is defined but never used                   @typescript-eslint/no-unused-vars
+  187:35   error  'index' is defined but never used                    vue/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\file-overview\FileOverview.vue
+   5:23  error  'FileOperations' is defined but never used  @typescript-eslint/no-unused-vars
+  71:40  error  'fIdx' is defined but never used            vue/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\messages\LabMessagesTwInviteCard.vue
+  6:7  error  'props' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\CommandManagement.vue
+  2:10  error  'computed' is defined but never used     @typescript-eslint/no-unused-vars
+  2:20  error  'ref' is defined but never used          @typescript-eslint/no-unused-vars
+  7:29  error  'ChatPersona' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\ContextManagement.vue
+  2:10  error  'computed' is defined but never used  @typescript-eslint/no-unused-vars
+  2:20  error  'ref' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\MCPServerManagement.vue
+   5:8  error  'Listbox' is defined but never used                    @typescript-eslint/no-unused-vars
+  56:3  error  'renameMcpServer' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  57:3  error  'showRenameOption' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  58:3  error  'testConnection' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\PersonaManagement.vue
+  20:3  error  'settingsTablistTier2PtClass' is defined but never used  @typescript-eslint/no-unused-vars
+  33:3  error  'personaSelected' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\SessionManagement.vue
+  20:26  error  'personaName' is defined but never used  @typescript-eslint/no-unused-vars
+  21:25  error  'personaName' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\SystemMessageManagement.vue
+   2:10  error  'computed' is defined but never used       @typescript-eslint/no-unused-vars
+  18:7   error  'emit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\ThemeManagement.vue
+  91:7  error  'accordionRootId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\settings\UserManagement.vue
+   30:7   error  'emit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  323:33  error  'idx' is defined but never used            vue/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\components\todo-list\TodoList.vue
+  54:40  error  'index' is defined but never used  vue/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\dashboard\composables\useLabMessagesShell.ts
+  357:55  error  'partnerUserId' is defined but never used  @typescript-eslint/no-unused-vars
+  393:56  error  'partnerUserId' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\scripts\lint-the-lab-apps.ts
+  3:10  error  'fileURLToPath' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\scripts\metrics-phase-2-verify.ts
+  13:52  error  'label' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\scripts\persona-tools-loader\persona-tools-config.ts
+   1:8   error  'path' is defined but never used          @typescript-eslint/no-unused-vars
+  12:12  error  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  12:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\scripts\sync-app-dirs.ts
+  105:23  error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  151:21  error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  168:17  error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  178:7   error  'result' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\charts\ChartRuntime.vue
+  85:3  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\charts\chart-options.ts
+  1:15  error  'ChartOptionsConfig' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useFileOverview.ts
+   32:22  error  'value' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   75:31  error  'diffs' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   76:69  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  169:40  error  'content' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  169:49  error  'overwrite' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  172:71  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  208:40  error  'diffs' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  211:71  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMCPServerManagement.ts
+    1:25  error  'watch' is defined but never used     @typescript-eslint/no-unused-vars
+  165:33  error  'serverId' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMessageInput.ts
+    8:10  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   31:28  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   42:42  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   42:79  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   58:44  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   69:43  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  183:32  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  183:46  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+  267:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  287:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  404:36  error  'index' is defined but never used                                      @typescript-eslint/no-unused-vars
+  440:45  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useMessagesView.ts
+   1:15   error  'Ref' is defined but never used              @typescript-eslint/no-unused-vars
+   1:30   error  'defineEmits' is defined but never used      @typescript-eslint/no-unused-vars
+   1:43   error  'watch' is defined but never used            @typescript-eslint/no-unused-vars
+   2:44   error  'MCPToolCall' is defined but never used      @typescript-eslint/no-unused-vars
+   2:57   error  'MCPToolResponse' is defined but never used  @typescript-eslint/no-unused-vars
+   2:104  error  'ChatMessage' is defined but never used      @typescript-eslint/no-unused-vars
+   2:141  error  'ChatPersona' is defined but never used      @typescript-eslint/no-unused-vars
+  88:36   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  90:43   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  97:28   error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\usePersonaManagement.ts
+  2:67  error  'ICommand' is defined but never used     @typescript-eslint/no-unused-vars
+  2:77  error  'ToolsList' is defined but never used    @typescript-eslint/no-unused-vars
+  2:88  error  'ChatPersona' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useTodoList.ts
+  50:25  error  'toolresult' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\components\useUserManagement.ts
+    2:89  error  'UserStatus' is defined but never used                                 @typescript-eslint/no-unused-vars
+  100:24  error  'user' is defined but never used                                       @typescript-eslint/no-unused-vars
+  148:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  149:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  150:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  151:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  161:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  162:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  163:9   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  196:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  197:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  204:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  205:7   error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+  267:14  error  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  267:19  error  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\useMcpToolFormatter.ts
+    2:74   error  'FileOperations' is defined but never used  @typescript-eslint/no-unused-vars
+  201:124  error  'altPath' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\app-management-format-result.ts
+    2:3   error  'createAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+    3:3   error  'getAppSchemaFields' is defined but never used     @typescript-eslint/no-unused-vars
+    4:3   error  'getAppsSchemaFields' is defined but never used    @typescript-eslint/no-unused-vars
+    5:3   error  'updateAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+    6:3   error  'deleteAppSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+   69:34  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  166:15  error  'appId' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  183:70  error  Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\awaiter-format-result.ts
+  8:9  error  'paramsResult' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\base-utils.ts
+    2:90   error  'MCPToolCall' is defined but never used         @typescript-eslint/no-unused-vars
+    2:103  error  'MCPToolResponse' is defined but never used     @typescript-eslint/no-unused-vars
+  161:129  error  'altPath' is defined but never used             @typescript-eslint/no-unused-vars
+  216:9    error  'overwrite' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  237:27   error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  278:41   error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\context7-format-result.ts
+   1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+  47:30  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\create-directory-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\create-file-format-result.ts
+   6:9   error  'content' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  18:13  error  'path' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\documentor-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\followup-format-result.ts
+   5:10  error  'z' is defined but never used                     @typescript-eslint/no-unused-vars
+   7:10  error  'FollowupParamsSchema' is defined but never used  @typescript-eslint/no-unused-vars
+   7:32  error  'Option' is defined but never used                @typescript-eslint/no-unused-vars
+   7:40  error  'FollowupParams' is defined but never used        @typescript-eslint/no-unused-vars
+  51:41  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  51:46  error  'index' is defined but never used                 @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\list-files-format-result.ts
+  6:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  9:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\persona-manager-format-result.ts
+    1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+   48:28  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  111:30  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\read-file-format-result.ts
+  1:10  error  'ZodSafeParseResult' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\remove-file-format-result.ts
+  10:13  error  'path' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  10:25  error  'totalRemovals' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  10:40  error  'totalAdditions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\search-repository-format-result.ts
+  13:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  39:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\todo-list-format-result.ts
+   20:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  151:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  153:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\update-file-format-result.ts
+   1:10  error  'z' is defined but never used           @typescript-eslint/no-unused-vars
+  33:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+  55:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+  83:16  error  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\mcp\utils\web-query-format-result.ts
+   6:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   9:12  error  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  36:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useAuthHandlers.ts
+  4:26  error  'getAuthUser' is defined but never used          @typescript-eslint/no-unused-vars
+  4:68  error  'isUserAuthenticated' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useInputFileHandler.ts
+    2:10  error  'useToast' is defined but never used                                                                                     @typescript-eslint/no-unused-vars
+   33:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   48:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   50:33  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   83:53  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+   84:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  133:32  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  147:64  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  203:53  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  204:31  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  217:29  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useMessageHandlers.ts
+   1:10   error  'ref' is defined but never used                  @typescript-eslint/no-unused-vars
+   4:251  error  'SocketErrorEvent' is defined but never used     @typescript-eslint/no-unused-vars
+   4:291  error  'ChatInitializedData' is defined but never used  @typescript-eslint/no-unused-vars
+  25:9    error  'toast' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  93:32   error  'err' is defined but never used                  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useProviderHandlers.ts
+   1:10  error  'ref' is defined but never used   @typescript-eslint/no-unused-vars
+  46:41  error  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\composables\utils\useSessionHandlers.ts
+   1:10   error  'ref' is defined but never used                         @typescript-eslint/no-unused-vars
+   4:133  error  'NewSessionCreatedEventData' is defined but never used  @typescript-eslint/no-unused-vars
+  10:43   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  11:32   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+  13:45   error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\eslint-rules\vue-unique-id-rule.js
+  67:10  error  'hasUniqueIdPattern' is defined but never used     @typescript-eslint/no-unused-vars
+  71:10  error  'hasUseUniqueIdPattern' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\AppRegistry.ts
+   19:16  error  'IServerConfig' is defined but never used         @typescript-eslint/no-unused-vars
+   19:44  error  'AppConfigWithAppType' is defined but never used  @typescript-eslint/no-unused-vars
+   19:78  error  'AppType' is defined but never used               @typescript-eslint/no-unused-vars
+   27:68  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  421:30  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  422:34  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\AppUpdateManager.ts
+   74:59  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+   74:87  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+   81:53  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  117:39  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  144:39  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  175:19  error  'formattedPath' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  278:39  error  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\RoleManager.ts
+  10:43  error  'AppPermission' is defined but never used      @typescript-eslint/no-unused-vars
+  10:58  error  'GlobalPermissions' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\ServerAppRegistry.ts
+   12:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   35:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   52:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   69:68  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  130:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\TemplateGenerator.ts
+   92:21   error  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+  161:109  error  'port' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\services\ui-automation-handler.ts
+  412:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\templates\db\schemas\migration.ts
+   1:26  error  'Database' is defined but never used  @typescript-eslint/no-unused-vars
+  71:14  error  'error' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\theme\lab-theme-draft-store.ts
+   3:10  error  'applyLabTheme' is defined but never used               @typescript-eslint/no-unused-vars
+  22:3   error  'getBuiltinPresetDefinition' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\theme\lab-theme-preset-id.ts
+  1:37  error  'LabThemeMode' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\theme\tailwind-color-resolve.ts
+  179:3  error  '_expectedPrefix' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\ai-providers.ts
+   2:10  error  'ICommand' is defined but never used                              @typescript-eslint/no-unused-vars
+   3:10  error  'IContextSettings' is defined but never used                      @typescript-eslint/no-unused-vars
+   4:10  error  'ToolsList' is defined but never used                             @typescript-eslint/no-unused-vars
+   5:10  error  'Persona' is defined but never used                               @typescript-eslint/no-unused-vars
+  25:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+  27:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\app\App.ts
+  1:10  error  'Component' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\app\app.d.ts
+  157:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  176:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  177:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\auth\index.ts
+    7:10  error  'UserRegistrationData' is defined but never used                  @typescript-eslint/no-unused-vars
+    7:32  error  'UserLoginData' is defined but never used                         @typescript-eslint/no-unused-vars
+   32:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+   93:29  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  105:10  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  129:16  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  144:16  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  209:89  error  'hash' is defined but never used                                  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\chat.ts
+    4:10  error  'FollowupEventData' is defined but never used  @typescript-eslint/no-unused-vars
+   90:11  error  Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+  161:28  error  Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+  191:28  error  Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\forms-builder-integration.ts
+  47:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\lab-db.ts
+   2:29  error  'UIChatMessage' is defined but never used  @typescript-eslint/no-unused-vars
+   2:44  error  'TodoList' is defined but never used       @typescript-eslint/no-unused-vars
+  32:42  error  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+  33:39  error  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\llm-provider.ts
+  74:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  87:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\mcp-servers.ts
+  24:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  41:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\mcp-tools.ts
+  29:23  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  31:34  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  35:19  error  The `{}` ("empty object") type allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowObjectTypes' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead  @typescript-eslint/no-empty-object-type
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\types\socket-events.ts
+   69:29  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  168:13  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  202:10  error  Unexpected any. Specify a different type                          @typescript-eslint/no-explicit-any
+  205:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+  312:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\utils\mcp-tool-json-schema.ts
+   52:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   52:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   52:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   56:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   60:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  139:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  139:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  172:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  176:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\shared\utils\mention-blot.ts
+   2:15  error  'InlineBlot' is defined but never used    @typescript-eslint/no-unused-vars
+   9:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  22:12  error  'context' is defined but never used       @typescript-eslint/no-unused-vars
+  22:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\templates\front-end\App.vue
+  35:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  49:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\backend\google-oidc.test.ts
+  12:34  error  'getGoogleOidcRedirectUri' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\backend\repo-file-index.test.ts
+  7:3  error  'resetRepoFileIndexForTests' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\create-directory-mcp-server.test.ts
+  23:16  error  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\create-file-mcp-server.test.ts
+   23:16  error  'err' is defined but never used                @typescript-eslint/no-unused-vars
+   33:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   53:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   80:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  101:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  129:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\documentor-mcp-server.test.ts
+  243:13  error  'tool' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  322:13  error  'tool' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  325:13  error  'testFile' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\list-files-mcp-server.test.ts
+  1:34  error  'beforeEach' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\remove-directory-mcp-server.test.ts
+  23:16  error  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\todo-list-mcp-server.test.ts
+   7:3  error  'markTodoItemIncompleteSchemaFields' is defined but never used  @typescript-eslint/no-unused-vars
+   8:3  error  'completeTodoListSchemaFields' is defined but never used        @typescript-eslint/no-unused-vars
+   9:3  error  'getTodoListStateSchemaFields' is defined but never used        @typescript-eslint/no-unused-vars
+  11:3  error  'removeTodoListSchemaFields' is defined but never used          @typescript-eslint/no-unused-vars
+  12:3  error  'removeTodoItemSchemaFields' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\ui-automation-mcp-server.test.ts
+  241:13  error  'tool' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\mcp\update-file-mcp-server.test.ts
+   29:14  error  'err' is defined but never used              @typescript-eslint/no-unused-vars
+  137:11  error  'tool' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  204:13  error  'result' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  239:13  error  'result' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\mikeb\source\repos\LLM_Workspace\the-lab\src\tests\shared\role-manager-matrix.test.ts
+  5:7  error  'ROLES' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 623 problems (623 errors, 0 warnings)
+

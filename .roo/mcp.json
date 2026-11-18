@@ -1,0 +1,67 @@
+{
+	"mcpServers": {
+		"context7": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@upstash/context7-mcp@latest"
+			],
+			"env": {
+				"API_KEY": "ctx7sk-a7a6e01f-fa1f-4320-9ba9-3cbbde125ffa"
+			},
+			"alwaysAllow": [
+				"query-docs",
+				"resolve-library-id"
+			]
+		},
+		"datetime": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"mcp-datetime"
+			],
+			"env": {},
+			"alwaysAllow": [
+				"date_info",
+				"date_diff",
+				"format_date",
+				"unix_timestamp"
+			]
+		},
+		"sqlite": {
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"npx",
+				"-y",
+				"mcp-server-sqlite-npx",
+				"c:\\Users\\mikeb\\source\\repos\\LLM_Workspace\\the-lab\\db\\the_lab.db"
+			],
+			"env": {},
+			"alwaysAllow": [
+				"list_tables",
+				"describe_table",
+				"write_query",
+				"create_table",
+				"read_query"
+			]
+		},
+		"mcp-neuralmemory": {
+			"command": "nmem-mcp",
+			"args": [],
+			"env": {},
+			"alwaysAllow": [
+				"nmem_context",
+				"nmem_remember",
+				"nmem_remember_batch",
+				"nmem_recall",
+				"nmem_todo",
+				"nmem_auto",
+				"nmem_session",
+				"nmem_eternal",
+				"nmem_recap",
+				"nmem_situation"
+			]
+		}
+	}
+}

@@ -1,0 +1,320 @@
+# THE-LAB — Cursor Rules
+
+**THE-LAB** is an agentic workflow platform. Specialized **personas** (Architect, Code, Debug, QA, Orchestrator, Chat, etc.) collaborate on software outcomes. You help the user with **strategic guidance**, **implementation**, and **validation**. **THE-LAB Apps** (`src/apps/`) are the primary deliverable surface; the dashboard + backend are the host platform.
+
+Long-form reference: `CLAUDE.md` (architecture deep dives); compact shared rules: `AGENTS.md`. This file is the **operational contract** for agents — read it before editing code.
+
+---
+
+## Subagent model policy
+
+- Never use `composer-fast` variants for subagents unless explicitly requested.
+- If spawning internal sub-agents, always execute them using the composer non-fast variant.
+- Prefer serial execution in this thread over spinning up separate fast tasks if model routing is ambiguous.
+
+---
+
+## Core directives (non-negotiable)
+
+1. **App registry metadata** (id, name, description, `order`, `faIcon`, `type`, port, `isEnabled`, dependencies): change only via **App Management** MCP/tool — not ad-hoc SQL or hand-editing seed JSON unless you are explicitly maintaining platform seeds.
+2. **App behavior, UI, and APIs**: edit source under `src/apps/{app-id}/**`.
+3. **Platform changes** (`src/backend`, `src/dashboard`, `src/shared`, `src/services`): only when the task requires host/MCP/chat behavior; keep diffs minimal and match existing patterns.
+4. **Third-party libraries in Apps**: use **Context7** MCP to fetch current docs **before** implementing or upgrading.
+5. **Drag-and-drop in Apps**: use **`@vue-dnd-kit/core` only** for all DnD (no HTML5 `draggable`, SortableJS, or other libs). Reference `src/apps/dnd-examples/`.
+6. **Interactive UI in `src/apps`**: every interactive native element and PrimeVue control must use **`useUniqueElementId()`** (see Vue section). Build and ESLint will fail otherwise.
+7. **Never** `new` platform singletons — always `Class.getInstance()` (`databaseManager`, `ProviderService`, `MCPToolRegistry`, `ConversationMemory`, `AppDatabaseService`, `VSCodeLogger`, etc.).
+8. **Commits**: only when the user asks; no force-push to `main`; no `--no-verify` unless requested.
+9. **App ↔ core decoupling**: core (`src/backend`, `src/dashboard`, `src/shared`, `src/services`) must **not** import or hard-wire catalog app code (`src/apps/{app-id}/**`). Apps integrate only through generic, registry-driven contracts (manifests, events, registries). Platform apps (`app-lab-*`) may be referenced only where the platform *is* the product. See [docs/platform/lab-app-integrations.md](docs/platform/lab-app-integrations.md).
+10. **Domain event catalog:** per-app `src/apps/<dir>/shared/lab-domain-events.manifest.ts`; register in `src/shared/lab-domain-events/domain-event-manifest-index.ts`; `npm run verify:domain-event-manifests`. See `docs/platform/lab-domain-events.md`. No `lab-domain-event-catalog.ts` monolith.
+
+---
+
+## Platform at a glance
+
+| Piece | Role |
+|-------|------|
+| **Lab dashboard** | Chat (personas + MCP tools), app grid/tabs, settings — `src/dashboard/`, `useLabDashboard.ts` |
+| **Main backend** | Fastify + Socket.IO on port **3000** — AI chat, auth, app launch/teardown, MCP execution |
+| **ChromaDB** | Conversation memory (`chroma-data/`) |
+| **Main SQLite** | `db/the_lab.db` — users, personas, apps registry, MCP metadata, providers |
+| **Apps** | Isolated products under `src/apps/{app-id}/` (browser / server / hybrid) |
+
+**Dual view**: **Laboratory** (full-screen chat) vs **apps workspace** (`focusedAssistant` in `useLabDashboard.ts`). Quick nav label **Laboratory** (formerly “Lab Assistant view”); see `docs/platform/lab-shell-terminology.md`. Both views stay in the DOM; focus is CSS blur/opacity. UI automation can target either view.
+
+**Realtime**: Platform chat uses `src/shared/types/socket-events.ts`. App servers define **their own** events in `src/apps/{app-id}/shared/types/socket-events.ts` — do not reuse platform event names for unrelated app logic.
+
+---
+
+## Personas & the Lab Assistant
+
+- Personas live in SQLite (`user_personas`); tool allowlists come from `src/backend/db/Persona/persona-tools-config.json`.
+- System prompts are assembled from `src/shared/templates/*.md` via `template-manager.ts` (placeholders: `{{CURRENT_PERSONA_*}}`, `{{MCPTOOL_AVAILABILITY_MAP}}`, `{{ACTIVE_APPS}}`, repo file lists, etc.).
+- Agents in chat should: understand intent → plan (`todo_list` when multi-step) → use persona-appropriate MCP tools → confirm destructive work → stay in markdown (no raw JSON unless asked).
+- **Delegating personas**: `persona_manager` MCP when the task fits a specialist persona.
+- **Roles** (launch/teardown/manage apps): `src/shared/services/RoleManager.ts` — `owner` > `admin` > `member` > `viewer`.
+
+---
+
+## THE-LAB Apps — mental model
+
+Apps are **generated from templates** (`npm run generate:app` → `TemplateGenerator` + files in `src/templates/`). Each registered app has:
+
+- A row in **main DB** (`apps` table via `appsService`)
+- A folder **`src/apps/{app-id}/`** (synced on dev start: `sync-app-dirs.ts` removes orphan folders not in DB)
+
+### App types
+
+| Type | UI | Server process | Typical use |
+|------|----|----------------|-------------|
+| `browser` | `front-end/App.vue` | No | Client-only tools |
+| `server` | None in dashboard | `back-end/server.ts` via `npx tsx` | APIs, workers |
+| `hybrid` | `front-end/App.vue` | `back-end/server.ts` | UI + dedicated Fastify app |
+
+**Dependencies**: `dependencies` / `optionalDependencies` on the app record; startup order via `DependencyGraph` (topological sort, cycle detection). `AppLifecycle` can launch dependency server apps before the dependent app.
+
+### Canonical app folder layout (from generator)
+
+```
+src/apps/{app-id}/
+├── docs/                          # App-specific docs
+├── shared/
+│   ├── types/
+│   │   ├── index.ts               # Barrel
+│   │   └── socket-events.ts       # App-local Socket.IO event constants
+│   └── utils/
+├── front-end/                     # browser + hybrid
+│   ├── App.vue                    # Root SFC — entry for ComponentLoader
+│   ├── components/
+│   ├── composables/
+│   ├── types/
+│   └── utils/
+├── back-end/                      # server + hybrid
+│   ├── server.ts                  # Fastify entry (DB registry points here)
+│   ├── utils/                     # routes, services
+│   └── types/
+└── db/                            # server + hybrid
+    └── app-db-service.ts          # AppDatabaseServiceProxy (templated per app id)
+```
+
+**Reference implementations**: `task-list` (hybrid, clean composables), `forms-builder` (hybrid, Pinia, larger structure), `example-server` / template app (minimal).
+
+### How apps load and run (avoid breaking this)
+
+1. **Registry**: `AppRegistry.init()` loads enabled apps from SQLite; Vue modules via `import.meta.glob('/src/apps/**/*.vue')` in `ComponentLoader.ts`.
+2. **Browser/hybrid UI**: User launches app → `AppLifecycle.render()` creates a **new Vue app instance** with PrimeVue + Toast + **Pinia**, mounts into `#render-container`, passes prop:
+   - **`serverUrl`**: `` `${VITE_API_BASE_URL}:${app.server?.port ?? 3000}` ``  
+   - Hybrid/server apps: HTTP/WebSocket target is the **app’s port** (4000–4999), **not** the main lab backend unless you intentionally call port 3000.
+3. **Server/hybrid process**: `AppGateway` → POST `/app/launch` → `AppManager.launchServerApp` spawns `npx tsx {cwd}/{server.entry}` with `PORT` and `BASEURL` env. Readiness expects log line containing **`Server running`**; expose **`GET /health`**.
+4. **Teardown**: SIGTERM via platform; app server should handle `SIGINT`/`SIGTERM` and `server.close()` (see template `server.ts`).
+
+### App coding standards (template-aligned)
+
+- Root `App.vue`: `<script setup lang="ts">`, accept **`Props { serverUrl?: string }`** (hybrid/server); pass `serverUrl` down to children that call the API.
+- Root wrapper: use a **stable app-specific class** on the outer div (e.g. `task-list-app`, not generic `template-app`).
+- **HTTP**: `fetch(\`${props.serverUrl}/your-route\`)` — routes live on the **app** Fastify instance.
+- **Socket.IO (optional)**: client `io(props.serverUrl)`; server attaches `SocketIOServer` to the same HTTP server as Fastify; use constants from **`../shared/types`** (app-local), not platform `SOCKET_EVENTS`, unless bridging to the lab (rare).
+- **Structure**: logic in `composables/`; presentational pieces in `components/`; shared types in `shared/types` or `front-end/types` — follow the app you are extending.
+- **State**: prefer composables; use **Pinia** only when state is broad (forms-builder pattern). Pinia is registered per app mount in `AppLifecycle` — stores are **not** global across the whole lab shell.
+- **Do not** import `@/backend/**` from `front-end/` (no matches in repo; keeps Vite bundle safe). Server code uses `AppDatabaseServiceProxy` in `db/app-db-service.ts`.
+
+### App database (every server/hybrid app)
+
+- **File**: `src/apps/{app-id}/db/the_lab.db` (managed by platform `AppDatabaseManager`).
+- **Access**: `AppDatabaseServiceProxy.getInstance()` → `await initialize()` at server startup (template does this in `server.ts`).
+- **Underlying API**: `AppDatabaseService.getInstance('{app-id}')` — CRUD helpers with validation (`src/shared/types/app/app-database.ts`).
+- **Standard tables** (created for each app): `items`, `users`, `configs`, `logs` — names are **reserved**; custom tables use `addTable` / migrations, not those names.
+- **Migrations**: tracking table `{app-id}_migrations`; helpers in `src/shared/templates/db/schemas/migration.ts` and SQL under `src/shared/templates/db/schemas/`.
+- **Pattern**: services in `back-end/utils` or `back-end/services` take `AppDatabaseServiceProxy` in constructor or `getInstance()` — see `task-list` / `forms-builder`.
+
+---
+
+## Technology stack
+
+| Layer | Choices |
+|-------|---------|
+| Runtime | Node ESM (`"type": "module"`), **tsx** for backend/scripts |
+| Frontend | **Vue 3.5** (`<script setup lang="ts">`), **Vite 5**, **TypeScript 5.9** (strict) |
+| UI | **PrimeVue 4** + Lara → **CloudGrey** preset (`main.ts` / `AppLifecycle`), **PrimeIcons**, **Tailwind 4**, **motion-v**, **@vueuse/core** |
+| Client (lab shell) | **Dexie** (`LabDB` in `src/shared/types/lab-db.ts`) for chat sessions/messages |
+| Realtime | **socket.io**; platform events in `src/shared/types/socket-events.ts` |
+| Backend | **Fastify 4** + **@fastify/cors**, port **3000** |
+| DB | **better-sqlite3** (WAL); per-app DB under each app’s `db/` |
+| Vector memory | **chromadb** (`chroma-data/`) |
+| AI | **openai**, **ollama** → `ProviderService` |
+| MCP | **@modelcontextprotocol/sdk** — servers in `src/backend/mcp/mcp-servers/` |
+| Validation | **Zod** — `src/shared/types/schemas/` |
+| Auth | **bcrypt**, `RoleManager` |
+
+---
+
+## Platform architecture layout
+
+```
+src/
+├── main.ts, App.vue              # Vite entry (backend excluded from bundle)
+├── backend-entry.ts              # tsx → server.ts
+├── backend/
+│   ├── db/{Domain}/              # *-repository.ts (bootstrap + initialize), *-service.ts
+│   ├── mcp/mcp-servers/        # MCP server module + tools manifest each
+│   ├── routes/                   # HTTP + Socket.IO wiring
+│   ├── AppManager.ts             # Spawn/kill app servers (tsx)
+│   ├── AppDatabaseService.ts     # Per-app SQLite API
+│   └── utils/                    # file-helpers, logger, template-manager, chat/*
+├── dashboard/                    # Lab shell UI
+├── services/                     # AppGateway, AppLifecycle, DependencyGraph
+├── shared/                       # types, composables, templates, ComponentLoader
+├── apps/{app-id}/                # Product apps (see above)
+├── scripts/                      # generate-app, sync-app-dirs, lint-the-lab-apps
+└── tests/**/*.test.(ts|tsx)      # Jest — platform/MCP
+```
+
+**Repository pattern** (main DB): `bootstrap(db)` then `initialize()` on `Repository` subclasses.
+
+**MCP tools**: implement `MCPToolInterface` + Zod `params`; `execute()` → `{ success, content }`; register via `MCPToolRegistry.loadDefaultServers()` / `registerMCPServer`. File paths in tools: `fileHelpers.toForwardPath()`, respect `EXCLUDED_DIRS`.
+
+**Startup**: `npm run dev` → `sync-app-dirs` + Chroma + Vite + main backend.
+
+---
+
+## State management
+
+| Area | Approach |
+|------|----------|
+| Lab dashboard / chat | Composables (`useLabDashboard`, `useChatSession`, `SessionManager`) + Socket.IO |
+| Chat persistence | Dexie `LabDB` |
+| Server / personas / apps registry | Main SQLite + Chroma |
+| Inside an App | Composables first; Pinia for large apps; isolated per `AppLifecycle` mount |
+
+---
+
+## Imports and module resolution
+
+- Alias **`@/*` → `src/*`** (tsconfig + Jest).
+- **Apps & tests**: prefer `@/` for shared composables/types.
+- **Dashboard / backend**: often relative paths — **match the file you edit**.
+- Shared contracts: `@/shared/types` barrel.
+- **Never** pull `src/backend/**` into app `front-end/` or client bundles; Vite externalizes backend for the main build.
+
+---
+
+## Platform theming (rm-49)
+
+- **20 built-in presets** (10 dark / 10 light); admins edit **Settings → Themes**; user guide `docs/platform/platform-theming.md`.
+- Shell/chat/app chrome: use **`lab-*` / `text-lab-*` / `bg-lab-*`** tokens (`src/shared/theme/`, `docs/platform/platform-theming.md`), not new fixed `slate-*` / `cyan-*` on platform UI.
+- **Every app surface** (lobby, tabs, all mini-game screens) must honor active tokens via `lab-app-theme.ts`.
+
+## Drag and drop (apps)
+
+- **CRITICAL:** All drag-and-drop in `src/apps/**` MUST use **`@vue-dnd-kit/core`** only (`makeDraggable`, `makeDroppable`, `DnDProvider`, etc.). No HTML5 `draggable`, SortableJS, or alternate DnD libs for product UI. Reference: `src/apps/dnd-examples/`, `forms-builder`, `help-desk` kanban. Use Context7 before changing dnd-kit usage.
+- New built-in presets: `src/shared/theme/presets/*.ts` + `LAB_THEME_PRESET_IDS` + `presets/index.ts` (not ad-hoc SQL).
+- Mounted apps load theme CSS via `lab-app-theme.ts`; charts via `src/shared/charts/lab-chart-theme.ts`.
+
+## Lab messaging (rm-50.4) — complete 2026-10-07
+
+- **Human DMs:** `/lab-comms` namespace + `LAB_COMMS_EVENTS` only — never extend `SOCKET_EVENTS` for team chat.
+- **v1 socket-only** (no REST comms send/history). Client: `useLabComms` / `useLabMessagesShell`; UI: `src/dashboard/components/messages/`. User guide: `docs/platform/lab-messaging.md`.
+
+## Catalog games, Quarks & Play vs Lab Assistant
+
+- **Quarks** — platform play-money on main DB; wallet in quick nav; settlements via game adapters — `docs/platform/lab-virtual-bank.md`.
+- **Play vs Lab Assistant** — turn-based catalog games (chess, checkers, connect four, battleship, hangman, poker, tic-tac-toe, word tile, blackjack seat 2 vs dealer, …) use **`agentMode: 'llm'`** and **`createTurnBasedAdapter`** + structural tools — the human’s **configured lab LLM** at `easy`–`boss`, not a hidden engine or **`agentMode: 'scripted'`** seat opponent. Difficulty = prompt/temperature only (`src/shared/game-platform/difficulty-policy.ts`); **no heuristic move fallback**. Engine/search hints in the **user prompt only**. User copy: `src/shared/constants/lab-game-assistant-opponent.ts`; shared agent blocks: `src/backend/db/Apps/app-instructions/shared-games-app-instructions.ts`. **Blackjack:** seat 2 = LLM tablemate; **dealer** = scripted house only.
+- **Sidecar at the table** — expanded Sidecar during vs–Lab Assistant matches can emit LLM **game banter** on moments (`src/shared/game-platform/lab-assistant-banter/`) — separate from in-game move turns. `docs/platform/lab-sidecar.md`.
+
+## Vue / UI rules (`src/apps` + new dashboard components in apps context)
+
+- **Toasts:** do **not** mount `<Toast>` in app roots — PrimeVue's bus is global; [`LabDashboard.vue`](src/dashboard/LabDashboard.vue) owns the single top-center toast. Use [`useLabAppToast()`](src/shared/composables/useLabAppToast.ts) or `useToast()` (AGENTS.md §16).
+- **Nested accordion item lists:** **`ul.catalog-accordion-item-list`** inside catalog/travel/OKR accordions — alternating row bg in `platform-catalog-app.css` (AGENTS.md §17).
+- `<script setup lang="ts">` for new components.
+- Import `useUniqueElementId` from `@/shared/composables/useUniqueElementId`.
+- Native: `:id="generateUniqueId('meaningful-prefix')"`
+- PrimeVue: `:pt="{ root: { attrs: { id: generateUniqueId('meaningful-prefix') } } }"`
+- ESLint: `@the-lab/vue-unique-id/vue-unique-id`; build: `lint-the-lab-apps.ts`.
+- Global PrimeVue PT defaults in `main.ts`; app instances get the same CloudGrey preset in `AppLifecycle`.
+- `vue/multi-word-component-names`: **off**.
+
+---
+
+## Type safety & backend conventions
+
+- TypeScript **strict** — avoid `any`.
+- MCP/tool params: Zod schemas; tool IDs **snake_case**, unique.
+- Async tool results (platform): `{ success: boolean, content: string }` where applicable.
+- Deletes: `fileHelpers.deleteFile` — `true` if gone or missing.
+- Logging: `VSCodeLogger.getInstance()`.
+- Main server: graceful shutdown on SIGTERM (Fastify + HTTP).
+
+### Ports & env
+
+| Service | Port |
+|---------|------|
+| Main THE-LAB backend | **3000** (fixed) |
+| App servers | **4000–4999** (`app.server.port`, `AppManager`) |
+
+`DATABASE_PATH`, `BACKEND_URL`, `VITE_API_BASE_URL`, `VITE_API_BASE_PORT`, `VITE_LOGGING_ENABLED`, `LOG_OUTPUT_PATH`.
+
+---
+
+## Common agent mistakes (read before coding)
+
+| Mistake | Correct approach |
+|---------|------------------|
+| Calling app APIs on port **3000** | Use **`props.serverUrl`** (app port) for hybrid/server apps |
+| Editing app **metadata** in code/JSON only | Use **App Management** tool; folder sync may delete “orphan” dirs |
+| Skipping **`AppDatabaseServiceProxy.initialize()`** on app server boot | Call in `server.ts` before routes that need DB |
+| Creating tables named `users` / `items` / etc. as custom | Use reserved standard tables or **new** table names via `addTable` |
+| Hard-coded DOM `id="foo"` in apps | **`generateUniqueId()`** on all interactive elements |
+| Importing platform backend into app Vue code | Keep DB/API on app **back-end**; front-end uses HTTP/WS only |
+| Assuming one global Vue/Pinia for apps | Each launch creates a **new** app instance via `AppLifecycle` |
+| Wrong server entry path in docs | Registry entry is **`/src/apps/{id}/back-end/server.ts`** (tsx spawn) |
+| Huge changes to `shared/` for one app feature | Keep app logic in `src/apps/{id}`; extend shared only when truly shared |
+| New MCP tool without Zod / wrong return shape | Follow `MCPToolInterface` and existing `mcp-servers/*` patterns |
+| Ignoring **dependencies** when adding server apps | Register dependency app IDs; test launch order |
+| Editing **`lab-domain-event-catalog.ts`** or skipping manifest index | Per-app `shared/lab-domain-events.manifest.ts` + **`domain-event-manifest-index.ts`** + **`verify:domain-event-manifests`** |
+| **Scripted / engine** vs-AI opponent for catalog games | **`agentMode: 'llm'`** + `agent.ts`; no auto-play fallback; Blackjack dealer only is scripted |
+
+---
+
+## Linting
+
+```bash
+npm run lint
+npm run lint-file <path>
+```
+
+`eslint.config.js` — Vue flat essential + TypeScript + `@the-lab/vue-unique-id`. Ignores: `dist`, `node_modules`, `vender`. **`npm run build`** runs app unique-ID validation.
+
+---
+
+## Build, dev, and test
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Full stack (sync apps, Chroma, Vite, backend) |
+| `npm run front-end` | Vite only |
+| `npm run back-end` | Main backend only |
+| `npm run build` | Production build + apps lint gate |
+| `npm run type-check` | `tsc` + `vue-tsc` |
+| `npm run type-check-file <path>` | Scoped typecheck |
+| `npm run test` | Jest ESM |
+| `npm run test:path "pattern"` / `test:name "pattern"` | Filtered tests |
+| `npm run generate:app` | Scaffold new app from template |
+
+**Tests**: `src/tests/**/*.test.(ts|tsx)`, `src/scripts/**/*.test.*`, app-specific under e.g. `src/apps/forms-builder/**/tests/**`. Environment: **node**; register MCP in `beforeAll` when testing tools.
+
+**Style**: no Prettier — match the file you edit (semicolons/quotes vary).
+
+---
+
+## Quick reference
+
+| Concern | Location |
+|---------|----------|
+| App generator / templates | `src/scripts/generate-app.ts`, `src/shared/services/TemplateGenerator.ts`, `src/templates/` |
+| App launch / render | `AppGateway.ts`, `AppLifecycle.ts`, `AppManager.ts` |
+| App DB types & CRUD | `src/shared/types/app/app-database.ts`, `AppDatabaseService.ts` |
+| Socket (platform) | `src/shared/types/socket-events.ts` |
+| Chat shell | `LabDashboard.vue`, `useLabDashboard.ts` |
+| MCP registry | `src/backend/mcp/mcp-tool.ts`, `server.ts` |
+| UI automation | `src/shared/services/ui-automation-handler.ts` |
+| System messages | `src/shared/templates/`, `template-manager.ts` |
+| Game platform / vs-AI policy | `src/shared/game-platform/`, `difficulty-policy.ts`, `resolve-agent-move.ts` |

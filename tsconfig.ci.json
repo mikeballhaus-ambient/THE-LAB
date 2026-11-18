@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./src/backend/**/*.ts",
+    "./src/backend/**/*.tsx",
+    "./src/dashboard/**/*.ts",
+    "./src/dashboard/**/*.tsx",
+    "./src/dashboard/**/*.vue",
+    "./src/services/**/*.ts",
+    "./src/services/**/*.tsx",
+    "./src/shared/**/*.ts",
+    "./src/shared/**/*.tsx",
+    "./src/shared/**/*.vue",
+    "./src/scripts/**/*.ts",
+    "./src/main.ts",
+    "./src/App.vue",
+    "./src/backend-entry.ts",
+    "./src/shims-vue.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/tests/**",
+    "src/apps/**",
+    "src/test-files/**",
+    "src/shared/forms/**"
+  ]
+}

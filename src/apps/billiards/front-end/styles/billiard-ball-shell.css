@@ -1,0 +1,66 @@
+/**
+ * Shared 3D ball chrome for tray + table (container-type: size on the shell root).
+ * Avoid filter: drop-shadow on the sphere — it reads as a tight ring on the felt.
+ */
+.billiard-ball-shell {
+  position: relative;
+  overflow: visible;
+  container-type: size;
+}
+
+.billiard-ball-shell__felt-shadow {
+  position: absolute;
+  left: 50%;
+  top: 68%;
+  z-index: 0;
+  width: 92%;
+  height: 34%;
+  transform: translate(-50%, -50%) scaleY(0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--billiards-cloth-shadow, #0f172a) 85%, black) 0%,
+    color-mix(in srgb, var(--billiards-cloth-shadow, #0f172a) 50%, transparent) 45%,
+    transparent 72%
+  );
+  filter: blur(6.25cqmin);
+  opacity: 0.9;
+}
+
+/**
+ * Sphere shading for the DOM balls (tray + drag proxies).
+ *
+ * The white inset used to be 26% over a 16cqmin radius, which produced a large blown-out
+ * highlight — the "bright glare" look. A tighter, weaker rim keeps the roundness cue
+ * without washing the colour out, and the shaded inset does the real work.
+ */
+.billiard-ball-shell__sphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--billiards-cloth-shadow, var(--lab-general-border)) 55%, black 45%);
+  /*
+   * Inset shadows are drawn on the side *opposite* their offset, so positive offsets put
+   * the highlight at the top-left and negative ones put the shade at the bottom-right.
+   * The previous values were negated, which lit the ball from the lower-right — the
+   * "too light on the right side" wash — and disagreed with the painted highlight in
+   * `billiard-ball-visual.ts`, which sits at 32% 26% (upper-left).
+   */
+  box-shadow:
+    inset 3.5cqmin 3.5cqmin 10cqmin color-mix(in srgb, white 11%, transparent),
+    inset -4cqmin -5cqmin 13cqmin color-mix(in srgb, var(--billiards-cloth-shadow, #0f172a) 30%, transparent);
+  pointer-events: none;
+}
+
+.billiard-ball-shell--ghost .billiard-ball-shell__sphere {
+  opacity: 0.45;
+  box-shadow: none;
+}
+
+.billiard-ball-shell--ghost .billiard-ball-shell__felt-shadow {
+  opacity: 0.2;
+}

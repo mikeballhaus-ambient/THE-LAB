@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "THE-LAB: Start (full stack)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run lab",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "THE-LAB: Start (services only)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run lab:services",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "THE-LAB: Stop",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run lab:stop",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

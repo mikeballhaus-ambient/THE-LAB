@@ -1,0 +1,22 @@
+{
+	"mcpServers": {
+		"mcp-neuralmemory": {
+			"command": "nmem-mcp",
+			"args": [],
+			"env": {},
+			"disabled": false,
+			"alwaysAllow": [
+				"nmem_context",
+				"nmem_remember",
+				"nmem_remember_batch",
+				"nmem_recall",
+				"nmem_todo",
+				"nmem_auto",
+				"nmem_session",
+				"nmem_eternal",
+				"nmem_recap",
+				"nmem_situation"
+			]
+		}
+	}
+}

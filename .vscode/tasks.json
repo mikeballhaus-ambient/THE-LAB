@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "THE-LAB: Start (full stack)",
+      "type": "shell",
+      "command": "npm run lab",
+      "problemMatcher": []
+    },
+    {
+      "label": "THE-LAB: Start (services only)",
+      "type": "shell",
+      "command": "npm run lab:services",
+      "problemMatcher": []
+    },
+    {
+      "label": "THE-LAB: Stop",
+      "type": "shell",
+      "command": "npm run lab:stop",
+      "problemMatcher": []
+    }
+  ]
+}

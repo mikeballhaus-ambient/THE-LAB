@@ -1,0 +1,91 @@
+/**
+ * rm-67.5 — PrimeVue form overlays (teleported to body) + list surfaces.
+ * Triggers use PT / lab-form-runtime; panels must not rely on Lara surface alone.
+ */
+
+body .p-select-overlay,
+body .p-multiselect-overlay,
+body .p-listbox,
+body .p-listbox-list-container,
+body .p-autocomplete-overlay,
+body .p-autocomplete-list-container,
+body .p-cascadeselect-panel,
+body .p-treeselect-overlay,
+body .p-treeselect-tree-container {
+  background: var(--lab-select-overlay-bg, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text) !important;
+  border: 1px solid var(--lab-border-subtle, color-mix(in srgb, var(--lab-general-border) 55%, transparent)) !important;
+  box-shadow:
+    0 14px 36px color-mix(in srgb, var(--lab-general-shadow, #000) 22%, transparent),
+    0 4px 12px color-mix(in srgb, var(--lab-general-shadow, #000) 12%, transparent);
+}
+
+body .p-select-list-container,
+body .p-multiselect-list-container {
+  background: transparent !important;
+}
+
+body .p-select-option,
+body .p-multiselect-option,
+body .p-listbox-option,
+body .p-autocomplete-option {
+  color: var(--lab-general-text) !important;
+  border-radius: 0.35rem;
+}
+
+body .p-select-option.p-focus,
+body .p-multiselect-option.p-focus,
+body .p-listbox-option.p-focus,
+body .p-autocomplete-option.p-focus {
+  background: var(--lab-select-option-hover-bg) !important;
+  color: var(--lab-general-text) !important;
+}
+
+body .p-select-option.p-select-option-selected,
+body .p-multiselect-option.p-multiselect-option-selected,
+body .p-listbox-option.p-listbox-option-selected,
+body .p-autocomplete-option-selected {
+  background: var(--lab-select-option-selected-bg) !important;
+  color: var(--lab-general-text) !important;
+}
+
+body .p-select-option-group,
+body .p-multiselect-option-group {
+  color: var(--lab-general-text-muted) !important;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+body .p-select-empty-message,
+body .p-multiselect-empty-message {
+  color: var(--lab-general-text-muted) !important;
+}
+
+/* DatePicker panel (teleported) */
+body .p-datepicker-panel {
+  background: var(--lab-select-overlay-bg, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text) !important;
+  border: 1px solid var(--lab-border-subtle, color-mix(in srgb, var(--lab-general-border) 55%, transparent)) !important;
+}
+
+body .p-datepicker-header {
+  background: color-mix(in srgb, var(--lab-general-border) 10%, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text) !important;
+  border-color: color-mix(in srgb, var(--lab-general-border) 40%, transparent) !important;
+}
+
+body .p-datepicker-day,
+body .p-datepicker-weekday {
+  color: var(--lab-general-text) !important;
+}
+
+body .p-datepicker-day:not(.p-datepicker-day-selected):not(.p-disabled):hover {
+  background: var(--lab-select-option-hover-bg) !important;
+}
+
+body .p-datepicker-day-selected {
+  background: var(--lab-button-bg) !important;
+  color: var(--lab-button-text) !important;
+}

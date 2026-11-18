@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <circle cx="32" cy="32" r="27" fill="var(--c4-disc-fill, #94a3b8)" />
+  <circle
+    cx="32"
+    cy="32"
+    r="27"
+    fill="none"
+    stroke="var(--c4-disc-rim, #334155)"
+    stroke-width="3.5"
+  />
+</svg>

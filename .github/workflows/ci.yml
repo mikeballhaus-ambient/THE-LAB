@@ -1,0 +1,31 @@
+# CI v1 — see docs/ci/ci-v1-contract.md (mirrors azure-pipelines.yml)
+name: CI v1
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run type-check
+
+      - run: npm run verify:test-tiers
+
+      - run: npm run test:ci
+
+      - run: npm run build

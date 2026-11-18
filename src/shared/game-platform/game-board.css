@@ -1,0 +1,173 @@
+/**
+ * Shared game-board styling — the single source of truth for board look.
+ *
+ * Standard (all catalog games):
+ *   - boards are LEFT-aligned inside `.lab-app-body` (never centered)
+ *   - cells are SQUARE (equal width/height, box-sizing: border-box)
+ *   - one `--lab-game-cell-size` token drives every cell in a board
+ *
+ * Usage:
+ *   import '@/shared/game-platform/game-board.css';
+ *
+ *   <div class="lab-game-surface">           <- left-aligned content column
+ *     <p>status</p>
+ *     <div class="lab-game-board">
+ *       <div class="lab-game-board-row">
+ *         <button class="lab-game-cell lab-game-cell--action">X</button>
+ *       </div>
+ *     </div>
+ *   </div>
+ */
+
+:root {
+  --lab-game-cell-size: 64px;
+  --lab-game-cell-gap: 2px;
+}
+
+@media (max-width: 520px) {
+  :root {
+    --lab-game-cell-size: 44px;
+  }
+}
+
+/* Left-aligned content column — the standard board wrapper. */
+.lab-game-surface {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.lab-game-board {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--lab-game-cell-gap);
+  width: max-content;
+  padding: 0.5rem;
+  border: 1px solid var(--lab-general-border, #3d4b5c);
+  border-radius: 0.5rem;
+  background-color: var(--lab-general-bg-subtle, rgba(255, 255, 255, 0.03));
+}
+
+.lab-game-board-row {
+  display: flex;
+  gap: var(--lab-game-cell-gap);
+}
+
+/* Square cell — width and height are locked to the same token. */
+.lab-game-cell {
+  width: var(--lab-game-cell-size);
+  height: var(--lab-game-cell-size);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: 1px solid var(--lab-general-border, #3d4b5c);
+  border-radius: 0.25rem;
+  background-color: var(--lab-general-bg, transparent);
+  color: var(--lab-general-text, inherit);
+  font-size: calc(var(--lab-game-cell-size) * 0.42);
+  font-weight: 600;
+  user-select: none;
+}
+
+.lab-game-cell--action {
+  cursor: pointer;
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.lab-game-cell--action:hover:not(:disabled) {
+  background-color: var(--lab-general-bg-subtle, rgba(255, 255, 255, 0.06));
+  border-color: var(--lab-accent, #6b8afd);
+}
+
+.lab-game-cell--action:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+/* Quarks overlay — must read on light + dark presets (avoid washed-out accent-only rings). */
+.lab-game-cell--quarks-hint,
+.lab-game-quarks-hint-chrome {
+  position: relative;
+  z-index: 2;
+  background-color: color-mix(
+    in srgb,
+    var(--lab-section-accent, var(--lab-button-border-hover)) 26%,
+    var(--lab-general-bg-muted, var(--lab-general-bg)) 74%
+  );
+  outline: 2px solid color-mix(
+    in srgb,
+    var(--lab-section-accent, var(--lab-button-border-hover)) 88%,
+    var(--lab-general-text)
+  );
+  outline-offset: -2px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--lab-general-text) 16%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--lab-section-accent, var(--lab-button-border-hover)) 42%, transparent),
+    0 0 12px 2px color-mix(in srgb, var(--lab-section-accent, var(--lab-button-border-hover)) 38%, transparent);
+  animation: lab-quarks-hint-pulse 2.2s ease-in-out infinite;
+}
+
+/* PrimeVue actions — theme tokens beat preset help/contrast fills */
+.p-button.lab-game-quarks-hint-chrome {
+  background-color: color-mix(
+    in srgb,
+    var(--lab-section-accent, var(--lab-button-border-hover)) 26%,
+    var(--lab-general-bg-muted, var(--lab-general-bg)) 74%
+  ) !important;
+  color: var(--lab-general-text) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--lab-section-accent, var(--lab-button-border-hover)) 65%,
+    var(--lab-general-border)
+  ) !important;
+}
+
+.lab-game-cell--quarks-hint-chain {
+  box-shadow:
+    inset 0 0 0 2px color-mix(in srgb, var(--lab-section-accent, var(--lab-button-border-hover)) 55%, transparent),
+    0 0 8px 1px color-mix(in srgb, var(--lab-section-accent, var(--lab-button-border-hover)) 32%, transparent);
+}
+
+.lab-game-cell--quarks-hint-to::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: calc(var(--lab-game-cell-size) * 0.32);
+  height: calc(var(--lab-game-cell-size) * 0.32);
+  border-radius: 9999px;
+  background: color-mix(
+    in srgb,
+    var(--lab-section-accent, var(--lab-button-border-hover)) 72%,
+    var(--lab-general-text)
+  );
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--lab-section-accent, var(--lab-button-border-hover)) 50%, transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes lab-quarks-hint-pulse {
+  0%,
+  100% {
+    filter: brightness(0.97);
+  }
+  50% {
+    filter: brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-game-cell--quarks-hint,
+  .lab-game-quarks-hint-chrome {
+    animation: none;
+    filter: none;
+  }
+}
