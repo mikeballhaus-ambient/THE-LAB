@@ -61,6 +61,7 @@
     "backfill:integration-stub-copy": "tsx src/scripts/backfill-integration-stub-descriptions.ts",
     "verify:integration-connectors": "tsx src/scripts/verify-integration-connector-routes.ts",
     "verify:domain-event-manifests": "tsx src/scripts/verify-domain-event-manifests.ts",
+    "sync:github-wiki": "node scripts/sync-github-wiki.mjs",
     "audit:vue-styles": "tsx src/scripts/audit-vue-style-blocks.ts",
     "verify-handoff-path": "node scripts/verify-handoff-path.mjs",
     "verify-lint-phase": "node scripts/verify-lint-phase.mjs",

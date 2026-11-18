@@ -6,6 +6,8 @@ An intelligent agentic workflow platform designed for building collaborative App
 
 THE-LAB leverages a team of specialized AI personas (Architect, Code, Debug, QA, etc.) working in concert to deliver high-quality software outcomes. The **Lab Assistant** meets you in the **Laboratory** (full-screen) or the **Sidecar** while you work in apps; personas use MCP tools for implementation, integrations, and validation in one shell.
 
+**Running it yourself:** [Initial setup](docs/setup/readme.md) · [Self-host wiki (GitHub Wiki source)](docs/wiki/Home.md)
+
 ## Architecture
 
 ### Core Components
