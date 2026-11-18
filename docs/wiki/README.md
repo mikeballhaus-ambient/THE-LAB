@@ -23,4 +23,6 @@ npm run sync:github-wiki
 
 `README.md` in this folder is maintainer-only and is **not** copied to the wiki.
 
+**Do not** start wiki pages with `# Title` — GitHub Wiki already shows the page title from the filename (e.g. `Production-and-Security.md` → “Production and Security”). Use `##` for the first heading in the body.
+
 **Canonical deep docs** stay in [`docs/`](../) on `main`; wiki pages summarize and link there. Edit markdown here, merge to `main`, and the wiki updates automatically.

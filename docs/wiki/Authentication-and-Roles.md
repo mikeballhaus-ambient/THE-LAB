@@ -1,5 +1,3 @@
-# Authentication and Roles
-
 ## Local password login
 
 Sessions use an HTTP cookie + JWT ([Lab session](https://github.com/mikeballhaus-ambient/THE-LAB/blob/main/docs/auth/oidc-jit-phase1.md)). Sign in from the dashboard login screen.

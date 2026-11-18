@@ -1,5 +1,3 @@
-# Updating from GitHub
-
 ## Stay current
 
 ```bash

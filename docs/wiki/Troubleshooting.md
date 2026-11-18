@@ -1,5 +1,3 @@
-# Troubleshooting
-
 ## Chroma never connects
 
 Backend retries then **exits** if Chroma is unavailable. Ensure Chroma starts (see `npm run dev` logs). On Windows, verify `THE_LAB_CHROMA_BIN`.

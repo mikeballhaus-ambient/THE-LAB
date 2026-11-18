@@ -1,5 +1,3 @@
-# Stack and Ports
-
 ## Fixed layout
 
 | Piece | Port / path | Purpose |

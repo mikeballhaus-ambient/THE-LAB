@@ -1,5 +1,3 @@
-# THE-LAB — running it yourself
-
 Welcome. This wiki is for **operators and contributors** who clone [THE-LAB](https://github.com/mikeballhaus-ambient/THE-LAB) and run it on their own machine or server — not the in-app Knowledge Base (that’s for agents when the stack is up).
 
 ## Start here

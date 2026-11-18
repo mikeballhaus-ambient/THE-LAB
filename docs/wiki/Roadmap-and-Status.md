@@ -1,5 +1,3 @@
-# Roadmap and Status
-
 ## What is “shipped” in this repo
 
 THE-LAB is a **portfolio-grade platform**: Laboratory + Sidecar, catalog apps, Workflow Studio, Rules, integrations (Forms/Chart connectors), themes, messaging, games, Knowledge Base, and MCP tooling. The root [README](https://github.com/mikeballhaus-ambient/THE-LAB/blob/main/README.md) summarizes architecture; user guides are under [`docs/platform/`](https://github.com/mikeballhaus-ambient/THE-LAB/tree/main/docs/platform).
