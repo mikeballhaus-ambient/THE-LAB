@@ -1,5 +1,3 @@
-# Environment and Secrets
-
 ## Copy the template
 
 ```bash

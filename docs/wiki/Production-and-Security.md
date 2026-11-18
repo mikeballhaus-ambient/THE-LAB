@@ -1,5 +1,3 @@
-# Production and Security
-
 THE-LAB defaults to **local development**. Treat anything reachable on a network as **production**.
 
 ## Minimum production env
