@@ -10,6 +10,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-24.04
+    env:
+      npm_config_onnxruntime_node_install_cuda: skip
     steps:
       - uses: actions/checkout@v4
 
