@@ -18,7 +18,7 @@ export function afterLabSessionCreated(params: {
   const envelope: LabDomainEventEnvelopeV1 = {
     schemaVersion: 1,
     id: randomUUID(),
-    type: 'platform.auth.session.established',
+    type: 'platform-auth.session.established',
     sourceAppId: 'platform-auth',
     occurredAt: new Date().toISOString(),
     actorUserId: params.userId,

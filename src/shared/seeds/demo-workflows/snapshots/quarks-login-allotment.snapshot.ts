@@ -5,7 +5,7 @@ export const DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_SNAPSHOT = {
   id: 'a1000002-0002-4002-8002-000000000132',
   name: 'Platform: Quarks daily allotment on login',
   description:
-    'On `platform.auth.session.established`, read wallet eligibility, credit daily Quarks when due, and toast the signed-in user.',
+    'On `platform-auth.session.established`, read wallet eligibility, credit daily Quarks when due, and toast the signed-in user.',
   priority: 331,
   definition: {
     schemaVersion: 2,
@@ -14,7 +14,7 @@ export const DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_SNAPSHOT = {
         id: 'a1000002-0002-4002-8002-000000000132',
         kind: 'trigger',
         position: { x: 48, y: 48 },
-        eventType: 'platform.auth.session.established',
+        eventType: 'platform-auth.session.established',
       },
       {
         id: 'a1000002-0002-4002-8002-000000000133',

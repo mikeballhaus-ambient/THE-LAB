@@ -6,7 +6,7 @@ import type { LabDomainEventCatalogEntry } from '@/shared/types/lab-domain-event
 import LabWorkflowTriggerEventBadge from './LabWorkflowTriggerEventBadge.vue';
 import { labRecordActionRootAttrs } from '@/shared/constants/lab-record-automation';
 
-const props = defineProps<{
+defineProps<{
   workflow: LabWorkflowRecord;
   triggerEventType: string;
   catalogEntries: LabDomainEventCatalogEntry[];

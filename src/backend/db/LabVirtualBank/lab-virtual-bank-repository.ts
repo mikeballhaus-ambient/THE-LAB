@@ -305,12 +305,11 @@ export class LabVirtualBankRepository extends Repository {
   /** Opening balance + optional daily catch-up in one transaction. */
   ensureAccountWithAccrual(labUserId: number): EnsureVirtualBankAccountResult {
     const account = this.ensureAccountOpeningOnly(labUserId);
-    const { ledgerEntryId: _ledgerEntryId, ...rest } = this.applyDailyAccrualToAccount(
-      labUserId,
-      account,
-      utcDateString(),
-    );
-    return rest;
+    const accrual = this.applyDailyAccrualToAccount(labUserId, account, utcDateString());
+    return {
+      account: accrual.account,
+      accrualApplied: accrual.accrualApplied,
+    };
   }
 
   applyDelta(params: ApplyDeltaParams): { balance: number; ledgerEntryId: number } {

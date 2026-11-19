@@ -249,7 +249,7 @@ export const LAB_DOMAIN_EVENTS_MANIFEST: readonly LabDomainEventCatalogEntry[] =
     ],
   },
   {
-    eventType: "platform.auth.session.established",
+    eventType: "platform-auth.session.established",
     sourceAppId: "platform-auth",
     label: "Session established",
     description:

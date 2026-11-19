@@ -181,7 +181,7 @@ Configure step fields in the detail panel (\`LabWorkflowFlowStepEditor\`): user 
 
 **\`notify_users\` has two recipient sources.** Either a fixed list (\`userIds\`) or a payload path (\`path\`), chosen with a toggle in the panel; both set is valid and the runner takes the **union**, de-duplicated. The schema rejects neither being set — "notify nobody" must not save as a success. **Fan-out is supported:** several edges may leave one port and the walker runs each target, so two actions from one IF branch is a legitimate pattern, not a duplicate.
 
-**Quarks guinea pig:** seeded workflow **Platform: Quarks daily allotment on login** (\`platform.auth.session.established\`) — \`virtual_bank_get_wallet\` → IF on \`dailyAllotmentEligible\` → \`virtual_bank_credit_daily_allotment\` → \`show_user_toast\`. Wallet GET accrual on port 3000 remains a fallback; disable session events with \`LAB_AUTH_SESSION_EVENTS=0\`.
+**Quarks guinea pig:** seeded workflow **Platform: Quarks daily allotment on login** (\`platform-auth.session.established\`) — \`virtual_bank_get_wallet\` → IF on \`dailyAllotmentEligible\` → \`virtual_bank_credit_daily_allotment\` → \`show_user_toast\`. Wallet GET accrual on port 3000 remains a fallback; disable session events with \`LAB_AUTH_SESSION_EVENTS=0\`.
 
 **Optional CTA buttons (\`actions\`).** Up to three buttons on the bell notification: \`launch_app\` (opens an app tab; optional \`hostContext\` for catalog/CRM/approvals deep links) or \`open_settings\` (Settings nav id when there is no app surface — e.g. ledger admin). Template strings in \`hostContext\` values use the same \`{{payload.field}}\` syntax as message copy. Shell executes via \`executeLabNotificationAction\` in \`execute-lab-notification-action.ts\`.
 

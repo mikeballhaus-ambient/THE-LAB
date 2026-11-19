@@ -249,7 +249,7 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
       request: FastifyRequest<{ Querystring: { code?: string; state?: string; error?: string } }>,
       reply: FastifyReply,
     ) => {
-      return handleOidcCallbackRequest(reply, 'google', request.query);
+      return handleOidcCallbackRequest(server, reply, 'google', request.query);
     },
   );
 
@@ -281,7 +281,7 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
           ).toString()}`,
         );
       }
-      return handleOidcCallbackRequest(reply, provider, request.query);
+      return handleOidcCallbackRequest(server, reply, provider, request.query);
     },
   );
 }
@@ -308,6 +308,7 @@ function handleOidcLoginRequest(reply: FastifyReply, providerId: string) {
 }
 
 async function handleOidcCallbackRequest(
+  server: FastifyInstance,
   reply: FastifyReply,
   providerId: string,
   query: OidcCallbackQuery,

@@ -281,7 +281,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     id: DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID,
     name: 'Platform: Quarks daily allotment on login',
     description:
-      'On `platform.auth.session.established`, read wallet eligibility, credit daily Quarks when due, and toast the signed-in user.',
+      'On `platform-auth.session.established`, read wallet eligibility, credit daily Quarks when due, and toast the signed-in user.',
     priority: 331,
     tags: ['Platform', 'Quarks'],
     buildDefinition: buildDemoQuarksLoginAllotmentWorkflowDefinition,

@@ -175,7 +175,7 @@ const launchableAppsWithTags = computed(() =>
 
 /** Compact launcher: one scrollable group per primary catalog tag (full list, no preview cap). */
 const sidebarCatalogSections = computed(() =>
-  buildCatalogSectionsByPrimaryTag(launchableAppsWithTags.value, catalogTags.value),
+  buildCatalogSectionsByPrimaryTag(launchableAppsWithTags.value as IApp[], catalogTags.value),
 );
 
 onMounted(async () => {
