@@ -8303,3 +8303,17 @@ src/apps/chess/front-end/App.vue(515,19): error TS2322: Type 'Ref<boolean, boole
 src/apps/chess/front-end/App.vue(516,19): error TS2322: Type 'Ref<number, number>' is not assignable to type 'number'.
 src/apps/chess/front-end/App.vue(524,12): error TS2322: Type 'ComputedRef<number>' is not assignable to type 'number'.
 src/apps/chess/front-end/App.vue(525,12): error TS2740: Type 'ComputedRef<{ label: string; value: number; }[]>' is missing the following properties from type 'readonly { label: string; value: number; }[]': length, concat, join, slice, and 26 more.
+
+
+=== TYPE ERRORS FOR FILE: src/dashboard/components/settings/lab-workflows/LabWorkflowFlowStepEditor.vue ===
+src/dashboard/components/settings/lab-workflows/LabWorkflowFlowStepEditor.vue(1677,10): error TS4104: The type 'readonly PayloadTemplateInsertOption[]' is 'readonly' and cannot be assigned to the mutable type 'PayloadTemplateInsertOption[]'.
+src/dashboard/components/settings/lab-workflows/LabWorkflowFlowStepEditor.vue(1689,10): error TS4104: The type 'readonly PayloadTemplateInsertOption[]' is 'readonly' and cannot be assigned to the mutable type 'PayloadTemplateInsertOption[]'.
+
+
+=== TYPE ERRORS FOR FILE: src/backend/utils/app-server-port-utils.ts ===
+src/backend/utils/app-server-port-utils.ts(1,22): error TS2307: Cannot find module 'child_process' or its corresponding type declarations.
+src/backend/utils/app-server-port-utils.ts(2,16): error TS2307: Cannot find module 'os' or its corresponding type declarations.
+src/backend/utils/app-server-port-utils.ts(3,27): error TS2307: Cannot find module 'util' or its corresponding type declarations.
+src/backend/utils/app-server-port-utils.ts(105,5): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/backend/utils/app-server-port-utils.ts(108,7): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/backend/utils/app-server-port-utils.ts(110,7): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.

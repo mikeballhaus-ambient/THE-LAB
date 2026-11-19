@@ -134,6 +134,14 @@ const {
 } = useLabNotificationsShell({
   serverUrl: props.serverUrl,
   isAuthenticated,
+  onShellToast: (payload) => {
+    toast.add({
+      severity: payload.severity,
+      summary: payload.summary,
+      detail: payload.detail,
+      life: payload.life ?? 6000,
+    });
+  },
 })
 
 const {

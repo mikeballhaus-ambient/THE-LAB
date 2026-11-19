@@ -10,6 +10,8 @@ import type { CapturedPayloadField } from '@/shared/utils/lab-workflow-captured-
 import {
   buildPayloadTemplateInsertOptions,
   insertPayloadTemplateSnippet,
+  type PayloadTemplateInsertOption,
+  type PayloadTemplateSnippetStyle,
 } from '@/shared/utils/lab-workflow-payload-template-insert';
 
 const props = withDefaults(
@@ -23,6 +25,9 @@ const props = withDefaults(
     multiline?: boolean;
     rows?: number;
     inputClass?: string;
+    /** `payload` → `{{payload.field}}`; `item` → `{{field}}` on the current item row. */
+    snippetStyle?: PayloadTemplateSnippetStyle;
+    extraInsertOptions?: readonly PayloadTemplateInsertOption[];
   }>(),
   {
     capturedPayloadFields: () => [],
@@ -30,6 +35,8 @@ const props = withDefaults(
     multiline: false,
     rows: 3,
     inputClass: 'min-w-[12rem] flex-1',
+    snippetStyle: 'payload',
+    extraInsertOptions: () => [],
   },
 );
 
@@ -41,7 +48,11 @@ const { generateUniqueId } = useUniqueElementId();
 const controlRef = ref<{ $el?: HTMLElement } | null>(null);
 
 const insertOptions = computed(() =>
-  buildPayloadTemplateInsertOptions(props.capturedPayloadFields, props.payloadPathOptions),
+  buildPayloadTemplateInsertOptions(
+    props.capturedPayloadFields,
+    props.payloadPathOptions,
+    props.extraInsertOptions,
+  ),
 );
 
 const hasInsertOptions = computed(() => insertOptions.value.length > 0);
@@ -58,7 +69,13 @@ function emitInsert(path: string): void {
   const el = nativeInput();
   const start = el?.selectionStart ?? props.modelValue.length;
   const end = el?.selectionEnd ?? start;
-  const { text, cursor } = insertPayloadTemplateSnippet(props.modelValue, path, start, end);
+  const { text, cursor } = insertPayloadTemplateSnippet(
+    props.modelValue,
+    path,
+    start,
+    end,
+    props.snippetStyle,
+  );
   emit('update:modelValue', text);
   void nextTick(() => {
     const input = nativeInput();
@@ -123,7 +140,7 @@ function onSelectInsert(path: string | null | undefined): void {
     </div>
     <p v-else class="m-0 text-[0.7rem] text-lab-general-text-muted">
       Capture a sample payload (run once or use the test URL) to insert fields without typing
-      <code v-pre>{{payload.field}}</code>.
+      <code v-pre>{{ snippetStyle === 'item' ? '{{field}}' : '{{payload.field}}' }}</code>.
     </p>
   </div>
 </template>

@@ -23,6 +23,7 @@ import { ProviderService } from '@/backend/ai/provider-service';
 import { RoleManager } from '../../../shared/services/RoleManager';
 import userService, { UserService } from '../../db/Auth/auth-service';
 import { LabSessionService } from '../../auth/lab-session-service';
+import { afterLabSessionCreated } from '../../auth/after-lab-session-created';
 import { isLabPlatformSystemUserId } from '@/shared/config/lab-platform-system-user';
 import { toPublicUser } from '@/shared/utils/public-user';
 import { PersonaService } from '@/backend/db/Persona/persona-service';
@@ -346,6 +347,12 @@ export async function handleUserLogin(socket: AuthSocket, data: UserLoginEventDa
     socket.user = userRecord;
     const labSession = LabSessionService.getInstance().createSession(userRecord.userId);
     (socket as AuthSocket).sessionId = labSession.sessionId;
+    afterLabSessionCreated({
+      userId: userRecord.userId,
+      sessionId: labSession.sessionId,
+      authMethod: data.isAutoLogin ? 'socket' : 'password',
+      io: socket.nsp.server,
+    });
 
     return {
       isAuthenticated: true,

@@ -837,6 +837,155 @@
   min-height: 0;
 }
 
+/*
+ * Workflow Studio lives outside `.app-catalog-body`, so it needs the same grid tokens
+ * and column layout as filtered app browse — otherwise cards stretch full width as rows.
+ */
+.lab-workflow-studio-app,
+.lab-workflows-list {
+  --app-catalog-layout-gap: 0.85rem;
+  --app-catalog-card-gap: var(--app-catalog-layout-gap);
+  --app-catalog-row-columns: 1;
+}
+
+@media (min-width: 640px) {
+  .lab-workflow-studio-app,
+  .lab-workflows-list {
+    --app-catalog-row-columns: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .lab-workflow-studio-app,
+  .lab-workflows-list {
+    --app-catalog-row-columns: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lab-workflow-studio-app,
+  .lab-workflows-list {
+    --app-catalog-row-columns: 4;
+  }
+}
+
+.lab-workflow-catalog-grid.app-catalog-grid--browse,
+.lab-workflow-catalog-grid.app-catalog-grid--browse-filtered {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      max(
+        14rem,
+        calc(
+          (100% - (var(--app-catalog-row-columns) - 1) * var(--app-catalog-card-gap)) /
+            var(--app-catalog-row-columns)
+        )
+      ),
+      1fr
+    )
+  );
+  gap: var(--app-catalog-card-gap);
+  align-items: stretch;
+  padding-bottom: 0.5rem;
+}
+
+.lab-workflow-list-card.app-card-grid {
+  height: 100%;
+  min-height: 10.5rem;
+}
+
+.lab-workflow-list-card .app-card-grid__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lab-workflow-list-card .app-card-grid__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.lab-workflow-list-card .app-card-grid__meta-line {
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.68rem;
+}
+
+.lab-workflow-list-card .app-card-grid__footer {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags.p-chips,
+.lab-workflow-studio-app .lab-workflows-meta-tags.p-inputchips {
+  min-width: 10rem;
+  flex: 1 1 14rem;
+  max-width: 100%;
+}
+
+/* Inline meta row only — details overlay uses its own tag layout rules below. */
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-meta-tags.p-chips,
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-meta-tags.p-inputchips {
+  flex: 0 0 auto;
+}
+
+/* InputChips renders tokens inside a <ul>; reset list chrome for inline catalog-style tags. */
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0.35rem;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-chip-item,
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-input-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-chip-item {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .lab-workflows-meta-tag-chip,
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-chip.p-chip {
+  min-height: 0;
+  gap: 0.15rem;
+  padding: 0 0.28rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  border-radius: 0.2rem;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-chip-label {
+  padding: 0;
+  line-height: 1.35;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-chip-remove-icon {
+  margin-inline-start: 0.05rem;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-tags .p-inputchips-input-item input {
+  min-width: 3.25rem;
+  field-sizing: content;
+}
+
 .lab-workflows-list__actions-col {
   width: 5.5rem;
   white-space: nowrap;
@@ -989,14 +1138,89 @@ body.lab-designer-fullscreen .app-view-container.lab-shell--sidecar-inset {
 .lab-workflows-editor-footer {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 25;
   /* Tight vertical padding — this bar is chrome above a canvas, not a content region. */
   padding: 0.25rem 0.5rem;
   background: var(--lab-general-bg);
   border-bottom: 1px solid var(--lab-border);
+}
+
+.lab-workflows-editor-header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.lab-workflows-editor-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.lab-workflows-details-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--lab-general-text);
+  background: color-mix(in srgb, var(--lab-general-text-muted) 8%, var(--lab-general-bg));
+  border: 1px solid color-mix(in srgb, var(--lab-general-border) 85%, transparent);
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+.lab-workflows-details-toggle:hover {
+  border-color: var(--lab-button-border-hover);
+  color: var(--lab-general-text);
+}
+
+.lab-workflows-details-toggle:focus-visible {
+  outline: 2px solid var(--lab-accent-primary);
+  outline-offset: 1px;
+}
+
+.lab-workflows-details-toggle__icon {
+  font-size: 0.65rem;
+  transition: transform 0.15s ease;
+}
+
+.lab-workflows-details-toggle__icon--open {
+  transform: rotate(180deg);
+}
+
+.lab-workflows-details-toggle__hint {
+  max-width: min(28rem, 55vw);
+  font-weight: 400;
+  color: var(--lab-general-text-muted);
+}
+
+.lab-workflows-details-panel {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0.5rem;
+  right: 0.5rem;
+  z-index: 35;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--lab-general-border);
+  border-radius: 0 0 0.5rem 0.5rem;
+  background: var(--lab-general-bg);
+  box-shadow:
+    0 10px 28px color-mix(in srgb, var(--lab-general-text) 14%, transparent),
+    0 2px 8px color-mix(in srgb, var(--lab-general-text) 8%, transparent);
+  max-height: min(70vh, 22rem);
+  overflow-y: auto;
 }
 
 .lab-workflows-editor-footer {
@@ -1043,16 +1267,9 @@ body.lab-designer-fullscreen .app-view-container.lab-shell--sidecar-inset {
 }
 
 .lab-workflows-dialog-meta-field--priority {
-  flex: 0 0 6.25rem;
-  width: 6.25rem;
-  max-width: 6.25rem;
-  overflow: hidden;
-}
-
-.lab-workflows-dialog-meta-field--priority .p-inputnumber,
-.lab-workflows-dialog-meta-field--priority .p-inputnumber-input {
-  width: 100%;
-  max-width: 100%;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
 }
 
 .lab-workflows-dialog-meta-field--status {
@@ -1132,8 +1349,24 @@ body.lab-designer-fullscreen .app-view-container.lab-shell--sidecar-inset {
 }
 
 .lab-workflows-meta-priority {
-  flex: 0 0 5.5rem;
-  width: 5.5rem;
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-priority.p-inputnumber {
+  display: inline-flex;
+  width: auto;
+  max-width: none;
+}
+
+.lab-workflow-studio-app .lab-workflows-meta-priority .p-inputnumber-input {
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  padding-inline: 0.2rem;
 }
 
 .lab-workflows-meta-status {
@@ -1154,9 +1387,142 @@ body.lab-designer-fullscreen .app-view-container.lab-shell--sidecar-inset {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  padding: 0.3rem 0.5rem;
+  padding: 0;
   border-bottom: none;
   background: transparent;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-name {
+  width: 250px;
+  max-width: 100%;
+}
+
+.lab-workflows-details-panel .lab-workflows-dialog-meta-field--name {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.lab-workflows-details-panel .lab-workflows-dialog-meta-field--tags {
+  flex: 0 0 auto;
+  align-items: flex-start;
+  width: auto;
+  max-width: 100%;
+  margin-block: 0.35rem 0.45rem;
+}
+
+/* Details tags sit in a column field — never inherit studio meta-row flex growth. */
+.lab-workflows-details-panel .lab-workflows-details-meta-tags.p-chips,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags.p-inputchips {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: auto;
+  min-width: 12.5rem;
+  max-width: min(100%, 20rem);
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-input {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  gap: 0.3rem 0.4rem;
+  list-style: none;
+  margin: 0;
+  width: auto;
+  min-width: 12.5rem;
+  max-width: min(100%, 20rem);
+  box-sizing: border-box;
+  min-height: 2rem;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-input:focus-within {
+  border-color: var(--lab-button-border-hover);
+  outline: none;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-chip-item,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-input-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-chip-item {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-input-item {
+  display: inline-flex;
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-input-item input {
+  min-width: 5rem;
+  width: auto;
+  field-sizing: content;
+}
+
+/*
+ * Details tag chips must contrast with --lab-form-control-bg (border-mixed field).
+ * Do not remix border into form-control-bg again — that matched the input fill.
+ */
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .lab-workflows-details-tag-chip,
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip,
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-chip.p-chip,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .lab-workflows-details-tag-chip,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-inputchips-chip.p-chip {
+  gap: 0.25rem;
+  padding: 0.12rem 0.42rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  border: 1px solid color-mix(in srgb, var(--lab-accent-primary) 48%, var(--lab-general-border)) !important;
+  background: color-mix(in srgb, var(--lab-accent-primary) 20%, var(--lab-general-bg)) !important;
+  color: var(--lab-general-text) !important;
+}
+
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-label,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-label {
+  padding: 0;
+  font-size: inherit;
+  line-height: 1.4;
+  color: var(--lab-general-text) !important;
+}
+
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-remove-icon,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-remove-icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-inline-start: 0.05rem;
+  color: color-mix(in srgb, var(--lab-general-text) 65%, var(--lab-general-text-muted)) !important;
+}
+
+.lab-workflow-studio-app .lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-remove-icon:hover,
+.lab-workflows-details-panel .lab-workflows-details-meta-tags .p-chip-remove-icon:hover {
+  color: var(--lab-general-text) !important;
+}
+
+.lab-workflows-details-panel .lab-workflows-dialog-meta-primary {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lab-workflows-details-panel .lab-workflows-dialog-meta-field--grow {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.lab-workflows-details-panel .lab-workflows-dialog-meta-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.65rem 1.25rem;
 }
 
 .lab-workflows-dialog-meta:empty {

@@ -449,6 +449,17 @@ function migrateLegacyWorkflowRunsTable(db: Database): void {
  * default `''` is the honest value: those rows have a hash but no recoverable secret, and the panel
  * treats `''` as "regenerate to get a URL" rather than showing one that would be rejected.
  */
+function migrateAddWorkflowTagsColumn(db: Database): void {
+  const columns = db.prepare('PRAGMA table_info(lab_workflows)').all() as Array<{ name: string }>;
+  if (columns.length === 0) {
+    return;
+  }
+  if (columns.some((column) => column.name === 'tags_json')) {
+    return;
+  }
+  db.exec("ALTER TABLE lab_workflows ADD COLUMN tags_json TEXT NOT NULL DEFAULT '[]'");
+}
+
 function migrateAddWebhookSecretColumns(db: Database): void {
   const columns = db.prepare('PRAGMA table_info(lab_workflow_webhooks)').all() as Array<{ name: string }>;
   if (columns.length === 0) {
@@ -465,6 +476,7 @@ function migrateAddWebhookSecretColumns(db: Database): void {
 
 export function bootstrapLabWorkflowsSchema(db: Database): void {
   db.exec(createLabWorkflowsTable);
+  migrateAddWorkflowTagsColumn(db);
   migrateLegacyWorkflowRunsTable(db);
   db.exec(createLabWorkflowRunsTable);
   migrateAddRunMockSampleColumn(db);
@@ -569,12 +581,12 @@ export const createLabWorkflowsSQLStatements = (
 
   return {
     [LabWorkflowsSQLStatementKeys.workflows_all]: q(`
-      SELECT id, name, description, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
+      SELECT id, name, description, tags_json, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
       FROM lab_workflows
       ORDER BY priority ASC, created_at DESC
     `),
     [LabWorkflowsSQLStatementKeys.workflow_by_id]: q(`
-      SELECT id, name, description, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
+      SELECT id, name, description, tags_json, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
       FROM lab_workflows
       WHERE id = ?
     `),
@@ -585,13 +597,14 @@ export const createLabWorkflowsSQLStatements = (
       SELECT COUNT(*) AS c FROM lab_workflows WHERE scope = 'user' AND owner_user_id = ? AND enabled = 1
     `),
     [LabWorkflowsSQLStatementKeys.workflow_insert]: q(`
-      INSERT INTO lab_workflows (id, name, description, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO lab_workflows (id, name, description, tags_json, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `),
     [LabWorkflowsSQLStatementKeys.workflow_update]: q(`
       UPDATE lab_workflows
       SET name = ?,
           description = ?,
+          tags_json = ?,
           scope = ?,
           owner_user_id = ?,
           enabled = ?,
@@ -604,7 +617,7 @@ export const createLabWorkflowsSQLStatements = (
       DELETE FROM lab_workflows WHERE id = ?
     `),
     [LabWorkflowsSQLStatementKeys.enabled_workflows_for_evaluation]: q(`
-      SELECT id, name, description, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
+      SELECT id, name, description, tags_json, scope, owner_user_id, created_by_user_id, enabled, priority, definition_json, created_at, updated_at
       FROM lab_workflows
       WHERE enabled = 1
         AND (

@@ -18,7 +18,7 @@ import {
 
 describe('demo workflow seeds', () => {
   test('catalog lists host-app demo workflows plus webhook loop', () => {
-    expect(DEMO_WORKFLOW_SEEDS).toHaveLength(14);
+    expect(DEMO_WORKFLOW_SEEDS).toHaveLength(15);
     const ids = DEMO_WORKFLOW_SEEDS.map((row) => row.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids).toContain('a1000002-0002-4002-8002-000000000100');

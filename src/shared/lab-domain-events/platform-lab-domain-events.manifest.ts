@@ -249,6 +249,21 @@ export const LAB_DOMAIN_EVENTS_MANIFEST: readonly LabDomainEventCatalogEntry[] =
     ],
   },
   {
+    eventType: "platform-auth.session.established",
+    sourceAppId: "platform-auth",
+    label: "Session established",
+    description:
+      "A new lab session row was created after sign-in (HTTP or socket). Not emitted on cookie resolve or reconnect.",
+    publisherKind: "platform",
+    payloadFields: [
+      { path: "userId", label: "User ID", valueKind: "userId" },
+      { path: "sessionId", label: "Session ID", valueKind: "id" },
+      { path: "authMethod", label: "Auth method", valueKind: "string" },
+      { path: "providerKey", label: "OIDC provider", valueKind: "string" },
+      { path: "utcDate", label: "UTC date", valueKind: "string" },
+    ],
+  },
+  {
     eventType: "platform-webhook.request.received",
     sourceAppId: "platform-webhook",
     label: "Webhook received",

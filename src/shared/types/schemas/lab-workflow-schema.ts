@@ -3,6 +3,13 @@ import { LabRuleConditionSchema } from '@/shared/types/schemas/lab-rule-schema';
 import { LabWorkflowDefinitionV2Schema } from '@/shared/types/schemas/lab-workflow-graph-schema';
 import { LabWorkflowStepSchema } from '@/shared/types/schemas/lab-workflow-step-schema';
 import { migrateLabWorkflowDefinitionInput } from '@/shared/utils/lab-workflow-step-migrations';
+import { normalizeLabWorkflowTags } from '@/shared/utils/lab-workflow-tags';
+
+const LabWorkflowTagsSchema = z
+  .array(z.string().max(32))
+  .max(12)
+  .optional()
+  .transform((value) => (value == null ? undefined : normalizeLabWorkflowTags(value)));
 
 export { LabWorkflowStepSchema };
 
@@ -29,6 +36,7 @@ export const LabWorkflowCreateSchema = z
     ownerUserId: z.number().int().positive().optional(),
     enabled: z.boolean().default(true),
     priority: z.number().int().min(1).max(1000).default(100),
+    tags: LabWorkflowTagsSchema,
     definition: LabWorkflowDefinitionSchema,
   })
   .superRefine((data, ctx) => {
@@ -53,6 +61,7 @@ export const LabWorkflowUpdateSchema = z.object({
   description: z.string().optional(),
   enabled: z.boolean().optional(),
   priority: z.number().int().min(1).max(1000).optional(),
+  tags: LabWorkflowTagsSchema,
   definition: LabWorkflowDefinitionSchema.optional(),
 });
 

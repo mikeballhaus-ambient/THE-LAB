@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { exec, spawnSync } from 'child_process';
 import os from 'os';
 import { promisify } from 'util';
 
@@ -70,6 +70,162 @@ export async function isAppServerPortInUse(port: number): Promise<boolean> {
   return pids.length > 0;
 }
 
+/** Best-effort — Windows can hide elevated/other-session PIDs from tasklist. */
+export function isWindowsProcessRunning(pid: number): boolean {
+  if (os.platform() !== 'win32' || pid <= 0) {
+    return false;
+  }
+  const result = spawnSync('tasklist', ['/FI', `PID eq ${pid}`, '/NH'], {
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  const out = `${result.stdout ?? ''}${result.stderr ?? ''}`;
+  if (/no tasks are running/i.test(out) || /requested object does not exist/i.test(out)) {
+    return false;
+  }
+  return out.includes(String(pid));
+}
+
+/**
+ * When netstat PIDs are stale or taskkill cannot see the owner, match node.exe by CLI (Vite, backend, Chroma).
+ */
+export async function killWindowsNodeByCommandLineHints(
+  hints: string[],
+  log?: PortUtilLog,
+): Promise<number> {
+  if (os.platform() !== 'win32' || hints.length === 0) {
+    return 0;
+  }
+  const needlesLiteral = hints.map((h) => `'${h.replace(/'/g, "''")}'`).join(',');
+  const script = `
+$needles = @(${needlesLiteral})
+$killed = 0
+Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" -ErrorAction SilentlyContinue | ForEach-Object {
+  $cmd = $_.CommandLine
+  if (-not $cmd) { return }
+  foreach ($n in $needles) {
+    if ($cmd -notlike ('*' + $n + '*')) { return }
+  }
+  Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue
+  $killed++
+}
+Write-Output $killed
+`.trim();
+
+  const result = spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', script], {
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  const killed = Number.parseInt((result.stdout ?? '').trim(), 10);
+  const count = Number.isFinite(killed) ? killed : 0;
+  if (result.stderr?.trim()) {
+    log?.('warn', `killWindowsNodeByCommandLineHints: ${result.stderr.trim()}`);
+  }
+  if (count > 0) {
+    log?.('info', `killWindowsNodeByCommandLineHints — stopped ${count} node process(es)`);
+  }
+  return count;
+}
+
+const LAB_DEV_PORT_NODE_HINTS: Record<number, string[]> = {
+  5173: ['vite.js'],
+  3000: ['backend-entry'],
+};
+
+const LAB_DEV_PORT_IMAGE_HINTS: Record<number, { images: string[]; cmdHints: string[] }> = {
+  8000: { images: ['chroma.exe', 'python.exe'], cmdHints: ['chroma', '8000'] },
+};
+
+/** Stop whatever owns the TCP listener (Windows). */
+export async function killWindowsListenersByNetTcpPort(port: number, log?: PortUtilLog): Promise<number> {
+  if (os.platform() !== 'win32') {
+    return 0;
+  }
+  const script = `
+$killed = 0
+$conns = Get-NetTCPConnection -LocalPort ${port} -State Listen -ErrorAction SilentlyContinue
+foreach ($c in $conns) {
+  $owningPid = $c.OwningProcess
+  if ($owningPid -gt 0) {
+    Stop-Process -Id $owningPid -Force -ErrorAction SilentlyContinue
+    $killed++
+  }
+}
+Write-Output $killed
+`.trim();
+  const result = spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', script], {
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  const killed = Number.parseInt((result.stdout ?? '').trim(), 10);
+  const count = Number.isFinite(killed) ? killed : 0;
+  if (result.stderr?.trim()) {
+    log?.('warn', `killWindowsListenersByNetTcpPort port=${port}: ${result.stderr.trim()}`);
+  }
+  if (count > 0) {
+    log?.('info', `killWindowsListenersByNetTcpPort port=${port} — stopped ${count} process(es)`);
+  }
+  return count;
+}
+
+export async function killWindowsProcessesByImageHints(
+  imageNames: string[],
+  cmdHints: string[],
+  log?: PortUtilLog,
+): Promise<number> {
+  if (os.platform() !== 'win32' || imageNames.length === 0 || cmdHints.length === 0) {
+    return 0;
+  }
+  const images = imageNames.map((n) => `'${n.replace(/'/g, "''")}'`).join(',');
+  const needles = cmdHints.map((h) => `'${h.replace(/'/g, "''")}'`).join(',');
+  const script = `
+$images = @(${images})
+$needles = @(${needles})
+$killed = 0
+Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | ForEach-Object {
+  if ($images -notcontains $_.Name) { return }
+  $cmd = $_.CommandLine
+  if (-not $cmd) { return }
+  foreach ($n in $needles) {
+    if ($cmd -notlike ('*' + $n + '*')) { return }
+  }
+  Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue
+  $killed++
+}
+Write-Output $killed
+`.trim();
+  const result = spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', script], {
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  const killed = Number.parseInt((result.stdout ?? '').trim(), 10);
+  const count = Number.isFinite(killed) ? killed : 0;
+  if (count > 0) {
+    log?.('info', `killWindowsProcessesByImageHints — stopped ${count} process(es)`);
+  }
+  return count;
+}
+
+function isProcessAlreadyGone(
+  platform: string,
+  err: Error & { code?: string | number },
+  msg: string,
+): boolean {
+  if (err.code === 'ESRCH') {
+    return true;
+  }
+  if (platform !== 'win32') {
+    return false;
+  }
+  const lower = msg.toLowerCase();
+  return (
+    lower.includes('not found') ||
+    lower.includes('no tasks') ||
+    lower.includes('does not exist') ||
+    lower.includes('there is no running instance')
+  );
+}
+
 /**
  * Kill process (Windows: full tree via taskkill — needed for npx/tsx app servers).
  */
@@ -95,15 +251,69 @@ export async function killProcessTree(pid: number, log?: PortUtilLog): Promise<b
   } catch (error: unknown) {
     const err = error as Error & { code?: string | number };
     const msg = err.message ?? String(error);
-    if (platform === 'win32' && (msg.includes('not found') || msg.includes('No tasks'))) {
-      return true;
-    }
-    if (err.code === 'ESRCH') {
+    if (isProcessAlreadyGone(platform, err, msg)) {
+      log?.('info', `killProcessTree pid=${pid}: already stopped`);
       return true;
     }
     log?.('error', `killProcessTree pid=${pid}: ${msg}`);
     return false;
   }
+}
+
+/**
+ * Stop listeners on a lab dev port; retries until the port is free or attempts are exhausted.
+ */
+export async function killLabDevPortListeners(
+  port: number,
+  log?: PortUtilLog,
+  options?: { allowProtected?: boolean },
+): Promise<boolean> {
+  const maxRounds = 4;
+  for (let round = 0; round < maxRounds; round++) {
+    const pids = await getListeningPidsOnPort(port, log, options);
+    if (pids.length === 0) {
+      return true;
+    }
+
+    for (const pid of pids) {
+      log?.('info', `Stopping listener on port ${port} (pid ${pid})…`);
+      if (isWindowsProcessRunning(pid)) {
+        await killProcessTree(pid, log);
+      } else if (os.platform() === 'win32') {
+        log?.(
+          'warn',
+          `Port ${port} reports pid ${pid} but tasklist cannot see it — using node command-line fallback`,
+        );
+      }
+    }
+
+    const hints = LAB_DEV_PORT_NODE_HINTS[port];
+    if (hints) {
+      await killWindowsNodeByCommandLineHints(hints, log);
+    }
+    const imageHints = LAB_DEV_PORT_IMAGE_HINTS[port];
+    if (imageHints) {
+      await killWindowsProcessesByImageHints(imageHints.images, imageHints.cmdHints, log);
+    }
+    if (os.platform() === 'win32') {
+      await killWindowsListenersByNetTcpPort(port, log);
+    }
+
+    if (await waitUntilAppServerPortFree(port, 2500)) {
+      return true;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 400));
+  }
+
+  const remaining = await getListeningPidsOnPort(port, log, options);
+  if (remaining.length > 0) {
+    log?.(
+      'warn',
+      `Port ${port} still in use (pids: ${remaining.join(', ')}). Close the terminal running Vite/backend, or run stop from an elevated shell.`,
+    );
+    return false;
+  }
+  return true;
 }
 
 export async function killListenersOnPort(

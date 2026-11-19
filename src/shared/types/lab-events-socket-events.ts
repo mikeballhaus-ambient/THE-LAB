@@ -15,6 +15,8 @@ export const LAB_EVENTS_SOCKET = {
   APPROVALS_INBOX_CHANGED: 'lab_events:approvals_inbox_changed',
   /** Platform journal entries or balances changed (post via UI or workflow). */
   LEDGER_JOURNAL_CHANGED: 'lab_events:ledger_journal_changed',
+  /** PrimeVue toast routed to the signed-in user (Workflow Studio `show_user_toast`). */
+  USER_TOAST: 'lab_events:user_toast',
 } as const;
 
 /** Payload for {@link LAB_EVENTS_SOCKET.WORKFLOW_RUN_STEP}. */

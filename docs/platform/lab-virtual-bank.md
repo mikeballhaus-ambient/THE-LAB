@@ -25,6 +25,17 @@ API routes and tables keep the `virtual-bank` identifier; only **display copy** 
 
 Numeric policy constants: [`src/shared/types/lab-virtual-bank.ts`](../../src/shared/types/lab-virtual-bank.ts).
 
+## Workflow Studio (login allotment)
+
+The seeded graph **Platform: Quarks daily allotment on login** (`platform.auth.session.established`) orchestrates:
+
+1. **`virtual_bank_get_wallet`** — read balance + `dailyAllotmentEligible` **without** posting accrual (safe for IF branches).
+2. **`if_condition`** on `dailyAllotmentEligible`.
+3. **`virtual_bank_credit_daily_allotment`** on the true branch (same ledger rules as `ensureAccountWithAccrual`).
+4. **`show_user_toast`** — PrimeVue toast over `/lab-events` (offline users skip; fail-open).
+
+`GET /api/platform/virtual-bank` still accrues on read as a v1 safety net when the workflow is disabled. Disable session publishing with `LAB_AUTH_SESSION_EVENTS=0`.
+
 ## HTTP API (platform `:3000`)
 
 | Method | Path | Auth |

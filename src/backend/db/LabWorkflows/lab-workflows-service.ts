@@ -340,6 +340,7 @@ export class LabWorkflowsService {
       id: parsed.id,
       name: parsed.name,
       description: parsed.description,
+      tags: parsed.tags ?? [],
       scope,
       ownerUserId,
       createdByUserId: caller.userId,
@@ -359,6 +360,7 @@ export class LabWorkflowsService {
       createdByUserId: record.createdByUserId,
       enabled: record.enabled,
       priority: record.priority,
+      tagsJson: JSON.stringify(record.tags ?? []),
       definitionJson: JSON.stringify(record.definition),
     });
 
@@ -390,6 +392,7 @@ export class LabWorkflowsService {
       ...existing,
       name: parsed.name ?? existing.name,
       description: parsed.description ?? existing.description,
+      tags: parsed.tags ?? existing.tags ?? [],
       enabled: parsed.enabled ?? existing.enabled,
       priority: parsed.priority ?? existing.priority,
       definition: nextDefinition,

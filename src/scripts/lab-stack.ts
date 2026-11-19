@@ -12,6 +12,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   getListeningPidsOnPort,
+  killLabDevPortListeners,
   killProcessTree,
 } from '../backend/utils/app-server-port-utils';
 
@@ -261,13 +262,7 @@ async function killTrackedPids(state: LabStackState | undefined): Promise<void> 
 }
 
 async function killLabDevPort(port: number): Promise<void> {
-  const pids = await getListeningPidsOnPort(port, (level, msg) => log(level, msg), {
-    allowProtected: true,
-  });
-  for (const pid of pids) {
-    log('info', `Stopping listener on port ${port} (pid ${pid})…`);
-    await killProcessTree(pid, (level, msg) => log(level, msg));
-  }
+  await killLabDevPortListeners(port, (level, msg) => log(level, msg), { allowProtected: true });
 }
 
 async function stopLabDevPorts(): Promise<void> {

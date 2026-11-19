@@ -343,6 +343,27 @@ function stepToFlowBlock(stepInput: LabWorkflowStepV1, rules: LabRuleRecord[]): 
         displayHint: `${memoHint} · ${step.lines.length} line${step.lines.length === 1 ? '' : 's'} · confirmed by user ${step.confirmedByUserId}`,
       };
     }
+    case 'virtual_bank_get_wallet':
+      return {
+        dragId,
+        step,
+        displayLabel: 'Get Quarks wallet',
+        displayHint: payloadFieldHint(step.userIdPath ?? 'userId', 'Uses user id from the item'),
+      };
+    case 'virtual_bank_credit_daily_allotment':
+      return {
+        dragId,
+        step,
+        displayLabel: 'Credit daily Quarks',
+        displayHint: payloadFieldHint(step.userIdPath ?? 'userId', 'Uses user id from the item'),
+      };
+    case 'show_user_toast':
+      return {
+        dragId,
+        step,
+        displayLabel: 'Show lab toast',
+        displayHint: `${step.severity}: ${step.summary}`,
+      };
     case 'http_request': {
       const mappedCount = Object.keys(step.bodyFromPayload ?? {}).length;
       const bodyHint = mappedCount
@@ -426,6 +447,9 @@ export type WorkflowActionPaletteKind =
   | 'integration_delete'
   | 'raise_approval'
   | 'ledger_post_entry'
+  | 'virtual_bank_get_wallet'
+  | 'virtual_bank_credit_daily_allotment'
+  | 'show_user_toast'
   | 'http_request'
   | 'notify_users'
   | 'comms_system_dm_payload_user'
@@ -516,6 +540,21 @@ export const WORKFLOW_ACTION_PALETTE: {
     kind: 'ledger_post_entry',
     label: 'Post to ledger',
     description: 'Post a balanced entry. Requires a named user who authorised the money movement.',
+  },
+  {
+    kind: 'virtual_bank_get_wallet',
+    label: 'Get Quarks wallet',
+    description: 'Read play-money balance and daily allotment eligibility without posting accrual.',
+  },
+  {
+    kind: 'virtual_bank_credit_daily_allotment',
+    label: 'Credit daily Quarks',
+    description: 'Apply the canonical daily Quarks drip (same rules as the wallet API).',
+  },
+  {
+    kind: 'show_user_toast',
+    label: 'Show lab toast',
+    description: 'PrimeVue toast on the signed-in user’s shell (not the bell inbox).',
   },
   {
     kind: 'http_request',
@@ -612,6 +651,18 @@ export function defaultStepForActionKind(
       return { kind: 'raise_approval', policyId: '', title: 'Approval required' };
     case 'ledger_post_entry':
       return { kind: 'ledger_post_entry', memo: 'Workflow entry', lines: [], confirmedByUserId: 0 };
+    case 'virtual_bank_get_wallet':
+      return { kind: 'virtual_bank_get_wallet', userIdPath: 'userId' };
+    case 'virtual_bank_credit_daily_allotment':
+      return { kind: 'virtual_bank_credit_daily_allotment', userIdPath: 'userId' };
+    case 'show_user_toast':
+      return {
+        kind: 'show_user_toast',
+        userIdPath: 'userId',
+        severity: 'info',
+        summary: 'Workflow toast',
+        detail: '',
+      };
     // Empty URL: the author must type the target, and the schema rejects `''`, which is what makes
     // "not configured yet" visible as a validation error instead of a request to nowhere.
     case 'http_request':

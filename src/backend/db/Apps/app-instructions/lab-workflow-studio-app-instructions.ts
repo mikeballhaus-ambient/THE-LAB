@@ -31,11 +31,11 @@ Docs: \`docs/platform/lab-workflow-studio.md\`, \`docs/platform/lab-automation-a
 | **My workflows** | \`LabWorkflowsManagement\` (\`adminMode=false\`) | Members: CRUD own \`user\` scope workflows |
 | **Lab workflows (admin)** | \`LabWorkflowsManagement\` (\`adminMode=true\`) | Admins: all workflows including \`global\` |
 
-List UI: workflow table → **Create** / **Edit** swaps the list for a **full-view editor** (not a modal).
+List UI: **workflow cards** in **primary-tag sections** (same pattern as apps home: one section per first tag on the workflow, count in the heading, up to 8 preview cards, **Show all** narrows to a filtered grid). **Tag filter chips** above the sections match app category filters. **Create** / **Edit** swaps the list for a **full-view editor** (not a modal).
 
-Table columns: **Name** (with the workflow **description** as a muted second line), **Scope** and **Owner** (admin mode only), **Enabled**, **Priority**, **Event**, **Actions**.
+Each card shows **name**, **tags** (click a tag to filter), **enabled / priority** (and **scope / owner** in admin mode), **description**, **trigger event** badge, and **Edit** / **Delete**. Authors set **Tags** in the editor meta row (comma-separated chips, max 12); the **first tag** is the workflow's catalog section. Tags are stored on \`lab_workflows.tags_json\` — they are **not** app catalog tags.
 
-**Event** shows the trigger's *label* from the domain event catalog, resolved via \`getWorkflowTriggerEventType()\` — the trigger lives on a graph \`trigger\` **node** in v2 definitions, not on \`definition.trigger\` (v1 only). Read both shapes or the cell renders empty.
+**Event** shows the trigger's *label* from the domain event catalog, resolved via \`getWorkflowTriggerEventType()\` — the trigger lives on a graph \`trigger\` **node** in v2 definitions, not on \`definition.trigger\` (v1 only). Read both shapes or the badge renders empty.
 
 **Full screen** (icon-only toggle in the header, Esc to leave) lifts the whole editor — meta strip, palette, canvas and the
 tabbed sidebar together — into a viewport overlay. It is a fixed overlay, **not** the browser Fullscreen
@@ -105,6 +105,7 @@ when changing graphs.
 | **Control** | \`loop\` (bounded, two outputs), \`wait\` (\`seconds\` in-process; \`minutes\`+ **suspend** and resume on the clock) |
 | **Flow** | \`if_condition\`, \`switch_condition\`, \`merge_items\`, \`split_out\` |
 | **Platform** | \`lab_query_app\`, \`integration_delete\`, \`raise_approval\`, \`ledger_post_entry\` |
+| **Quarks / virtual bank** | \`virtual_bank_get_wallet\` (read-only eligibility), \`virtual_bank_credit_daily_allotment\`, \`show_user_toast\` (shell toast — not bell \`notify_users\`) |
 | **External** | \`http_request\` |
 | **Actions** | \`notify_users\`, \`comms_system_dm_payload_user\`, \`publish_event\` |
 | **App data (integrations)** | Drag entity → connector **lookup** condition node (\`lookup_field_*\`) |
@@ -179,6 +180,8 @@ Configure step fields in the detail panel (\`LabWorkflowFlowStepEditor\`): user 
 **Recipients accept a user id or an email.** \`comms_system_dm_payload_user\` and \`notify_users\` with a payload path (toggle **From payload** in the node panel) resolve through \`resolveLabWorkflowRecipientUserId()\` in \`lab-workflow-recipient-resolver.ts\`: a number, a numeric string, or a user email are all valid, and an email is looked up **case-insensitively** because the address usually arrives from a third party. A value that resolves to nobody costs that one recipient, not the run — but a DM to **THE-LAB itself** is refused, because a self-conversation writes a row and reads as a delivery while reaching no one. When a path resolves to nothing the run detail carries \`unresolvedPath\`, which is what turns "I set the DM and nobody got one" into a diagnosable field-name problem.
 
 **\`notify_users\` has two recipient sources.** Either a fixed list (\`userIds\`) or a payload path (\`path\`), chosen with a toggle in the panel; both set is valid and the runner takes the **union**, de-duplicated. The schema rejects neither being set — "notify nobody" must not save as a success. **Fan-out is supported:** several edges may leave one port and the walker runs each target, so two actions from one IF branch is a legitimate pattern, not a duplicate.
+
+**Quarks guinea pig:** seeded workflow **Platform: Quarks daily allotment on login** (\`platform-auth.session.established\`) — \`virtual_bank_get_wallet\` → IF on \`dailyAllotmentEligible\` → \`virtual_bank_credit_daily_allotment\` → \`show_user_toast\`. Wallet GET accrual on port 3000 remains a fallback; disable session events with \`LAB_AUTH_SESSION_EVENTS=0\`.
 
 **Optional CTA buttons (\`actions\`).** Up to three buttons on the bell notification: \`launch_app\` (opens an app tab; optional \`hostContext\` for catalog/CRM/approvals deep links) or \`open_settings\` (Settings nav id when there is no app surface — e.g. ledger admin). Template strings in \`hostContext\` values use the same \`{{payload.field}}\` syntax as message copy. Shell executes via \`executeLabNotificationAction\` in \`execute-lab-notification-action.ts\`.
 

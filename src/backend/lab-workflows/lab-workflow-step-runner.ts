@@ -16,6 +16,9 @@ import { publishLabDomainEventPipeline } from '../lab-events/publish-lab-domain-
 import { labRulesRepository } from '../db/LabRules/lab-rules-repository';
 import { labRulesService } from '../db/LabRules/lab-rules-service';
 import { fanOutLabNotifications } from '../lab-events/fan-out-lab-publish-result';
+import { labVirtualBankRepository } from '../db/LabVirtualBank/lab-virtual-bank-repository';
+import { emitLabShellToastToUser } from '../lab-events/lab-events-toast';
+import type { LabVirtualBankDailyAllotmentEligibility } from '@/shared/types/lab-virtual-bank';
 import { LAB_PLATFORM_SYSTEM_USER_ID } from '@/shared/config/lab-platform-system-user';
 import { getPayloadValueAtPath } from '@/shared/utils/lab-payload-path';
 import { resolveLabWorkflowPayloadUserId } from './lab-workflow-recipient-resolver';
@@ -840,6 +843,181 @@ export async function runWorkflowStep({
       raised: raised.length,
       failed,
       requestIds: raised.slice(0, 5),
+    });
+  }
+
+  if (step.kind === 'virtual_bank_get_wallet') {
+    const path = step.userIdPath?.trim() || 'userId';
+    const outputs: LabWorkflowItem[] = [];
+    let resolved = 0;
+    let skipped = 0;
+    const eligibilityPreview: LabVirtualBankDailyAllotmentEligibility[] = [];
+    for (const item of inputItems) {
+      const userId = resolveLabWorkflowPayloadUserId(item.json, path, { allowSystemUser: false })
+        ?? (typeof getPayloadValueAtPath(item.json, path) === 'number'
+          ? Math.trunc(getPayloadValueAtPath(item.json, path) as number)
+          : null);
+      const fallbackUserId =
+        typeof envelope.payload.userId === 'number' ? Math.trunc(envelope.payload.userId) : null;
+      const labUserId = userId ?? fallbackUserId ?? envelope.actorUserId ?? null;
+      if (labUserId == null || labUserId <= 0) {
+        skipped += 1;
+        continue;
+      }
+      const eligibility = labVirtualBankRepository.evaluateDailyAllotmentEligibility(labUserId);
+      resolved += 1;
+      eligibilityPreview.push(eligibility);
+      outputs.push({
+        json: {
+          ...item.json,
+          userId: labUserId,
+          balance: eligibility.balance,
+          lastDailyAccrualDate: eligibility.lastDailyAccrualDate,
+          dailyAccrualAmount: eligibility.dailyAccrualAmount,
+          balanceCap: eligibility.balanceCap,
+          dailyAllotmentEligible: eligibility.dailyAllotmentEligible,
+          projectedAllotmentDelta: eligibility.projectedAllotmentDelta,
+        },
+      });
+    }
+    if (options.dryRun === true) {
+      return continueWith(
+        { items: outputs.length ? outputs : passThroughItems(inputItems, nodeId).items },
+        {
+          stepKind: step.kind,
+          dryRun: true,
+          path,
+          resolved,
+          skipped,
+          wouldEnrich: eligibilityPreview.slice(0, 3),
+        },
+      );
+    }
+    return continueWith(
+      { items: outputs.length ? outputs : passThroughItems(inputItems, nodeId).items },
+      { stepKind: step.kind, path, resolved, skipped },
+    );
+  }
+
+  if (step.kind === 'virtual_bank_credit_daily_allotment') {
+    const path = step.userIdPath?.trim() || 'userId';
+    const outputs: LabWorkflowItem[] = [];
+    let credited = 0;
+    let noOp = 0;
+    let failed = 0;
+    for (const item of inputItems) {
+      const userId = resolveLabWorkflowPayloadUserId(item.json, path, { allowSystemUser: false })
+        ?? (typeof getPayloadValueAtPath(item.json, path) === 'number'
+          ? Math.trunc(getPayloadValueAtPath(item.json, path) as number)
+          : null)
+        ?? (typeof item.json.userId === 'number' ? Math.trunc(item.json.userId) : null);
+      if (userId == null || userId <= 0) {
+        failed += 1;
+        continue;
+      }
+      if (options.dryRun === true) {
+        const preview = labVirtualBankRepository.evaluateDailyAllotmentEligibility(userId);
+        outputs.push({
+          json: {
+            ...item.json,
+            userId,
+            accrualApplied: preview.dailyAllotmentEligible,
+            accrualDelta: preview.projectedAllotmentDelta,
+            balanceAfter:
+              preview.balance + (preview.dailyAllotmentEligible ? preview.projectedAllotmentDelta : 0),
+          },
+        });
+        if (preview.dailyAllotmentEligible) {
+          credited += 1;
+        } else {
+          noOp += 1;
+        }
+        continue;
+      }
+      try {
+        const result = labVirtualBankRepository.applyDailyAllotmentAccrual(userId);
+        const applied = result.accrualApplied;
+        outputs.push({
+          json: {
+            ...item.json,
+            userId,
+            accrualApplied: Boolean(applied?.delta),
+            accrualDelta: applied?.delta ?? 0,
+            balanceAfter: result.account.balance,
+            ledgerEntryId: result.ledgerEntryId,
+          },
+        });
+        if (applied?.delta) {
+          credited += 1;
+        } else {
+          noOp += 1;
+        }
+      } catch {
+        failed += 1;
+      }
+    }
+    return continueWith(
+      { items: outputs.length ? outputs : passThroughItems(inputItems, nodeId).items },
+      {
+        stepKind: step.kind,
+        ...(options.dryRun === true ? { dryRun: true } : {}),
+        path,
+        credited,
+        noOp,
+        failed,
+      },
+    );
+  }
+
+  if (step.kind === 'show_user_toast') {
+    const path = step.userIdPath?.trim() || 'userId';
+    const templateScope = (item: Record<string, unknown>) => ({
+      payload: envelope.payload,
+      item,
+    });
+    let delivered = 0;
+    let skipped = 0;
+    for (const item of inputItems) {
+      const userId = resolveLabWorkflowPayloadUserId(item.json, path, { allowSystemUser: false })
+        ?? (typeof getPayloadValueAtPath(item.json, path) === 'number'
+          ? Math.trunc(getPayloadValueAtPath(item.json, path) as number)
+          : null)
+        ?? (typeof item.json.userId === 'number' ? Math.trunc(item.json.userId) : null);
+      if (userId == null || userId <= 0) {
+        skipped += 1;
+        continue;
+      }
+      const summary = renderWorkflowMessageTemplate(step.summary, templateScope(item.json)).trim();
+      const detail = step.detail
+        ? renderWorkflowMessageTemplate(step.detail, templateScope(item.json)).trim()
+        : undefined;
+      if (options.dryRun === true) {
+        delivered += 1;
+        continue;
+      }
+      emitLabShellToastToUser(io, userId, {
+        severity: step.severity,
+        summary: summary || step.summary,
+        detail,
+        life: 6000,
+      });
+      delivered += 1;
+    }
+    return continueWith(passThroughItems(inputItems, nodeId), {
+      stepKind: step.kind,
+      ...(options.dryRun === true ? { dryRun: true } : {}),
+      path,
+      delivered,
+      skipped,
+      ...(options.dryRun === true
+        ? {
+            wouldToast: {
+              severity: step.severity,
+              summary: step.summary,
+              detail: step.detail,
+            },
+          }
+        : {}),
     });
   }
 

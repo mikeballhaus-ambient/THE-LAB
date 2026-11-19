@@ -21,6 +21,10 @@ import {
   buildDemoApprovalStepPendingAssigneeNotifyDefinition,
 } from '@/shared/utils/demo-workflow-definition-approval-assignee-notify';
 import { buildDemoPollPublishedNotifyWorkflowDefinition, DEMO_WORKFLOW_POLLS_PUBLISHED_NOTIFY_ID } from '@/shared/utils/demo-workflow-definition-poll-published-notify';
+import {
+  buildDemoQuarksLoginAllotmentWorkflowDefinition,
+  DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID,
+} from '@/shared/utils/demo-workflow-definition-quarks-login-allotment';
 
 /** Primary seeded workflow id (Workflow Studio showcase) — CRM sales approval request. */
 export const DEMO_WORKFLOW_ID = 'a1000002-0002-4002-8002-000000000100';
@@ -68,6 +72,7 @@ export const DEMO_WORKFLOW_APPROVAL_STEP_PENDING_NOTIFY_ID =
   'a1000002-0002-4002-8002-000000000124';
 
 export { DEMO_WORKFLOW_POLLS_PUBLISHED_NOTIFY_ID } from '@/shared/utils/demo-workflow-definition-poll-published-notify';
+export { DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID };
 
 /** Seeded Approvals policy for expense → ledger demos (see platform-catalog-demo-seed `DEMO_POLICY_ID`). */
 export const DEMO_APPROVAL_POLICY_ID = 'a1000003-0003-4003-8003-000000000003';
@@ -172,6 +177,8 @@ export type DemoWorkflowSeedSpec = {
   name: string;
   description: string;
   priority: number;
+  /** Workflow Studio browse filters (not app catalog tags). */
+  tags: readonly string[];
   buildDefinition: () => LabWorkflowDefinitionV2;
 };
 
@@ -186,6 +193,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When a user submits approval on a CRM sales record, raise a request on the CRM sales deal policy.',
     priority: 320,
+    tags: ['CRM', 'Approvals'],
     buildDefinition: buildDemoCrmSalesApprovalWorkflowDefinition,
   },
   {
@@ -194,6 +202,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When a user submits approval on a CRM quote record, raise a request on the CRM quote policy.',
     priority: 315,
+    tags: ['CRM', 'Approvals'],
     buildDefinition: buildDemoCrmQuotesApprovalWorkflowDefinition,
   },
   {
@@ -202,6 +211,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When the CRM sales deal policy completes, copy `requestStatus` to `approvalStatus`, then notify the requester (wording branches on outcome).',
     priority: 312,
+    tags: ['CRM', 'Approvals'],
     buildDefinition: buildDemoCrmSalesApprovalResponseWorkflowDefinition,
   },
   {
@@ -210,6 +220,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When the CRM quote policy completes, copy `requestStatus` to `approvalStatus`, then notify the requester (wording branches on outcome).',
     priority: 308,
+    tags: ['CRM', 'Approvals'],
     buildDefinition: buildDemoCrmQuotesApprovalResponseWorkflowDefinition,
   },
   {
@@ -218,6 +229,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When Post entry is requested on a CRM sales record, post a balanced demo journal entry from event `amountCents` and `ledgerMemo`.',
     priority: 302,
+    tags: ['CRM', 'Ledger'],
     buildDefinition: buildDemoCrmSalesLedgerPostWorkflowDefinition,
   },
   {
@@ -226,6 +238,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When Post entry is requested on a CRM quote, post a balanced demo journal entry from event `amountCents` and `ledgerMemo`.',
     priority: 301,
+    tags: ['CRM', 'Ledger'],
     buildDefinition: buildDemoCrmQuotesLedgerPostWorkflowDefinition,
   },
   {
@@ -234,6 +247,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When Time Tracking submits a week, open the seeded timesheet approval policy for that `weekKey`.',
     priority: 75,
+    tags: ['Time Tracking', 'Approvals'],
     buildDefinition: buildDemoTimesheetApprovalWorkflowDefinition,
   },
   {
@@ -242,6 +256,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When the timesheet policy completes, copy `requestStatus` to `approvalStatus`, then notify the requester (wording branches on outcome).',
     priority: 74,
+    tags: ['Time Tracking', 'Approvals'],
     buildDefinition: buildDemoTimesheetApprovalResponseWorkflowDefinition,
   },
   {
@@ -250,6 +265,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When an expense is submitted for review, open the seeded expense approval policy for that expense id.',
     priority: 73,
+    tags: ['Expense Reports', 'Approvals'],
     buildDefinition: buildDemoExpenseReportApprovalWorkflowDefinition,
   },
   {
@@ -258,7 +274,17 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When the expense policy completes, copy `requestStatus` to expense `status`, then notify the requester (wording branches on outcome).',
     priority: 72,
+    tags: ['Expense Reports', 'Approvals'],
     buildDefinition: buildDemoExpenseReportApprovalResponseWorkflowDefinition,
+  },
+  {
+    id: DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID,
+    name: 'Platform: Quarks daily allotment on login',
+    description:
+      'On `platform-auth.session.established`, read wallet eligibility, credit daily Quarks when due, and toast the signed-in user.',
+    priority: 331,
+    tags: ['Platform', 'Quarks'],
+    buildDefinition: buildDemoQuarksLoginAllotmentWorkflowDefinition,
   },
   {
     id: DEMO_WORKFLOW_APPROVAL_REQUEST_CREATED_NOTIFY_ID,
@@ -266,6 +292,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When `platform-approvals.request.created` fires, notify the first-step assignee (`assigneeUserId`).',
     priority: 330,
+    tags: ['Platform', 'Approvals'],
     buildDefinition: buildDemoApprovalRequestCreatedAssigneeNotifyDefinition,
   },
   {
@@ -274,6 +301,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When `platform-approvals.step.pending` fires, notify the new step assignee (`assigneeUserId`).',
     priority: 329,
+    tags: ['Platform', 'Approvals'],
     buildDefinition: buildDemoApprovalStepPendingAssigneeNotifyDefinition,
   },
   {
@@ -282,6 +310,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
     description:
       'When `app-polls-surveys.poll.published` fires, notify every seeded lab user (demo cast + admin).',
     priority: 280,
+    tags: ['Polls', 'Notifications'],
     buildDefinition: buildDemoPollPublishedNotifyWorkflowDefinition,
   },
   {
@@ -291,6 +320,7 @@ export const DEMO_WORKFLOW_SEEDS: readonly DemoWorkflowSeedSpec[] = [
       'Accepts any webhook JSON, loops while `stepValue` is below 3, waits 3s and increments `stepValue` each pass, ' +
       'then messages whether it reached 3 or hit the iteration cap (POST { "stepValue": 1 }).',
     priority: 60,
+    tags: ['Tutorial', 'Webhook'],
     buildDefinition: buildDemoWebhookLoopWorkflowDefinition,
   },
 ];

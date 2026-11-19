@@ -2,6 +2,7 @@
 import AppCard from './AppCard.vue';
 import { useUniqueElementId } from '@/shared/composables/useUniqueElementId';
 import type { RuntimeApp, User } from '@/shared/types';
+import type { CatalogTagSection } from '@/shared/utils/catalog-tag-utils';
 import {
   LAB_SHELL_CATALOG_SIDEBAR_LABEL,
   LAB_SHELL_CATALOG_SIDEBAR_PANEL_ARIA,
@@ -12,7 +13,7 @@ import {
 } from '@/shared/constants/lab-shell-workspace-automation';
 
 const props = defineProps<{
-  apps: RuntimeApp[];
+  sections: CatalogTagSection[];
   user: User | null;
   expanded: boolean;
   isAppRunning?: (appId: string) => boolean;
@@ -61,16 +62,31 @@ const { generateUniqueId } = useUniqueElementId();
         <span class="lab-app-catalog-sidebar__title">{{ LAB_SHELL_CATALOG_SIDEBAR_LABEL }}</span>
       </header>
       <div class="lab-app-catalog-sidebar__list">
-        <AppCard
-          v-for="app in apps"
-          :key="app.id"
-          :app="app"
-          :is-running="props.isAppRunning?.(app.id) ?? false"
-          view-type="sidebar"
-          :user="user"
-          @launch="() => emit('launch', app.id, app.name)"
-          @teardown="() => emit('teardown', app.id)"
-        />
+        <section
+          v-for="section in sections"
+          :key="section.tag.id"
+          class="lab-app-catalog-sidebar__section app-catalog-section app-catalog-section--tag-group"
+          :data-catalog-section-tag="section.tag.id"
+        >
+          <header class="lab-app-catalog-sidebar__section-head app-catalog-section__head">
+            <h2 class="app-catalog-section__title">
+              {{ section.tag.label }}
+              <span class="app-catalog-section__count" aria-hidden="true">({{ section.apps.length }})</span>
+            </h2>
+          </header>
+          <div class="lab-app-catalog-sidebar__section-apps">
+            <AppCard
+              v-for="app in section.apps"
+              :key="app.id"
+              :app="app as RuntimeApp"
+              :is-running="props.isAppRunning?.(app.id) ?? false"
+              view-type="sidebar"
+              :user="user"
+              @launch="() => emit('launch', app.id, app.name)"
+              @teardown="() => emit('teardown', app.id)"
+            />
+          </div>
+        </section>
       </div>
     </div>
   </div>

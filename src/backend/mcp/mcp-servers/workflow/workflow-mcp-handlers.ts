@@ -379,6 +379,7 @@ function summarizeWorkflow(workflow: LabWorkflowRecord): Record<string, unknown>
     ownerUserId: workflow.ownerUserId,
     enabled: workflow.enabled,
     priority: workflow.priority,
+    tags: workflow.tags ?? [],
     triggerEventType: getWorkflowTriggerEventType(workflow.definition) || null,
     updatedAt: workflow.updatedAt,
   };

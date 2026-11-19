@@ -39,6 +39,10 @@ import {
   latestWorkflowItemPayloadFieldsFromSamples,
   type CapturedPayloadField,
 } from '@/shared/utils/lab-workflow-captured-payload-fields';
+import {
+  LAB_WORKFLOW_QUARKS_ITEM_FIELD_HINTS,
+  mergeCapturedPayloadFieldHints,
+} from '@/shared/utils/lab-workflow-quarks-item-fields';
 import type { LabWorkflowGraphSelection } from '@/shared/types/lab-workflow-graph-selection';
 import {
   labWorkflowGraphNodeKindDisplay,
@@ -162,7 +166,10 @@ async function loadCapturedPayloadFields(): Promise<void> {
       : samples;
     const mapping =
       workflowTriggerNode.value?.kind === 'trigger' ? workflowTriggerNode.value.mapping : undefined;
-    capturedPayloadFields.value = latestWorkflowItemPayloadFieldsFromSamples(scoped, mapping);
+    capturedPayloadFields.value = mergeCapturedPayloadFieldHints(
+      latestWorkflowItemPayloadFieldsFromSamples(scoped, mapping),
+      LAB_WORKFLOW_QUARKS_ITEM_FIELD_HINTS,
+    );
   } catch {
     // Completion is an aid; a failed load must not break the panel.
     capturedPayloadFields.value = [];

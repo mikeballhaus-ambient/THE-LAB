@@ -110,7 +110,10 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
 
       }
 
-      const session = attachLabSessionToReply(reply, user.userId);
+      const session = attachLabSessionToReply(reply, user.userId, {
+        io: server.io,
+        authMethod: 'password',
+      });
 
       return reply.send({
 
@@ -246,7 +249,7 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
       request: FastifyRequest<{ Querystring: { code?: string; state?: string; error?: string } }>,
       reply: FastifyReply,
     ) => {
-      return handleOidcCallbackRequest(reply, 'google', request.query);
+      return handleOidcCallbackRequest(server, reply, 'google', request.query);
     },
   );
 
@@ -278,7 +281,7 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
           ).toString()}`,
         );
       }
-      return handleOidcCallbackRequest(reply, provider, request.query);
+      return handleOidcCallbackRequest(server, reply, provider, request.query);
     },
   );
 }
@@ -305,6 +308,7 @@ function handleOidcLoginRequest(reply: FastifyReply, providerId: string) {
 }
 
 async function handleOidcCallbackRequest(
+  server: FastifyInstance,
   reply: FastifyReply,
   providerId: string,
   query: OidcCallbackQuery,
@@ -324,7 +328,11 @@ async function handleOidcCallbackRequest(
       query.code,
       query.state,
     );
-    const session = attachLabSessionToReply(reply, userId);
+    const session = attachLabSessionToReply(reply, userId, {
+      io: server.io,
+      authMethod: 'oidc',
+      providerKey: providerId,
+    });
     const redirectUrl = buildFrontendSsoCompleteUrl({
       userId,
       labSessionId: session.sessionId,
