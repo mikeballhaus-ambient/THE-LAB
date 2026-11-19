@@ -12,6 +12,7 @@ import {
   DEMO_WORKFLOW_EXPENSE_APPROVAL_ID,
   DEMO_WORKFLOW_EXPENSE_APPROVAL_RESPONSE_ID,
   DEMO_WORKFLOW_WEBHOOK_LOOP_ID,
+  DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID,
 } from '@/shared/utils/demo-workflow-seed-catalog';
 import { DEMO_WORKFLOW_POLLS_PUBLISHED_NOTIFY_ID } from '@/shared/utils/demo-workflow-definition-poll-published-notify';
 
@@ -141,6 +142,14 @@ export const DEMO_WORKFLOW_DB_SYNC_ENTRIES: readonly DemoWorkflowDbSyncEntry[] =
     definitionModuleBasename: 'demo-workflow-definition-poll-published-notify',
     buildFunctionName: 'buildDemoPollPublishedNotifyWorkflowDefinition',
     snapshotFile: 'polls-published-notify.snapshot.ts',
+  },
+  {
+    id: DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID,
+    catalogIdSymbol: 'DEMO_WORKFLOW_QUARKS_LOGIN_ALLOTMENT_ID',
+    slug: 'quarks-login-allotment',
+    definitionModuleBasename: 'demo-workflow-definition-quarks-login-allotment',
+    buildFunctionName: 'buildDemoQuarksLoginAllotmentWorkflowDefinition',
+    snapshotFile: 'quarks-login-allotment.snapshot.ts',
   },
 ];
 

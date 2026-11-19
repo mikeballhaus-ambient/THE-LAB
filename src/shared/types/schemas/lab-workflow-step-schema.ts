@@ -271,6 +271,21 @@ export const LabWorkflowStepSchema = z.discriminatedUnion('kind', [
       .max(20),
     confirmedByUserId: z.number().int().positive(),
   }),
+  z.object({
+    kind: z.literal('virtual_bank_get_wallet'),
+    userIdPath: z.string().max(200).optional(),
+  }),
+  z.object({
+    kind: z.literal('virtual_bank_credit_daily_allotment'),
+    userIdPath: z.string().max(200).optional(),
+  }),
+  z.object({
+    kind: z.literal('show_user_toast'),
+    userIdPath: z.string().max(200).optional(),
+    severity: z.enum(['success', 'info', 'warn', 'error']),
+    summary: z.string().min(1).max(200),
+    detail: z.string().max(2000).optional(),
+  }),
   // W10b — outbound HTTP. The URL is not pattern-checked here beyond being non-empty: a template
   // reference is not a URL until run time, so shape validation belongs to `validateOutboundUrl` at
   // the request. A regex here would reject the legitimate templated case.

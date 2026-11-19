@@ -110,7 +110,10 @@ export function registerHttpAuthRoutes(server: FastifyInstance): void {
 
       }
 
-      const session = attachLabSessionToReply(reply, user.userId);
+      const session = attachLabSessionToReply(reply, user.userId, {
+        io: server.io,
+        authMethod: 'password',
+      });
 
       return reply.send({
 
@@ -324,7 +327,11 @@ async function handleOidcCallbackRequest(
       query.code,
       query.state,
     );
-    const session = attachLabSessionToReply(reply, userId);
+    const session = attachLabSessionToReply(reply, userId, {
+      io: server.io,
+      authMethod: 'oidc',
+      providerKey: providerId,
+    });
     const redirectUrl = buildFrontendSsoCompleteUrl({
       userId,
       labSessionId: session.sessionId,

@@ -2,6 +2,7 @@ import { onScopeDispose, ref, shallowRef, type Ref } from 'vue';
 import { io, type Socket } from 'socket.io-client';
 import { LAB_EVENTS_SOCKET } from '@/shared/types/lab-events-socket-events';
 import type { LabUserNotification } from '@/shared/types/lab-domain-event';
+import type { LabShellToastPayload } from '@/shared/types/lab-shell-toast';
 import { buildLabCommsSocketAuth } from '@/shared/composables/useLabComms';
 import {
   deleteLabNotification,
@@ -25,10 +26,12 @@ export function connectLabEventsSocket(baseUrl: string): Socket {
 export interface UseLabNotificationsOptions {
   serverUrl: string;
   isAuthenticated: Ref<boolean>;
+  /** Shell PrimeVue toast from workflow `show_user_toast` (fail-open when offline). */
+  onShellToast?: (payload: LabShellToastPayload) => void;
 }
 
 export function useLabNotifications(options: UseLabNotificationsOptions) {
-  const { serverUrl, isAuthenticated } = options;
+  const { serverUrl, isAuthenticated, onShellToast } = options;
 
   const socket = shallowRef<Socket | null>(null);
   const connected = ref(false);
@@ -102,6 +105,21 @@ export function useLabNotifications(options: UseLabNotificationsOptions) {
         unreadCount.value = payload.count;
       }
     });
+
+    sock.on(
+      LAB_EVENTS_SOCKET.USER_TOAST,
+      (payload: { userId?: number } & LabShellToastPayload) => {
+        if (!payload?.summary?.trim()) {
+          return;
+        }
+        onShellToast?.({
+          severity: payload.severity ?? 'info',
+          summary: payload.summary,
+          detail: payload.detail,
+          life: payload.life,
+        });
+      },
+    );
   }
 
   async function refresh(): Promise<void> {

@@ -7,6 +7,7 @@ import {
 } from './lab-workflows-schema';
 import type { LabWorkflowDefinition, LabWorkflowRecord, LabWorkflowScope } from '@/shared/types/lab-workflow';
 import { parseLabWorkflowDefinition } from '@/shared/types/schemas/lab-workflow-schema';
+import { parseLabWorkflowTagsJson } from '@/shared/utils/lab-workflow-tags';
 
 type WorkflowDbRow = {
   id: string;
@@ -17,6 +18,7 @@ type WorkflowDbRow = {
   created_by_user_id: number;
   enabled: number;
   priority: number;
+  tags_json: string;
   definition_json: string;
   created_at: string;
   updated_at: string;
@@ -37,6 +39,7 @@ function mapWorkflowRow(row: WorkflowDbRow): LabWorkflowRecord {
     id: row.id,
     name: row.name,
     description: row.description ?? undefined,
+    tags: parseLabWorkflowTagsJson(row.tags_json ?? '[]'),
     scope: row.scope as LabWorkflowScope,
     ownerUserId: row.owner_user_id,
     createdByUserId: row.created_by_user_id,
@@ -102,12 +105,14 @@ export class LabWorkflowsRepository extends Repository {
     createdByUserId: number;
     enabled: boolean;
     priority: number;
+    tagsJson?: string;
     definitionJson: string;
   }): void {
     this.stmt(LabWorkflowsSQLStatementKeys.workflow_insert).run(
       record.id,
       record.name,
       record.description,
+      record.tagsJson ?? '[]',
       record.scope,
       record.ownerUserId,
       record.createdByUserId,
@@ -121,6 +126,7 @@ export class LabWorkflowsRepository extends Repository {
     this.stmt(LabWorkflowsSQLStatementKeys.workflow_update).run(
       record.name,
       record.description ?? null,
+      JSON.stringify(record.tags ?? []),
       record.scope,
       record.ownerUserId,
       record.enabled ? 1 : 0,

@@ -23,6 +23,7 @@ import LabRunningAppsRail from './LabRunningAppsRail.vue';
 import type { PlatformAppTagId } from '@/shared/config/platform-app-tag-catalog';
 import { LAB_CATALOG_SECTION_PREVIEW_LIMIT } from '@/shared/constants/lab-catalog-ui';
 import { LAB_CATALOG_FILTER_TAG_ACTION_VALUE } from '@/shared/constants/lab-shell-ui-automation';
+import { buildCatalogSectionsByPrimaryTag } from '@/shared/utils/catalog-tag-utils';
 
 /** Platform hero: spotlight band + compact stacked carousel cards */
 const PLATFORM_HERO_PRESENTATION = 'spotlight' as const;
@@ -170,6 +171,11 @@ const launchableAppsWithTags = computed(() =>
       app.catalogTagIds ??
       [],
   })),
+);
+
+/** Compact launcher: one scrollable group per primary catalog tag (full list, no preview cap). */
+const sidebarCatalogSections = computed(() =>
+  buildCatalogSectionsByPrimaryTag(launchableAppsWithTags.value, catalogTags.value),
 );
 
 onMounted(async () => {
@@ -495,7 +501,7 @@ watch(catalogSidebarExpanded, scheduleCatalogSidebarInsetSync);
       :id="generateUniqueId('lab-app-catalog-sidebar-host')"
     >
       <LabAppCatalogSidebar
-        :apps="launchableApps"
+        :sections="sidebarCatalogSections"
         :user="props.user"
         :expanded="catalogSidebarExpanded"
         :is-app-running="isAppRunning"

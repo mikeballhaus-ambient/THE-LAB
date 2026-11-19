@@ -264,6 +264,25 @@ export type LabWorkflowPlatformStepV1 =
        * event-triggered workflow has no human behind it, so the author must name one explicitly.
        */
       confirmedByUserId: number;
+    }
+  /** Quarks — read wallet + eligibility without posting accrual. */
+  | {
+      kind: 'virtual_bank_get_wallet';
+      /** Item JSON path for lab user id. Defaults to `userId`. */
+      userIdPath?: string;
+    }
+  /** Quarks — canonical daily accrual for one user. */
+  | {
+      kind: 'virtual_bank_credit_daily_allotment';
+      userIdPath?: string;
+    }
+  /** Lab shell toast (not bell notifications). */
+  | {
+      kind: 'show_user_toast';
+      userIdPath?: string;
+      severity: 'success' | 'info' | 'warn' | 'error';
+      summary: string;
+      detail?: string;
     };
 
 /**
@@ -373,6 +392,8 @@ export interface LabWorkflowRecord {
   id: string;
   name: string;
   description?: string;
+  /** Free-form labels for browsing and filtering in Workflow Studio (not app catalog tags). */
+  tags?: string[];
   scope: LabWorkflowScope;
   ownerUserId: number | null;
   createdByUserId: number;

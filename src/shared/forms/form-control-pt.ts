@@ -21,9 +21,22 @@ export const formInputNumberPt = {
   root: {
     class: `w-full! ${fieldChrome}`,
   },
-  input: {
+  pcInputText: {
     root: {
       class: `w-full! px-2! py-1.5! border-0! bg-transparent! text-[var(--lab-general-text)]! shadow-none!`,
+    },
+  },
+};
+
+/** Workflow Studio meta row — fixed 50px spinbutton, not full-width wrapper. */
+export const formWorkflowMetaPriorityPt = {
+  root: {
+    class: 'inline-flex! w-auto! max-w-none! shrink-0! shadow-none!',
+  },
+  pcInputText: {
+    root: {
+      class:
+        `w-[50px]! min-w-[50px]! max-w-[50px]! box-border! px-1! py-1.5! text-center! text-sm! ${fieldChrome}`,
     },
   },
 };
@@ -74,6 +87,81 @@ export const formSelectPt = {
   },
   option: {
     class: 'text-sm! text-[var(--lab-general-text)]!',
+  },
+};
+
+/** Details overlay tags — bordered token list (root stays flat; chrome on the `<ul>`). */
+export const formWorkflowMetaTagsPt = {
+  root: {
+    class: 'w-auto! max-w-full! min-w-0! border-0! bg-transparent! shadow-none!',
+  },
+  input: {
+    class:
+      `flex! flex-wrap! items-center! gap-1! list-none! m-0! px-2! py-1! min-h-[2rem]! w-auto! max-w-full! box-border! ${fieldChrome}`,
+  },
+  chipItem: {
+    class: 'list-none! m-0! p-0! inline-flex! max-w-full!',
+  },
+  pcChip: {
+    root: {
+      class:
+        'lab-workflows-meta-tag-chip lab-workflows-details-tag-chip inline-flex! items-center! gap-1! rounded-sm! px-1.5! py-0.5! shadow-none!',
+    },
+    label: {
+      class: 'text-[0.7rem]! font-medium! leading-snug! py-0! px-0!',
+    },
+    removeIcon: {
+      class:
+        'text-[0.65rem]! w-3.5! h-3.5! text-[var(--lab-general-text-muted)]! ' +
+        'hover:text-[var(--lab-general-text)]! cursor-pointer!',
+    },
+  },
+  inputItem: {
+    class: 'list-none! m-0! p-0! inline-flex! shrink-0! flex-grow-0! basis-auto! min-w-[5rem]! max-w-full!',
+  },
+  inputItemField: {
+    class:
+      'w-auto! min-w-[5rem]! max-w-full! border-0! bg-transparent! px-0.5! py-0! text-xs! ' +
+      'text-[var(--lab-general-text)]! shadow-none! outline-none! placeholder:text-[var(--lab-general-text-muted)]!',
+  },
+};
+
+/** Workflow Studio metadata tags (`InputChips` / deprecated `Chips`). */
+export const formChipsPt = {
+  root: {
+    class: 'w-full! min-w-0! flex-1! max-w-full!',
+  },
+  input: {
+    class:
+      `flex! flex-wrap! items-center! gap-0.5! list-none! m-0! p-1! min-h-[1.65rem]! ${fieldChrome}`,
+  },
+  chipItem: {
+    class: 'list-none! m-0! p-0! inline-flex! max-w-full!',
+  },
+  pcChip: {
+    root: {
+      class:
+        'lab-workflows-meta-tag-chip inline-flex! items-center! gap-0.5! rounded-sm! px-1! py-0! ' +
+        'border! border-[color-mix(in_srgb,var(--lab-general-border)_65%,transparent)]! ' +
+        'bg-[color-mix(in_srgb,var(--lab-general-text-muted)_9%,transparent)]! ' +
+        'text-[var(--lab-general-text-muted)]! shadow-none!',
+    },
+    label: {
+      class: 'text-[0.62rem]! font-medium! leading-tight! py-0! px-0!',
+    },
+    removeIcon: {
+      class:
+        'text-[0.55rem]! w-3! h-3! text-[var(--lab-general-text-muted)]! ' +
+        'hover:text-[var(--lab-general-text)]! cursor-pointer!',
+    },
+  },
+  inputItem: {
+    class: 'list-none! m-0! p-0! inline-flex! flex-1! min-w-[3.5rem]! max-w-full!',
+  },
+  inputItemField: {
+    class:
+      'w-full! min-w-[3.5rem]! border-0! bg-transparent! px-0.5! py-0! text-xs! ' +
+      'text-[var(--lab-general-text)]! shadow-none! outline-none! placeholder:text-[var(--lab-general-text-muted)]!',
   },
 };
 

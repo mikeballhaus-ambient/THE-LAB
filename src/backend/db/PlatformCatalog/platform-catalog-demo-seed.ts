@@ -70,7 +70,7 @@ export const DEMO_LEDGER_REVENUE_ID = 'a1000005-0005-4005-8005-000000000005';
 export const DEMO_CATALOG_TAG_ID = 'demo-training';
 
 /** Bump when demo workflow JSON changes so startup sync can refresh existing DBs. */
-export const DEMO_AUTOMATION_DEFINITION_REVISION = 28;
+export const DEMO_AUTOMATION_DEFINITION_REVISION = 30;
 const SAMPLE_CATALOG_TAG_DESCRIPTION = 'Sample tag for training and the app catalog.';
 const DEMO_LEDGER_CASH_NAME = 'Demo Cash';
 const DEMO_LEDGER_REVENUE_NAME = 'Demo Revenue';
@@ -240,18 +240,22 @@ function syncDemoAutomationDefinitions(db: Database, _createdByUserId: number): 
       scope: 'global' as const,
       ownerUserId: null,
       description: seed.description,
+      tags: [...seed.tags],
       definition: merged,
       priority: seed.priority,
     };
     const contentChanged =
       labWorkflowDefinitionContentKey(workflow.definition as typeof seedDefinition) !==
       labWorkflowDefinitionContentKey(seedDefinition);
+    const tagsChanged =
+      (workflow.tags ?? []).join('\u0000') !== next.tags.join('\u0000');
     if (
       workflow.name !== next.name ||
       workflow.scope !== 'global' ||
       workflow.ownerUserId != null ||
       workflow.description !== next.description ||
       workflow.priority !== next.priority ||
+      tagsChanged ||
       contentChanged
     ) {
       labWorkflowsRepository.updateWorkflow(next);
@@ -316,6 +320,7 @@ function seedWorkflowsDemo(createdByUserId: number): boolean {
       createdByUserId,
       enabled: true,
       priority: seed.priority,
+      tagsJson: JSON.stringify([...seed.tags]),
       definitionJson: JSON.stringify(seed.buildDefinition()),
     });
     inserted = true;

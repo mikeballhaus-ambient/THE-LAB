@@ -25,6 +25,12 @@ import {
   splitIntegrationBodyFromPayloadMappings,
   userMappableIntegrationProperties,
 } from '@/shared/utils/lab-workflow-integration-field-mapping';
+import {
+  LAB_WORKFLOW_TOAST_ITEM_INSERT_OPTIONS,
+  mergeCapturedPayloadFieldHints,
+  LAB_WORKFLOW_QUARKS_ITEM_FIELD_HINTS,
+} from '@/shared/utils/lab-workflow-quarks-item-fields';
+import { CUSTOM_PATH_SENTINEL } from '@/shared/utils/lab-workflow-captured-payload-fields';
 
 const props = defineProps<{
   step: LabWorkflowStepV1;
@@ -132,6 +138,95 @@ function labelForAdHocPayloadPath(path: string): string {
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+const quarksItemFieldHints = computed(() =>
+  mergeCapturedPayloadFieldHints(
+    props.capturedPayloadFields ?? [],
+    LAB_WORKFLOW_QUARKS_ITEM_FIELD_HINTS,
+  ),
+);
+
+/** Paths on the current workflow item row (user id, Quarks fields, captured trigger fields). */
+const workflowItemPathOptions = computed(() => {
+  const byValue = new Map<string, { label: string; value: string }>();
+  for (const field of quarksItemFieldHints.value) {
+    byValue.set(field.path, {
+      label: field.type === 'string' ? field.path : `${field.path} (${field.type})`,
+      value: field.path,
+    });
+  }
+  for (const option of props.payloadPathOptions) {
+    if (option.value === CUSTOM_PATH_SENTINEL || !option.value.trim()) {
+      continue;
+    }
+    if (!byValue.has(option.value)) {
+      byValue.set(option.value, option);
+    }
+  }
+  const list = [...byValue.values()].sort((a, b) => a.label.localeCompare(b.label));
+  if (!list.some((option) => option.value === CUSTOM_PATH_SENTINEL)) {
+    list.push({ label: 'Custom path…', value: CUSTOM_PATH_SENTINEL });
+  }
+  return list;
+});
+
+const TOAST_SEVERITY_OPTIONS: { label: string; value: 'success' | 'info' | 'warn' | 'error' }[] = [
+  { label: 'Success', value: 'success' },
+  { label: 'Info', value: 'info' },
+  { label: 'Warning', value: 'warn' },
+  { label: 'Error', value: 'error' },
+];
+
+const TOAST_SUMMARY_PLACEHOLDER = 'Title — e.g. Daily allotment';
+const TOAST_DETAIL_PLACEHOLDER = 'Detail — e.g. +{{accrualDelta}} Quarks ({{balanceAfter}} total)';
+
+function isQuarksUserIdStep(
+  step: LabWorkflowStepV1,
+): step is Extract<
+  LabWorkflowStepV1,
+  | { kind: 'virtual_bank_get_wallet' }
+  | { kind: 'virtual_bank_credit_daily_allotment' }
+  | { kind: 'show_user_toast' }
+> {
+  return (
+    step.kind === 'virtual_bank_get_wallet' ||
+    step.kind === 'virtual_bank_credit_daily_allotment' ||
+    step.kind === 'show_user_toast'
+  );
+}
+
+function onQuarksUserIdPathUpdate(path: string | undefined): void {
+  const step = props.step;
+  if (!isQuarksUserIdStep(step)) {
+    return;
+  }
+  const trimmed = path?.trim();
+  const userIdPath =
+    trimmed && trimmed !== CUSTOM_PATH_SENTINEL ? trimmed : step.userIdPath?.trim() || 'userId';
+  emit('update:step', { ...step, userIdPath });
+}
+
+function onShowUserToastSeverityChange(
+  severity: 'success' | 'info' | 'warn' | 'error' | null | undefined,
+): void {
+  const step = props.step;
+  if (step.kind !== 'show_user_toast' || !severity) {
+    return;
+  }
+  emit('update:step', { ...step, severity });
+}
+
+function onShowUserToastFieldUpdate(field: 'summary' | 'detail', value: string): void {
+  const step = props.step;
+  if (step.kind !== 'show_user_toast') {
+    return;
+  }
+  if (field === 'summary') {
+    emit('update:step', { ...step, summary: value });
+    return;
+  }
+  emit('update:step', { ...step, detail: value.trim() ? value : undefined });
 }
 
 const integrationPayloadPathOptions = computed(() => {
@@ -1141,7 +1236,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         :model-value="step.message?.title ?? ''"
         :placeholder="MESSAGE_TITLE_PLACEHOLDER"
         :id-prefix="`wf-flow-msg-title-${blockKey}`"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :payload-path-options="payloadPathOptions"
         @update:model-value="(value) => onMessageFieldUpdate(step, 'title', value)"
       />
@@ -1152,7 +1247,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         multiline
         :rows="2"
         @update:model-value="(value) => onMessageFieldUpdate(step, 'body', value)"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :payload-path-options="payloadPathOptions"
       />
     </template>
@@ -1180,7 +1275,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
       <LabWorkflowSetFieldsEditor
         :fields="step.fields"
         :payload-path-options="payloadPathOptions"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :block-key="blockKey"
         @update:fields="onSetFieldsChange"
       />
@@ -1290,7 +1385,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         :catalog-entries="catalogEntries"
         :integration-service-catalog="integrationServiceCatalog"
         :lab-user-options="labUserOptionsForConditions"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :field-key-prefix="`wf-flow-loop-${blockKey}`"
         @update:conditions="
           (conditions) =>
@@ -1322,7 +1417,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         :catalog-entries="catalogEntries"
         :integration-service-catalog="integrationServiceCatalog"
         :lab-user-options="labUserOptionsForConditions"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :field-key-prefix="`wf-flow-if-${blockKey}`"
         @update:conditions="
           (conditions) =>
@@ -1419,7 +1514,7 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         placeholder="https://api.example.com/resource"
         :id-prefix="`wf-flow-http-url-${blockKey}`"
         input-class="min-w-[12rem] flex-1 font-mono text-sm"
-        :captured-payload-fields="capturedPayloadFields"
+        :captured-payload-fields="quarksItemFieldHints"
         :payload-path-options="payloadPathOptions"
         @update:model-value="onHttpUrlChange"
       />
@@ -1493,6 +1588,106 @@ function onWaitUnitChange(unit: WaitUnit | null | undefined): void {
         size="small"
         :pt="{ root: { attrs: { id: generateUniqueId(`wf-flow-http-body-add-${blockKey}`) } } }"
         @click="addHttpBodyMappingRow"
+      />
+    </template>
+    <template
+      v-else-if="
+        step.kind === 'virtual_bank_get_wallet' || step.kind === 'virtual_bank_credit_daily_allotment'
+      "
+    >
+      <p class="m-0 w-full text-xs text-lab-general-text-muted">
+        <template v-if="step.kind === 'virtual_bank_get_wallet'">
+          Reads Quarks balance and <code>dailyAllotmentEligible</code> on the item without posting
+          accrual — use those fields in IF nodes.
+        </template>
+        <template v-else>
+          Applies the canonical daily Quarks credit for the resolved user (writes
+          <code>accrualDelta</code>, <code>balanceAfter</code> on the item).
+        </template>
+      </p>
+      <label v-if="blockKey === 'graph-action'" class="lab-workflow-flow-step-editor__field-label">
+        Lab user id from item field
+      </label>
+      <Select
+        v-if="workflowItemPathOptions.length"
+        :model-value="payloadPathSelectValue(step.userIdPath ?? 'userId', workflowItemPathOptions)"
+        :options="workflowItemPathOptions"
+        option-label="label"
+        option-value="value"
+        placeholder="userId"
+        class="min-w-[12rem] flex-1"
+        :pt="withFormControlRootId(formSelectPt, generateUniqueId(`wf-flow-quarks-user-${blockKey}`))"
+        @update:model-value="onQuarksUserIdPathUpdate"
+      />
+      <InputText
+        v-if="
+          payloadPathSelectValue(step.userIdPath ?? 'userId', workflowItemPathOptions) ===
+            CUSTOM_PATH_SENTINEL ||
+          workflowItemPathOptions.length === 0
+        "
+        :model-value="step.userIdPath ?? 'userId'"
+        placeholder="userId"
+        class="min-w-[12rem] flex-1 font-mono text-sm"
+        :pt="
+          withFormControlRootId(
+            formInputTextPt,
+            generateUniqueId(`wf-flow-quarks-user-text-${blockKey}`),
+          )
+        "
+        @update:model-value="onQuarksUserIdPathUpdate"
+      />
+    </template>
+    <template v-else-if="step.kind === 'show_user_toast'">
+      <p class="m-0 w-full text-xs text-lab-general-text-muted">
+        Shell PrimeVue toast (not bell notifications). Use <strong>Insert field</strong> for item
+        fields such as <code>accrualDelta</code>, or <code v-pre>{{payload.userId}}</code> from the
+        trigger.
+      </p>
+      <label v-if="blockKey === 'graph-action'" class="lab-workflow-flow-step-editor__field-label">
+        Lab user id from item field
+      </label>
+      <Select
+        :model-value="step.userIdPath ?? 'userId'"
+        :options="workflowItemPathOptions"
+        option-label="label"
+        option-value="value"
+        class="min-w-[12rem] flex-1"
+        :pt="withFormControlRootId(formSelectPt, generateUniqueId(`wf-flow-toast-user-${blockKey}`))"
+        @update:model-value="onQuarksUserIdPathUpdate"
+      />
+      <label v-if="blockKey === 'graph-action'" class="lab-workflow-flow-step-editor__field-label">
+        Severity
+      </label>
+      <Select
+        :model-value="step.severity"
+        :options="TOAST_SEVERITY_OPTIONS"
+        option-label="label"
+        option-value="value"
+        class="min-w-[10rem]"
+        :pt="withFormControlRootId(formSelectPt, generateUniqueId(`wf-flow-toast-sev-${blockKey}`))"
+        @update:model-value="onShowUserToastSeverityChange"
+      />
+      <LabWorkflowPayloadTemplateInput
+        :model-value="step.summary"
+        :placeholder="TOAST_SUMMARY_PLACEHOLDER"
+        :id-prefix="`wf-flow-toast-summary-${blockKey}`"
+        snippet-style="item"
+        :captured-payload-fields="quarksItemFieldHints"
+        :payload-path-options="payloadPathOptions"
+        :extra-insert-options="LAB_WORKFLOW_TOAST_ITEM_INSERT_OPTIONS"
+        @update:model-value="(value) => onShowUserToastFieldUpdate('summary', value)"
+      />
+      <LabWorkflowPayloadTemplateInput
+        :model-value="step.detail ?? ''"
+        :placeholder="TOAST_DETAIL_PLACEHOLDER"
+        :id-prefix="`wf-flow-toast-detail-${blockKey}`"
+        multiline
+        :rows="2"
+        snippet-style="item"
+        :captured-payload-fields="quarksItemFieldHints"
+        :payload-path-options="payloadPathOptions"
+        :extra-insert-options="LAB_WORKFLOW_TOAST_ITEM_INSERT_OPTIONS"
+        @update:model-value="(value) => onShowUserToastFieldUpdate('detail', value)"
       />
     </template>
     <template v-else-if="step.kind === 'wait'">

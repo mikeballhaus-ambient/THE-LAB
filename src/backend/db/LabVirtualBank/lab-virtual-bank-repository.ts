@@ -7,7 +7,10 @@ import {
   LAB_VIRTUAL_BANK_ACCOUNTS_TABLE,
   LAB_VIRTUAL_BANK_LEDGER_TABLE,
 } from './lab-virtual-bank-schema';
-import type { LabVirtualBankReasonCode } from '@/shared/types/lab-virtual-bank';
+import type {
+  LabVirtualBankDailyAllotmentEligibility,
+  LabVirtualBankReasonCode,
+} from '@/shared/types/lab-virtual-bank';
 import {
   LAB_VIRTUAL_BANK_DAILY_ACCRUAL,
   LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP,
@@ -184,8 +187,8 @@ export class LabVirtualBankRepository extends Repository {
     }));
   }
 
-  /** Opening balance + optional daily catch-up in one transaction. */
-  ensureAccountWithAccrual(labUserId: number): EnsureVirtualBankAccountResult {
+  /** Creates opening balance when missing; does **not** run daily accrual. */
+  ensureAccountOpeningOnly(labUserId: number): VirtualBankAccountRow {
     const today = utcDateString();
     const existing = this.getAccount(labUserId);
     if (!existing) {
@@ -200,68 +203,114 @@ export class LabVirtualBankRepository extends Repository {
           sourceRef: randomUUID(),
         });
       })();
-      return {
-        account: this.getAccount(labUserId)!,
-        accrualApplied: null,
-      };
+      return this.getAccount(labUserId)!;
     }
+    return existing;
+  }
 
-    if (existing.lastDailyAccrualDate >= today) {
-      return { account: existing, accrualApplied: null };
+  private planDailyAccrual(
+    account: VirtualBankAccountRow,
+    today: string,
+  ): { eligible: boolean; projectedDelta: number; days: number; daysForUi: number } {
+    if (account.lastDailyAccrualDate >= today) {
+      return { eligible: false, projectedDelta: 0, days: 0, daysForUi: 0 };
     }
-
     const days = Math.min(
-      daysBetweenUtc(existing.lastDailyAccrualDate, today),
+      daysBetweenUtc(account.lastDailyAccrualDate, today),
       LAB_VIRTUAL_BANK_MAX_ACCRUAL_DAYS,
     );
     if (days <= 0) {
-      this.updateAccountBalance(labUserId, existing.balance, today);
-      return {
-        account: { ...existing, lastDailyAccrualDate: today },
-        accrualApplied: null,
-      };
+      return { eligible: false, projectedDelta: 0, days: 0, daysForUi: 0 };
     }
-
-    if (existing.balance >= LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP) {
-      this.updateAccountBalance(labUserId, existing.balance, today);
-      return {
-        account: { ...existing, lastDailyAccrualDate: today },
-        accrualApplied: null,
-      };
+    if (account.balance >= LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP) {
+      return { eligible: false, projectedDelta: 0, days, daysForUi: 0 };
     }
-
     const rawCredit = days * LAB_VIRTUAL_BANK_DAILY_ACCRUAL;
-    const headroom = LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP - existing.balance;
+    const headroom = LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP - account.balance;
     const credit = Math.min(rawCredit, headroom);
     if (credit <= 0) {
+      return { eligible: false, projectedDelta: 0, days, daysForUi: 0 };
+    }
+    const daysForUi =
+      credit >= rawCredit ? days : Math.max(1, Math.ceil(credit / LAB_VIRTUAL_BANK_DAILY_ACCRUAL));
+    return { eligible: true, projectedDelta: credit, days, daysForUi };
+  }
+
+  evaluateDailyAllotmentEligibility(labUserId: number): LabVirtualBankDailyAllotmentEligibility {
+    const account = this.ensureAccountOpeningOnly(labUserId);
+    const today = utcDateString();
+    const plan = this.planDailyAccrual(account, today);
+    return {
+      balance: account.balance,
+      lastDailyAccrualDate: account.lastDailyAccrualDate,
+      dailyAccrualAmount: LAB_VIRTUAL_BANK_DAILY_ACCRUAL,
+      balanceCap: LAB_VIRTUAL_BANK_DAILY_ACCRUAL_BALANCE_CAP,
+      dailyAllotmentEligible: plan.eligible,
+      projectedAllotmentDelta: plan.projectedDelta,
+    };
+  }
+
+  applyDailyAllotmentAccrual(labUserId: number): EnsureVirtualBankAccountResult & {
+    ledgerEntryId: number | null;
+  } {
+    const account = this.ensureAccountOpeningOnly(labUserId);
+    const today = utcDateString();
+    const result = this.applyDailyAccrualToAccount(labUserId, account, today);
+    return { ...result, ledgerEntryId: result.ledgerEntryId ?? null };
+  }
+
+  private applyDailyAccrualToAccount(
+    labUserId: number,
+    existing: VirtualBankAccountRow,
+    today: string,
+  ): EnsureVirtualBankAccountResult & { ledgerEntryId?: number | null } {
+    if (existing.lastDailyAccrualDate >= today) {
+      return { account: existing, accrualApplied: null, ledgerEntryId: null };
+    }
+
+    const plan = this.planDailyAccrual(existing, today);
+    if (!plan.eligible) {
       this.updateAccountBalance(labUserId, existing.balance, today);
       return {
         account: { ...existing, lastDailyAccrualDate: today },
         accrualApplied: null,
+        ledgerEntryId: null,
       };
     }
 
-    const daysForUi =
-      credit >= rawCredit ? days : Math.max(1, Math.ceil(credit / LAB_VIRTUAL_BANK_DAILY_ACCRUAL));
+    const credit = plan.projectedDelta;
     const newBalance = existing.balance + credit;
+    let ledgerEntryId = 0;
     this.db.transaction(() => {
       this.updateAccountBalance(labUserId, newBalance, today);
-      this.insertLedgerEntry({
+      ledgerEntryId = this.insertLedgerEntry({
         labUserId,
         delta: credit,
         balanceAfter: newBalance,
         reasonCode: 'daily_accrual',
         reasonLabel:
-          daysForUi === 1
+          plan.daysForUi === 1
             ? LAB_QUARKS_CURRENCY.dailyAccrualLabel
-            : `${LAB_QUARKS_CURRENCY.dailyAccrualMultiDayLabel} (${daysForUi} days)`,
-        metadataJson: JSON.stringify({ daysAccrued: daysForUi, daysEligible: days }),
+            : `${LAB_QUARKS_CURRENCY.dailyAccrualMultiDayLabel} (${plan.daysForUi} days)`,
+        metadataJson: JSON.stringify({ daysAccrued: plan.daysForUi, daysEligible: plan.days }),
       });
     })();
     return {
       account: this.getAccount(labUserId)!,
-      accrualApplied: { delta: credit, days: daysForUi },
+      accrualApplied: { delta: credit, days: plan.daysForUi },
+      ledgerEntryId,
     };
+  }
+
+  /** Opening balance + optional daily catch-up in one transaction. */
+  ensureAccountWithAccrual(labUserId: number): EnsureVirtualBankAccountResult {
+    const account = this.ensureAccountOpeningOnly(labUserId);
+    const { ledgerEntryId: _ledgerEntryId, ...rest } = this.applyDailyAccrualToAccount(
+      labUserId,
+      account,
+      utcDateString(),
+    );
+    return rest;
   }
 
   applyDelta(params: ApplyDeltaParams): { balance: number; ledgerEntryId: number } {

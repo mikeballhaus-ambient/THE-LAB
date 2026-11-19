@@ -101,6 +101,17 @@ function stepSummary(step: LabWorkflowStepV1): string[] {
     case 'publish_event':
       lines.push(`Publish ${step.type} from ${step.sourceAppId}`);
       break;
+    case 'virtual_bank_get_wallet':
+      lines.push(`Quarks wallet · user from “${step.userIdPath?.trim() || 'userId'}”`);
+      break;
+    case 'virtual_bank_credit_daily_allotment':
+      lines.push(`Credit daily Quarks · user from “${step.userIdPath?.trim() || 'userId'}”`);
+      break;
+    case 'show_user_toast':
+      lines.push(
+        `Toast (${step.severity}) to “${step.userIdPath?.trim() || 'userId'}” — ${step.summary}`,
+      );
+      break;
     default:
       break;
   }

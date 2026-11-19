@@ -51,6 +51,15 @@ Same labels are available under **Tasks: Run Task** for keyboard-bound workflows
 
 **Orphan windows after smoke or a failed start (Windows):** run `npm run lab:stop` — it kills by port as well as tracked PIDs. Detached services use hidden consoles (no extra `cmd` windows during `lab:start --detach`).
 
+### Port still in use after `lab:stop` (Windows)
+
+`netstat` can show a listener PID that `taskkill` / `tasklist` cannot see — common when **Vite or the backend were started under the VS Code debugger** (Js Debug Terminal) or in another elevated session. `lab:stop` retries by port, matches **node.exe** command lines (`vite.js`, `backend-entry`), and warns if **5173 / 3000 / 8000** stay busy.
+
+1. **Stop debugging** in VS Code (red square) or close the terminal that started `npm run lab` / `npm run dev`.
+2. Run `npm run lab:stop` again from a normal terminal in `the-lab/`.
+3. If **5173** is still taken: Task Manager → end **Node.js JavaScript Runtime** whose command line includes `vite`.
+4. Last resort: `taskkill /F /IM node.exe` (kills every Node process on the machine).
+
 ## App server warm-up
 
 When the **main backend** (port **3000**) finishes starting, it **warm-ups** enabled **hybrid** and **server** apps that have `isServerSideEnabled` and a server entry/port. Processes spawn in **dependency order** (same graph as launch). Already-healthy listeners on the registered port are reused.

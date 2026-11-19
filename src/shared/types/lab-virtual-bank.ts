@@ -27,6 +27,16 @@ export interface LabVirtualBankAccrualApplied {
   days: number;
 }
 
+/** Read-only daily allotment decision for workflows (`virtual_bank_get_wallet`). */
+export interface LabVirtualBankDailyAllotmentEligibility {
+  balance: number;
+  lastDailyAccrualDate: string;
+  dailyAccrualAmount: number;
+  balanceCap: number;
+  dailyAllotmentEligible: boolean;
+  projectedAllotmentDelta: number;
+}
+
 export interface LabVirtualBankLedgerEntry {
   id: number;
   delta: number;

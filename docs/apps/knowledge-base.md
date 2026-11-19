@@ -18,10 +18,7 @@ Every article serves a person and an agent from a single row:
 An article is written once for people and annotated once for agents. You only ever see the
 human view; the structured view is what an agent receives when it queries the knowledge base.
 
-**Roadmap (rm-69.5):** optional Workflow Studio path will generate `agent_view` from human
-`body` via a one-shot platform LLM (same pattern as catalog games — structured tool, no Chroma)
-and save to the database when articles are published. Until then, team articles are body-only for
-agents; seeded `docs:` articles keep code-authored `agent_view`.
+**`agent_view` for team articles:** optional — authors can set JSON via API; most UI-created rows are **`body` only**. **`lab_kb_get`** then falls back to human markdown. **Document RAG (`kb-chunks`)** still indexes the full **body** (plus agent sections when present) for slot A — see `composeKbArticleIngestText`. Seeded `docs:` articles keep code-authored `agent_view`.
 
 ## Browsing
 

@@ -321,6 +321,11 @@ function flowIcon(step: LabWorkflowStepV1): string {
       return 'pi pi-comments';
     case 'publish_event':
       return 'pi pi-share-alt';
+    case 'virtual_bank_get_wallet':
+    case 'virtual_bank_credit_daily_allotment':
+      return 'pi pi-wallet';
+    case 'show_user_toast':
+      return 'pi pi-comment';
     default:
       return 'pi pi-cog';
   }

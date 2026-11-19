@@ -56,6 +56,20 @@ describe('platform node schema (W9)', () => {
         confirmedByUserId: 1,
       },
     ],
+    ['virtual_bank_get_wallet', { kind: 'virtual_bank_get_wallet', userIdPath: 'userId' }],
+    [
+      'virtual_bank_credit_daily_allotment',
+      { kind: 'virtual_bank_credit_daily_allotment', userIdPath: 'userId' },
+    ],
+    [
+      'show_user_toast',
+      {
+        kind: 'show_user_toast',
+        userIdPath: 'userId',
+        severity: 'success',
+        summary: 'Hello',
+      },
+    ],
   ])('accepts %s', (_name, step) => {
     expect(LabWorkflowStepSchema.safeParse(step).success).toBe(true);
   });
